@@ -10,29 +10,37 @@ const Header = () => {
       <nav>
         <Container>
           <ul className='containerNavbar'>
-            <li className='containerNavbar__item'>
-              <Link>
-                <img id='logo' src={Logo} alt='logo' />
-              </Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Home</Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Top Drinks</Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Ingredients</Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Search</Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Sign up</Link>
-            </li>
-            <li className='containerNavbar__item'>
-              <Link>Login</Link>
-            </li>
+            <div className='containerNavbar__left'>
+              <li className='containerNavbar__item'>
+                <Link>
+                  <img id='logo' src={Logo} alt='logo' />
+                </Link>
+              </li>
+              <li className='containerNavbar__item'>
+                <Link className='hoverLinkStyle'>Home</Link>
+              </li>
+              <li className='containerNavbar__item'>
+                <Link className='hoverLinkStyle'>Top Drinks</Link>
+              </li>
+              <li className='containerNavbar__item'>
+                <Link className='hoverLinkStyle'>Ingredients</Link>
+              </li>
+              <li className='containerNavbar__item'>
+                <Link className='hoverLinkStyle'>
+                  <i class='fas fa-search'></i>Search
+                </Link>
+              </li>
+            </div>
+            <div className='containerNavbar__right'>
+              <li className='containerNavbar__item'>
+                <Link className='hoverLinkStyle'>Sign up</Link>
+              </li>
+              <li className='containerNavbar__item'>
+                <Link>
+                  <button className='btn__primary'>Login</button>
+                </Link>
+              </li>
+            </div>
           </ul>
         </Container>
       </nav>

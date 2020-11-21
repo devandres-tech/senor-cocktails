@@ -1,0 +1,13 @@
+.heroContainer {
+  display: flex;
+  padding-top: 10rem;
+  color: $font-color;
+
+  &__leftContent {
+    padding-top: 2rem;
+  }
+
+  &__title {
+    line-height: -2rem;
+  }
+}
