@@ -1,12 +1,20 @@
-import Logo from './images/Logo.svg'
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
-function App() {
+import Header from './components/Header'
+import HomeScreen from './screens/HomeScreen'
+
+const App = () => {
   return (
-    <div>
-      <header className='App-header'>
-        <img height='80' src={Logo} alt='React Logo' />
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <main>
+        <Container>
+          <Route path='/' component={HomeScreen} />
+        </Container>
+      </main>
+    </Router>
   )
 }
 
