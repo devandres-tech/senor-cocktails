@@ -9,5 +9,24 @@
 
   &__title {
     line-height: -2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__listDescription {
+    font-size: 14px;
+
+    &>li {
+      display: flex;
+      align-items: center;
+    }
+
+    &>li::before {
+      content: "\2022";
+      color: $color-green-primary;
+      font-weight: bold;
+      font-size: 30px;
+      display: inline-block;
+      width: 0.8em;
+    }
   }
 }

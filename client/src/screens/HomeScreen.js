@@ -7,8 +7,8 @@ const HomeScreen = () => {
     <div className='heroContainer'>
       <div className='heroContainer__leftContent'>
         <h1 className='heroContainer__title'>
-          Señor Cocktails -an app that helps you discover and manage cocktail
-          recipes you'll love
+          Señor Cocktails -an app that helps you <br />
+          discover and manage cocktail recipes you'll love.
         </h1>
         <ul className='heroContainer__listDescription'>
           <li>Easily manage your cocktail recipes</li>
