@@ -138,7 +138,12 @@ a {
   text-decoration: inherit;
 
   &:hover {
-    color: inherit;
+    color: none;
     text-decoration: inherit;
   }
+}
+
+.default-linkStyle {
+  color: $link-color;
+  font-size: 14px;
 }

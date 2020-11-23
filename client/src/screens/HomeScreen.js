@@ -3,6 +3,7 @@ import React from 'react'
 import HeroImage from '../images/hero-image.svg'
 import Slider from '../components/Slider'
 import drinks from '../data/drinks'
+import ingredients from '../data/ingredients'
 
 const HomeScreen = () => {
   return (
@@ -24,7 +25,8 @@ const HomeScreen = () => {
           <img src={HeroImage} alt='cocktails illustration' />
         </div>
       </div>
-      <Slider items={drinks} />
+      <Slider items={drinks} title={'Top Drinks'} />
+      <Slider items={ingredients} title={'Popular Ingredients'} />
     </>
   )
 }
