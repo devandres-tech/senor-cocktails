@@ -27,7 +27,7 @@ const Header = () => {
               </li>
               <li className='containerNavbar__item'>
                 <Link className='hoverLinkStyle'>
-                  <i class='fas fa-search'></i>Search
+                  <i className='fas fa-search'></i>Search
                 </Link>
               </li>
             </div>
