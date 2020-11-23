@@ -10,9 +10,7 @@ const App = () => {
     <Router>
       <Header />
       <main>
-        <Container>
-          <Route path='/' component={HomeScreen} />
-        </Container>
+        <Route path='/' component={HomeScreen} />
       </main>
     </Router>
   )

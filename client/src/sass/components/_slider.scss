@@ -41,10 +41,11 @@ div.swiper-button-next {
   padding-bottom: 1rem !important;
 }
 
+// custom styles
 .sliderContainer {
-  margin-bottom: 8rem;
 
   &__sliderHeader {
+    margin-top: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

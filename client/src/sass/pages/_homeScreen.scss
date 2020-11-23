@@ -28,3 +28,30 @@
     }
   }
 }
+
+.callToActionContainer {
+  color: #fff;
+  background-image: url('../../images/call-to-action.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    padding-top: 20rem;
+    height: 44rem;
+
+    h1 {
+      line-height: 4rem;
+    }
+
+    ul>li {
+      font-size: $font-size-body;
+      display: flex;
+      align-items: center;
+      padding-bottom: 2rem;
+
+      &>img {
+        padding-right: 1rem;
+      }
+    }
+  }
+}
