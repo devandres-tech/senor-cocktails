@@ -35,7 +35,17 @@
   #logo {
     height: 2.3rem;
   }
+
+  &__mobile {
+    display: inline-flex;
+
+    img {
+      padding-top: 2.4rem;
+      padding-left: 3rem;
+    }
+  }
 }
+
 
 .hoverLinkStyle {
   @include hover-underline('slide', 'left-right');
