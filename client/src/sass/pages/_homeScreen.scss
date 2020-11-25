@@ -14,9 +14,10 @@
   &__title {
     line-height: -2rem;
     padding-bottom: 2rem;
+    font-size: $font-size-h1;
 
     @include responsive(mobile) {
-      font-size: 1.8rem;
+      font-size: $font-size-h1-mobile;
     }
   }
 

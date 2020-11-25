@@ -21,11 +21,9 @@ const Slider = ({ items, title }) => {
         draggable={false}
         // autoplay
         pagination={{ clickable: true }}
-        navigation={true}
+        // navigation={true}
         loop={true}
         slidesPerView={4}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((item) => (
           <SwiperSlide className='sliderContainer__item'>

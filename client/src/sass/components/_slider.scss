@@ -50,6 +50,18 @@ div.swiper-button-next {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 1.8rem;
+
+    @include responsive(mobile) {
+      margin-top: 4rem;
+    }
+
+    &>h2 {
+      font-size: $font-size-h2;
+
+      @include responsive(mobile) {
+        font-size: $font-size-h2-mobile;
+      }
+    }
   }
 
   &__item {

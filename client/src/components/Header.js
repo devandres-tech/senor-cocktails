@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
+
+import { useViewport } from '../hooks/useViewport'
 
 const StyledMenu = styled.nav`
   display: flex;
@@ -176,22 +178,15 @@ const Navbar = () => (
 )
 
 const Header = () => {
-  const [width, setWidth] = useState(window.innerWidth)
   const [open, setOpen] = useState(false)
   const node = useRef()
 
-  const updateDimensions = () => {
-    setWidth(window.innerWidth)
-  }
-  useEffect(() => {
-    window.addEventListener('resize', updateDimensions)
-    return () => window.removeEventListener('resize', updateDimensions)
-  }, [])
+  const [windowDimensions] = useViewport()
 
   return (
     <header>
       <nav>
-        {width <= 520 ? (
+        {windowDimensions.width <= 520 ? (
           <MobileNavbar node={node} setOpen={setOpen} open={open} />
         ) : (
           <Container>
