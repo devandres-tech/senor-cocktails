@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // width: 100%;
 
   &__item {
     text-transform: uppercase;
@@ -11,6 +12,7 @@
     font-size: $font-size-nav-item;
     color: $font-color;
     font-weight: 600;
+    padding-right: 1rem;
 
     &>a>i.fas {
       padding-right: 5px;
@@ -21,15 +23,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    // width: 100%;
   }
 
   &__right {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
-    padding-left: 10rem;
   }
 
   &__mobile {
@@ -56,6 +56,7 @@
 
 #logo {
   height: 2.2rem;
+  padding-right: 1rem;
 
   @include responsive(mobile) {
     height: 1.8rem;

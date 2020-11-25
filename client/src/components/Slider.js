@@ -24,15 +24,32 @@ const Slider = ({ items, title }) => {
       <Swiper
         draggable={false}
         // autoplay
-        pagination={{ clickable: true }}
-        navigation={
-          windowDimensions.width <= config.MOBILE_WIDTH ? false : true
+        spaceBetween={windowDimensions.width < config.MOBILE_WIDTH ? 10 : 0}
+        slidesOffsetBefore={
+          windowDimensions.width < config.MOBILE_WIDTH ? 16 : 0
         }
-        loop={true}
-        slidesPerView={4}
+        pagination={{ clickable: true }}
+        navigation={windowDimensions.width < config.MOBILE_WIDTH ? false : true}
+        loop={windowDimensions.width < config.MOBILE_WIDTH ? false : true}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+            // spaceBetween: 10,
+            // slidesPerGroup: 3,
+          },
+          650: {
+            slidesPerView: 3,
+            // slidesPerGroup: 3,
+          },
+          998: {
+            slidesPerView: 4,
+            // slidesPerGroup: 4,
+          },
+        }}
+        // slidesPerView={windowDimensions.width < config.MOBILE_WIDTH ? 3 : 4}
       >
-        {items.map((item) => (
-          <SwiperSlide className='sliderContainer__item'>
+        {items.map((item, idx) => (
+          <SwiperSlide key={idx} className='sliderContainer__item'>
             <img
               src={item.strDrinkThumb ? item.strDrinkThumb : item.img}
               alt='cocktail'

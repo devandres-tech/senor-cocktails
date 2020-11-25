@@ -8,7 +8,7 @@
   @include responsive(mobile) {
     display: block;
     padding-top: 8rem;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 
   &__title {
@@ -44,10 +44,12 @@
   }
 
   &__rightContent {
+    width: 100%;
+
     img {
-      @include responsive(mobile) {
-        width: 100%;
-      }
+      width: inherit;
+      height: inherit;
+      object-fit: contain;
     }
   }
 }

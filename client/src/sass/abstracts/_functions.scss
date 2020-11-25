@@ -2,7 +2,7 @@
 @mixin responsive($breakpoint) {
 
   @if $breakpoint==mobile {
-    @media only screen and (max-width: 37.5em) {
+    @media only screen and (max-width: 40.6em) {
       // 600px --> 600 / 16
       @content
     }

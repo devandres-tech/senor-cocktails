@@ -9,6 +9,11 @@
 
 .swiper-pagination-bullet {
   background-color: $color-dark-primary !important;
+
+  @include responsive(mobile) {
+    width: 6px !important;
+    height: 6px !important;
+  }
 }
 
 .swiper-container-horizontal>.swiper-pagination-bullets {
@@ -53,6 +58,7 @@ div.swiper-button-next {
 
     @include responsive(mobile) {
       margin-top: 4rem;
+      padding-bottom: 1rem;
     }
 
     &>h2 {
@@ -65,13 +71,18 @@ div.swiper-button-next {
   }
 
   &__item {
+
     &>img {
       cursor: pointer;
       height: inherit;
       width: inherit;
-      object-fit: contain;
-      padding-right: 2rem;
-      padding-left: 2rem;
+      padding-right: 1.6rem;
+      padding-left: 1.6rem;
+
+      @include responsive(mobile) {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 
