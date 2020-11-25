@@ -7,10 +7,14 @@ import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import 'swiper/components/pagination/pagination.scss'
 import 'swiper/components/scrollbar/scrollbar.scss'
+import { useViewport } from '../hooks/useViewport'
+import config from '../config.json'
 
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay])
 
 const Slider = ({ items, title }) => {
+  const [windowDimensions] = useViewport()
+
   return (
     <div className='sliderContainer'>
       <div className='sliderContainer__sliderHeader'>
@@ -21,7 +25,9 @@ const Slider = ({ items, title }) => {
         draggable={false}
         // autoplay
         pagination={{ clickable: true }}
-        // navigation={true}
+        navigation={
+          windowDimensions.width <= config.MOBILE_WIDTH ? false : true
+        }
         loop={true}
         slidesPerView={4}
       >

@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import { useViewport } from '../hooks/useViewport'
+import config from '../config.json'
 
 const StyledMenu = styled.nav`
   display: flex;
@@ -186,7 +187,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        {windowDimensions.width <= 520 ? (
+        {windowDimensions.width <= config.MOBILE_WIDTH ? (
           <MobileNavbar node={node} setOpen={setOpen} open={open} />
         ) : (
           <Container>
