@@ -7,11 +7,10 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #effffa;
+  background: #fff;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,12 +22,19 @@ const StyledMenu = styled.nav`
     width: 100%;
   }
 
+  i.fa-search {
+    position: relative;
+    bottom: 2px;
+    font-size: 1.1rem;
+    padding-right: 0.3rem;
+  }
+
   a {
     font-size: 2rem;
     text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
+    padding: 1.5rem 0;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
     color: #0d0c1d;
     text-decoration: none;
     transition: color 0.3s linear;
@@ -43,32 +49,6 @@ const StyledMenu = styled.nav`
     }
   }
 `
-
-const Menu = ({ open }) => {
-  return (
-    <StyledMenu open={open}>
-      <a href='/'>
-        <span role='img' aria-label='about us'>
-          💁🏻‍♂️
-        </span>
-        About us
-      </a>
-      <a href='/'>
-        <span role='img' aria-label='price'>
-          💸
-        </span>
-        Pricing
-      </a>
-      <a href='/'>
-        <span role='img' aria-label='contact'>
-          📩
-        </span>
-        Contact
-      </a>
-    </StyledMenu>
-  )
-}
-
 const StyledBurger = styled.button`
   position: relative;
   top: 5%;
@@ -111,6 +91,23 @@ const StyledBurger = styled.button`
     }
   }
 `
+const Menu = ({ open }) => {
+  return (
+    <StyledMenu open={open}>
+      <Link>Home</Link>
+      <Link>Top Drinks</Link>
+      <Link>Ingredients</Link>
+      <Link>
+        {' '}
+        <i className='fas fa-search'></i>Search
+      </Link>
+      <Link>Sign up</Link>
+      <Link>
+        <button className='btn__primary'>Login</button>
+      </Link>
+    </StyledMenu>
+  )
+}
 
 const Burger = ({ open, setOpen }) => {
   return (
@@ -121,6 +118,62 @@ const Burger = ({ open, setOpen }) => {
     </StyledBurger>
   )
 }
+
+const MobileNavbar = ({ node, setOpen, open }) => (
+  <div className='containerNavbar__mobile'>
+    <div ref={node}>
+      <Burger open={open} setOpen={setOpen} />
+      <Menu open={open} setOpen={setOpen} />
+    </div>
+    <Link>
+      <img
+        alt='logo'
+        id='logo'
+        src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
+      />
+    </Link>
+  </div>
+)
+
+const Navbar = () => (
+  <ul className='containerNavbar'>
+    <div className='containerNavbar__left'>
+      <li className='containerNavbar__item'>
+        <Link>
+          <img
+            alt='logo'
+            id='logo'
+            src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
+          />
+        </Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>Home</Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>Top Drinks</Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>Ingredients</Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>
+          <i className='fas fa-search'></i>Search
+        </Link>
+      </li>
+    </div>
+    <div className='containerNavbar__right'>
+      <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>Sign up</Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link>
+          <button className='btn__primary'>Login</button>
+        </Link>
+      </li>
+    </div>
+  </ul>
+)
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth)
@@ -139,58 +192,10 @@ const Header = () => {
     <header>
       <nav>
         {width <= 520 ? (
-          <div className='containerNavbar__mobile'>
-            <div ref={node}>
-              <Burger open={open} setOpen={setOpen} />
-              <Menu open={open} setOpen={setOpen} />
-            </div>
-            <Link>
-              <img
-                alt='logo'
-                id='logo'
-                src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
-              />
-            </Link>
-          </div>
+          <MobileNavbar node={node} setOpen={setOpen} open={open} />
         ) : (
           <Container>
-            <ul className='containerNavbar'>
-              <div className='containerNavbar__left'>
-                <li className='containerNavbar__item'>
-                  <Link>
-                    <img
-                      alt='logo'
-                      id='logo'
-                      src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
-                    />
-                  </Link>
-                </li>
-                <li className='containerNavbar__item'>
-                  <Link className='hoverLinkStyle'>Home</Link>
-                </li>
-                <li className='containerNavbar__item'>
-                  <Link className='hoverLinkStyle'>Top Drinks</Link>
-                </li>
-                <li className='containerNavbar__item'>
-                  <Link className='hoverLinkStyle'>Ingredients</Link>
-                </li>
-                <li className='containerNavbar__item'>
-                  <Link className='hoverLinkStyle'>
-                    <i className='fas fa-search'></i>Search
-                  </Link>
-                </li>
-              </div>
-              <div className='containerNavbar__right'>
-                <li className='containerNavbar__item'>
-                  <Link className='hoverLinkStyle'>Sign up</Link>
-                </li>
-                <li className='containerNavbar__item'>
-                  <Link>
-                    <button className='btn__primary'>Login</button>
-                  </Link>
-                </li>
-              </div>
-            </ul>
+            <Navbar />
           </Container>
         )}
       </nav>
