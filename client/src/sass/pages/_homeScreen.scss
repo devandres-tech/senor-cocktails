@@ -5,13 +5,27 @@
   margin-bottom: 8rem;
   color: $font-color;
 
+  @include responsive(mobile) {
+    display: block;
+    padding-top: 8rem;
+    margin-bottom: 4rem;
+  }
+
   &__title {
     line-height: -2rem;
     padding-bottom: 2rem;
+
+    @include responsive(mobile) {
+      font-size: 1.8rem;
+    }
   }
 
   &__listDescription {
     font-size: $font-size-body;
+
+    @include responsive(mobile) {
+      padding-bottom: 2rem;
+    }
 
     &>li {
       display: flex;
@@ -24,7 +38,15 @@
       font-weight: bold;
       font-size: 30px;
       display: inline-block;
-      width: 0.8em;
+      padding-right: .5rem;
+    }
+  }
+
+  &__rightContent {
+    img {
+      @include responsive(mobile) {
+        width: 100%;
+      }
     }
   }
 }

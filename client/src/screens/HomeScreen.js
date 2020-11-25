@@ -15,7 +15,7 @@ const HomeScreen = () => {
       <div className='heroContainer container'>
         <div className='heroContainer__leftContent'>
           <h1 className='heroContainer__title'>
-            Señor Cocktails -an app that helps you <br />
+            Señor Cocktails-an app that helps you <br />
             discover and manage cocktail recipes you'll love.
           </h1>
           <ul className='heroContainer__listDescription'>

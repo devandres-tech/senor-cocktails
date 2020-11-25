@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import Logo from '../images/Logo.svg'
-
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
@@ -14,10 +12,12 @@ const StyledMenu = styled.nav`
   height: 100vh;
   text-align: left;
   padding: 2rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+  z-index: 5;
+  overflow: hidden;
 
   @media (max-width: 576px) {
     width: 100%;
@@ -70,7 +70,7 @@ const Menu = ({ open }) => {
 }
 
 const StyledBurger = styled.button`
-  position: absolute;
+  position: relative;
   top: 5%;
   display: flex;
   flex-direction: column;
@@ -81,6 +81,7 @@ const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
+  padding-left: 1rem;
   z-index: 10;
 
   &:focus {
@@ -137,23 +138,31 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <Container>
-          {width <= 520 ? (
-            <div className='containerNavbar__mobile'>
-              <div ref={node}>
-                <Burger open={open} setOpen={setOpen} />
-                <Menu open={open} setOpen={setOpen} />
-              </div>
-              <Link>
-                <img id='logo' src={Logo} alt='logo' />
-              </Link>
+        {width <= 520 ? (
+          <div className='containerNavbar__mobile'>
+            <div ref={node}>
+              <Burger open={open} setOpen={setOpen} />
+              <Menu open={open} setOpen={setOpen} />
             </div>
-          ) : (
+            <Link>
+              <img
+                alt='logo'
+                id='logo'
+                src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
+              />
+            </Link>
+          </div>
+        ) : (
+          <Container>
             <ul className='containerNavbar'>
               <div className='containerNavbar__left'>
                 <li className='containerNavbar__item'>
                   <Link>
-                    <img id='logo' src={Logo} alt='logo' />
+                    <img
+                      alt='logo'
+                      id='logo'
+                      src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
+                    />
                   </Link>
                 </li>
                 <li className='containerNavbar__item'>
@@ -182,8 +191,8 @@ const Header = () => {
                 </li>
               </div>
             </ul>
-          )}
-        </Container>
+          </Container>
+        )}
       </nav>
     </header>
   )
