@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import { useViewport } from '../hooks/useViewport'
@@ -36,14 +35,13 @@ const StyledMenu = styled.nav`
     font-size: 2rem;
     text-transform: uppercase;
     padding: 1.5rem 0;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
+    font-weight: 500;
     color: #0d0c1d;
     text-decoration: none;
     transition: color 0.3s linear;
 
     @media (max-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 26px;
       text-align: center;
     }
 
@@ -142,7 +140,7 @@ const Navbar = () => (
   <ul className='containerNavbar'>
     <div className='containerNavbar__left'>
       <li className='containerNavbar__item'>
-        <Link>
+        <Link to='/'>
           <img
             alt='logo'
             id='logo'
@@ -167,10 +165,12 @@ const Navbar = () => (
     </div>
     <div className='containerNavbar__right'>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>Sign up</Link>
+        <Link to='/signup' className='hoverLinkStyle'>
+          Sign up
+        </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link>
+        <Link to='/login'>
           <button className='btn__primary'>Login</button>
         </Link>
       </li>
@@ -187,12 +187,10 @@ const Header = () => {
   return (
     <header>
       <nav>
-        {windowDimensions.width <= config.TABLET_WIDTH ? (
+        {windowDimensions.width < config.TABLET_WIDTH ? (
           <MobileNavbar node={node} setOpen={setOpen} open={open} />
         ) : (
-          <Container>
-            <Navbar />
-          </Container>
+          <Navbar />
         )}
       </nav>
     </header>

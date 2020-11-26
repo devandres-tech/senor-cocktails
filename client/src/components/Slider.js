@@ -16,7 +16,7 @@ const Slider = ({ items, title }) => {
   const [windowDimensions] = useViewport()
 
   return (
-    <div className='sliderContainer'>
+    <div className='sliderContainer container'>
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
         <Link className='default-linkStyle'>See All</Link>

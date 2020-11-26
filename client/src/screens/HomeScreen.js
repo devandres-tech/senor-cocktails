@@ -29,13 +29,11 @@ const HomeScreen = () => {
           <img src={HeroImage} alt='cocktails illustration' />
         </div>
       </div>
-      <div className='container'>
-        <Slider items={drinks} title={'Top Drinks'} />
-        <Slider items={ingredients} title={'Popular Ingredients'} />
-      </div>
+      <Slider items={drinks} title={'Top Drinks'} />
+      <Slider items={ingredients} title={'Popular Ingredients'} />
       <div className='callToActionContainer'>
         <Container>
-          <Row className='callToActionContainer__content'>
+          <Row className='callToActionContainer__content container'>
             <Col md='6'>
               <h1>
                 Sign up for a custom <br />

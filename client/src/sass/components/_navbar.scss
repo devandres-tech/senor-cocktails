@@ -13,7 +13,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   &__item {
     text-transform: uppercase;
@@ -42,8 +43,6 @@ nav {
   }
 
   &__mobile {
-    // padding-top: .5rem;
-    // padding-bottom: .5rem;
     height: 3.7rem;
     display: flex;
     align-items: center;
