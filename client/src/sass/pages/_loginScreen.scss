@@ -1,0 +1,19 @@
+.loginContainer {
+  height: 676px;
+  width: 620px;
+  padding-right: 0;
+  padding-left: 0;
+  background-color: #fff;
+
+  &__form {
+    height: 556px;
+    -webkit-box-shadow: 0 0 10px rgb(148, 148, 148);
+    box-shadow: 0 0 20px rgba(194, 194, 194, 0.541);
+  }
+}
+
+.loginContainer-bg {
+  background-image: url('../../images/login-bg.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
