@@ -140,8 +140,8 @@ a {
   text-decoration: inherit;
 
   &:hover {
-    color: none;
-    text-decoration: inherit;
+    color: $font-color;
+    text-decoration: none;
   }
 }
 

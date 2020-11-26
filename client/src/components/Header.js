@@ -17,11 +17,11 @@ const StyledMenu = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   z-index: 5;
   overflow: hidden;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 
@@ -42,7 +42,7 @@ const StyledMenu = styled.nav`
     text-decoration: none;
     transition: color 0.3s linear;
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       font-size: 1.5rem;
       text-align: center;
     }
@@ -58,8 +58,8 @@ const StyledBurger = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 1.4rem;
+  height: 1.4rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -72,11 +72,11 @@ const StyledBurger = styled.button`
   }
 
   div {
-    width: 2rem;
-    height: 0.25rem;
+    width: 1.4rem;
+    height: 0.13rem;
     background: ${({ open }) => (open ? '#0D0C1D' : '#000')};
     border-radius: 10px;
-    transition: all 0.3s linear;
+    transition: all 0.1s linear;
     position: relative;
     transform-origin: 1px;
 
@@ -187,7 +187,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        {windowDimensions.width <= config.MOBILE_WIDTH ? (
+        {windowDimensions.width <= config.TABLET_WIDTH ? (
           <MobileNavbar node={node} setOpen={setOpen} open={open} />
         ) : (
           <Container>

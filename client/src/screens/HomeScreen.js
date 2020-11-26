@@ -50,8 +50,8 @@ const HomeScreen = () => {
                 </li>
                 <li>
                   <img src={LibraryIcon} alt='library icon' />
-                  Create your own ingredient library to see the type of drinks
-                  you can make
+                  Create your own ingredient library <br />
+                  to see the type of drinks you can make
                 </li>
                 <li>
                   <img src={UserIcon} alt='library icon' />

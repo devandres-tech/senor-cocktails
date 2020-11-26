@@ -1,9 +1,16 @@
 .footerContainer {
+  padding-bottom: 2rem;
+
   &__mainContent {
     padding-top: 10rem;
     text-align: center;
     font-size: $font-size-body;
-    & > p {
+
+    @include responsive(mobile) {
+      padding-top: 5rem;
+    }
+
+    &>p {
       padding-bottom: 1rem;
     }
   }
@@ -12,12 +19,34 @@
     font-size: $font-size-body;
     padding-top: 8rem;
     padding-bottom: 2rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    text-align: end;
+
+    @include responsive(tab_medium) {
+      text-align: center;
+    }
+
+    @include responsive(mobile) {
+      display: block;
+      text-align: center;
+      padding-top: 5rem;
+    }
 
     &--left {
-      & > a {
+      display: flex;
+      width: 60%;
+
+      @include responsive(tab_medium) {
+        justify-content: center;
+        padding-bottom: 1.5rem;
+        padding-top: 0.5rem;
+        width: 100%;
+      }
+
+      @include responsive(mobile) {
+        width: 100%;
+      }
+
+      &>a {
         padding-right: 1rem;
       }
     }

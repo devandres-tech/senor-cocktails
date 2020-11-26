@@ -23,7 +23,7 @@ const Slider = ({ items, title }) => {
       </div>
       <Swiper
         draggable={false}
-        // autoplay
+        speed={200}
         spaceBetween={windowDimensions.width < config.MOBILE_WIDTH ? 10 : 0}
         slidesOffsetBefore={
           windowDimensions.width < config.MOBILE_WIDTH ? 16 : 0
@@ -34,19 +34,14 @@ const Slider = ({ items, title }) => {
         breakpoints={{
           0: {
             slidesPerView: 3,
-            // spaceBetween: 10,
-            // slidesPerGroup: 3,
           },
           650: {
             slidesPerView: 3,
-            // slidesPerGroup: 3,
           },
           998: {
             slidesPerView: 4,
-            // slidesPerGroup: 4,
           },
         }}
-        // slidesPerView={windowDimensions.width < config.MOBILE_WIDTH ? 3 : 4}
       >
         {items.map((item, idx) => (
           <SwiperSlide key={idx} className='sliderContainer__item'>
