@@ -10,6 +10,7 @@ const MainRoutes = () => (
   <>
     <Header />
     <Route path='/' exact component={HomeScreen} />
+    <Footer />
   </>
 )
 
@@ -22,7 +23,6 @@ const App = () => {
           <Route component={MainRoutes} />
         </Switch>
       </main>
-      <Footer />
     </Router>
   )
 }

@@ -16,7 +16,11 @@ const Slider = ({ items, title }) => {
   const [windowDimensions] = useViewport()
 
   return (
-    <div className='sliderContainer container'>
+    <div
+      className={`sliderContainer ${
+        windowDimensions.width < config.TABLET_WIDTH ? '' : ' container'
+      }`}
+    >
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
         <Link className='default-linkStyle'>See All</Link>
@@ -24,13 +28,16 @@ const Slider = ({ items, title }) => {
       <Swiper
         draggable={false}
         speed={200}
-        spaceBetween={windowDimensions.width < config.MOBILE_WIDTH ? 10 : 0}
+        spaceBetween={windowDimensions.width < config.TABLET_WIDTH ? 5 : 0}
         slidesOffsetBefore={
-          windowDimensions.width < config.MOBILE_WIDTH ? 16 : 0
+          windowDimensions.width < config.TABLET_WIDTH ? 16 : 0
+        }
+        slidesOffsetAfter={
+          windowDimensions.width < config.TABLET_WIDTH ? 16 : 0
         }
         pagination={{ clickable: true }}
-        navigation={windowDimensions.width < config.MOBILE_WIDTH ? false : true}
-        loop={windowDimensions.width < config.MOBILE_WIDTH ? false : true}
+        navigation={windowDimensions.width < config.TABLET_WIDTH ? false : true}
+        loop={windowDimensions.width < config.TABLET_WIDTH ? false : true}
         breakpoints={{
           0: {
             slidesPerView: 3,

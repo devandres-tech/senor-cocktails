@@ -8,7 +8,6 @@ const Login = (props) => {
 
   return (
     <div className='loginContainer-bg'>
-      <p onClick={() => props.history.goBack()}>Go Back</p>
       <div className='loginContainer container'>
         <Link to='/'>
           <img

@@ -95,7 +95,7 @@ const StyledBurger = styled.button`
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-      <Link>Home</Link>
+      <Link to='/'>Home</Link>
       <Link>Top Drinks</Link>
       <Link>Ingredients</Link>
       <Link>
@@ -103,7 +103,7 @@ const Menu = ({ open }) => {
         <i className='fas fa-search'></i>Search
       </Link>
       <Link>Sign up</Link>
-      <Link>
+      <Link to='/login'>
         <button className='btn__primary'>Login</button>
       </Link>
     </StyledMenu>

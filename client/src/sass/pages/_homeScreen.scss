@@ -11,6 +11,10 @@
     margin-bottom: 5rem;
   }
 
+  @include responsive(tab_medium) {
+    max-width: 100%;
+  }
+
   &__title {
     line-height: -2rem;
     padding-bottom: 2rem;
@@ -62,6 +66,13 @@
 
   @include responsive(mobile) {
     margin-top: 5rem;
+  }
+
+  @include responsive(tab_medium) {
+    &>.container {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   &__content {
