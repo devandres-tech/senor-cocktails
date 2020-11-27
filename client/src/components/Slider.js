@@ -28,7 +28,7 @@ const Slider = ({ items, title }) => {
       <Swiper
         draggable={false}
         speed={200}
-        spaceBetween={windowDimensions.width < config.TABLET_WIDTH ? 5 : 0}
+        spaceBetween={windowDimensions.width < config.TABLET_WIDTH ? 5 : 10}
         slidesOffsetBefore={
           windowDimensions.width < config.TABLET_WIDTH ? 16 : 0
         }
@@ -37,7 +37,7 @@ const Slider = ({ items, title }) => {
         }
         pagination={{ clickable: true }}
         navigation={windowDimensions.width < config.TABLET_WIDTH ? false : true}
-        loop={windowDimensions.width < config.TABLET_WIDTH ? false : true}
+        loop={false}
         breakpoints={{
           0: {
             slidesPerView: 3,
