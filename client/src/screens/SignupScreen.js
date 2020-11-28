@@ -21,7 +21,7 @@ const SignupScreen = (props) => {
           <input type='text' placeholder='Name' />
           <input type='text' placeholder='Email' />
           <input type='password' placeholder='password' />
-          <input type='password' placeholder='password' />
+          <input type='password' placeholder='Confirm Password' />
           <button className='btn__primary'>Login</button>
           <p>
             Already have an account <Link to='/login'>Log in</Link>

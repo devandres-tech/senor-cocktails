@@ -98,14 +98,15 @@ const Menu = ({ open }) => {
       <Link to='/'>Home</Link>
       <Link>Top Drinks</Link>
       <Link>Ingredients</Link>
+      <Link>My Bar</Link>
       <Link>
         {' '}
         <i className='fas fa-search'></i>Search
       </Link>
-      <Link>Sign up</Link>
+      {/* <Link to='signup'>Sign up</Link>
       <Link to='/login'>
         <button className='btn__primary'>Login</button>
-      </Link>
+      </Link> */}
     </StyledMenu>
   )
 }
@@ -133,6 +134,24 @@ const MobileNavbar = ({ node, setOpen, open }) => (
         src='https://firebasestorage.googleapis.com/v0/b/senor-cocktails.appspot.com/o/Logo.jpg?alt=media&token=db113644-029b-4eb3-9467-32fd50ad84ac'
       />
     </Link>
+    <div className='containerNavbar__mobile--right'>
+      <div className='containerNavbar__item'>
+        <Link>
+          <i class='fas fa-user'></i>
+          <span>{'Andres'}</span>
+        </Link>
+      </div>
+      {/* <li className='containerNavbar__item'>
+        <Link to='/signup' className='hoverLinkStyle'>
+          Sign up
+        </Link>
+      </li>
+      <li className='containerNavbar__item'>
+        <Link to='/login'>
+          <button className='btn__primary'>Login</button>
+        </Link>
+      </li> */}
+    </div>
   </div>
 )
 
@@ -158,6 +177,9 @@ const Navbar = () => (
         <Link className='hoverLinkStyle'>Ingredients</Link>
       </li>
       <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>My Bar</Link>
+      </li>
+      <li className='containerNavbar__item'>
         <Link className='hoverLinkStyle'>
           <i className='fas fa-search'></i>Search
         </Link>
@@ -165,6 +187,12 @@ const Navbar = () => (
     </div>
     <div className='containerNavbar__right'>
       <li className='containerNavbar__item'>
+        <Link className='hoverLinkStyle'>
+          <i class='fas fa-user'></i>
+          <span>{'Andres'}</span>
+        </Link>
+      </li>
+      {/* <li className='containerNavbar__item'>
         <Link to='/signup' className='hoverLinkStyle'>
           Sign up
         </Link>
@@ -173,7 +201,7 @@ const Navbar = () => (
         <Link to='/login'>
           <button className='btn__primary'>Login</button>
         </Link>
-      </li>
+      </li> */}
     </div>
   </ul>
 )

@@ -1,3 +1,52 @@
+.userItemsContainer {
+  margin-top: 145px;
+
+  &__bg {
+    background-color: #FAFBFB;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &>h2 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      font-size: $font-size-h2;
+    }
+
+    &>a {
+      padding-bottom: 40px;
+      color: $link-color;
+      font-size: $font-size-body;
+    }
+  }
+
+  &__item {
+    font-size: $font-size-body;
+    width: 75%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &>img {
+      margin-right: 20px;
+      height: 70px;
+      border-radius: 50px;
+    }
+
+    &>i {
+      cursor: pointer;
+      margin-left: auto;
+      padding-right: 0.5rem;
+    }
+
+    &>span {
+      cursor: pointer;
+    }
+  }
+}
+
 .heroContainer {
   display: flex;
   align-items: center;

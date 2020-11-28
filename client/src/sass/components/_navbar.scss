@@ -23,7 +23,7 @@ nav {
     font-size: $font-size-nav-item;
     color: $font-color;
     font-weight: 600;
-    padding-right: 1rem;
+    // padding-right: 1rem;
 
     &>a>i.fas {
       padding-right: 5px;
@@ -34,12 +34,24 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &>li:not(:last-child) {
+      padding-right: 1rem;
+    }
   }
 
   &__right {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &>li:not(:last-child) {
+      padding-right: 1rem !important;
+    }
+
+    &>li>a>span {
+      color: $color-green-primary;
+    }
   }
 
   &__mobile {
@@ -55,6 +67,15 @@ nav {
 
     img {
       padding-left: 2rem;
+    }
+
+    &--right {
+      margin-left: auto;
+      margin-right: 1rem;
+
+      div.containerNavbar__item>a>span {
+        color: $color-green-primary;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
   }
 
   @if $breakpoint==tab_medium {
-    @media only screen and (max-width: 48em) {
+    @media only screen and (max-width: 48.5em) {
       // 768
       @content
     }
