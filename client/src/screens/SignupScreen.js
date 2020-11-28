@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Login = (props) => {
+const SignupScreen = (props) => {
   const submitHandler = (event) => {
     event.preventDefault()
   }
@@ -17,12 +17,14 @@ const Login = (props) => {
           />
         </Link>
         <form onSubmit={submitHandler} className='formContainer__form'>
-          <h1>Login</h1>
+          <h1>Sign Up</h1>
+          <input type='text' placeholder='Name' />
           <input type='text' placeholder='Email' />
-          <input type='password' placeholder='Password' />
+          <input type='password' placeholder='password' />
+          <input type='password' placeholder='password' />
           <button className='btn__primary'>Login</button>
           <p>
-            Can't log in? <Link to='/signup'>Sign up for an account</Link>
+            Already have an account <Link to='/login'>Log in</Link>
           </p>
         </form>
       </div>
@@ -30,4 +32,4 @@ const Login = (props) => {
   )
 }
 
-export default Login
+export default SignupScreen

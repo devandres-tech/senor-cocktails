@@ -36,11 +36,7 @@ const Slider = ({ items, title }) => {
           windowDimensions.width < config.TABLET_WIDTH ? 16 : 0
         }
         pagination={{ clickable: true }}
-        // navigation={windowDimensions.width < config.TABLET_WIDTH ? false : true}
         navigation
-        // slidesPerView={4}
-        // slidesPerGroup={3}
-        // slidesPerGroupSkip={3}
         breakpoints={{
           768: {
             slidesPerView: 4,

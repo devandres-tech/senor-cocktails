@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
+import SignupScreen from './screens/SignupScreen'
 
 const MainRoutes = () => (
   <>
@@ -20,6 +21,7 @@ const App = () => {
       <main>
         <Switch>
           <Route path='/login' component={LoginScreen} />
+          <Route path='/signup' component={SignupScreen} />
           <Route component={MainRoutes} />
         </Switch>
       </main>
