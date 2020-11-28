@@ -1,6 +1,15 @@
 .userItemsContainer {
   margin-top: 145px;
 
+  @include responsive(tab_medium) {
+    margin-top: 4rem;
+  }
+
+  @include responsive(mobile) {
+    margin-top: 2rem;
+  }
+
+
   &__bg {
     background-color: #FAFBFB;
     width: 100%;
@@ -8,22 +17,46 @@
     flex-direction: column;
     align-items: center;
 
+    @include responsive(tab_medium) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__header {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
     &>h2 {
-      padding-top: 40px;
-      padding-bottom: 40px;
       font-size: $font-size-h2;
+      padding-right: 0.5rem;
+
+      @include responsive(tab_medium) {
+        font-size: $font-size-h2-mobile;
+      }
+
+      &>span {
+        padding-left: 0.3rem;
+        font-size: $font-size-body;
+        color: $color-dark-primary;
+        font-weight: 400;
+      }
     }
 
     &>a {
-      padding-bottom: 40px;
+      margin-left: auto;
       color: $link-color;
       font-size: $font-size-body;
     }
+
   }
 
   &__item {
     font-size: $font-size-body;
-    width: 75%;
+    width: 85%;
     padding-bottom: 20px;
     display: flex;
     justify-content: center;

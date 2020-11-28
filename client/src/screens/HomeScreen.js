@@ -20,7 +20,12 @@ const HomeScreen = () => {
           <Row>
             <Col md={6}>
               <div className='userItemsContainer__bg'>
-                <h2>Favorite Drinks (23)</h2>
+                <div className='userItemsContainer__header'>
+                  <h2>
+                    Favorite Drinks<span>(3)</span>
+                  </h2>
+                  <Link>See All</Link>
+                </div>
                 {drinks.slice(0, 3).map((drink) => (
                   <div className='userItemsContainer__item'>
                     <img src={drink.strDrinkThumb} alt={'drink item'} />
@@ -29,12 +34,16 @@ const HomeScreen = () => {
                     <span>Delete</span>
                   </div>
                 ))}
-                <Link>See All</Link>
               </div>
             </Col>
             <Col md={6}>
               <div className='userItemsContainer__bg'>
-                <h2>My Recipes(3)</h2>
+                <div className='userItemsContainer__header'>
+                  <h2>
+                    Favorite Drinks<span>(23)</span>
+                  </h2>
+                  <Link>See All</Link>
+                </div>
                 {drinks.slice(0, 3).map((drink) => (
                   <div className='userItemsContainer__item'>
                     <img src={drink.strDrinkThumb} alt={'drink item'} />
@@ -43,7 +52,6 @@ const HomeScreen = () => {
                     <span>Delete</span>
                   </div>
                 ))}
-                <Link>See All</Link>
               </div>
             </Col>
           </Row>
