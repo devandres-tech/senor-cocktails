@@ -20,38 +20,34 @@ const HomeScreen = () => {
           <Row>
             <Col md={6}>
               <div className='userItemsContainer__bg'>
-                <div className='userItemsContainer__header'>
-                  <h2>
-                    Favorite Drinks<span>(3)</span>
-                  </h2>
-                  <Link>See All</Link>
-                </div>
-                {drinks.slice(0, 3).map((drink) => (
-                  <div className='userItemsContainer__item'>
+                <h2>
+                  Favorite Drinks<span>(3)</span>
+                </h2>
+                {drinks.slice(0, 3).map((drink, idx) => (
+                  <div key={idx} className='userItemsContainer__item'>
                     <img src={drink.strDrinkThumb} alt={'drink item'} />
                     <p>{drink.strDrink}</p>
                     <i className='fas fa-trash-alt'></i>
                     <span>Delete</span>
                   </div>
                 ))}
+                <Link>See All</Link>
               </div>
             </Col>
             <Col md={6}>
               <div className='userItemsContainer__bg'>
-                <div className='userItemsContainer__header'>
-                  <h2>
-                    Favorite Drinks<span>(23)</span>
-                  </h2>
-                  <Link>See All</Link>
-                </div>
-                {drinks.slice(0, 3).map((drink) => (
-                  <div className='userItemsContainer__item'>
+                <h2>
+                  Favorite Drinks<span>(23)</span>
+                </h2>
+                {drinks.slice(0, 3).map((drink, idx) => (
+                  <div key={idx} className='userItemsContainer__item'>
                     <img src={drink.strDrinkThumb} alt={'drink item'} />
                     <p>{drink.strDrink}</p>
                     <i className='fas fa-trash-alt'></i>
                     <span>Delete</span>
                   </div>
                 ))}
+                <Link>See All</Link>
               </div>
             </Col>
           </Row>
@@ -77,7 +73,7 @@ const HomeScreen = () => {
           </div>
         </div>
       )}
-      <Slider items={drinks} title={'Top Drinks'} />
+      <Slider items={drinks} title={'Popular Drinks'} />
       <Slider items={ingredients} title={'Popular Ingredients'} />
       {user.auth ? <Slider items={drinks} title={'Random Drinks'} /> : ''}
       {user.auth ? (

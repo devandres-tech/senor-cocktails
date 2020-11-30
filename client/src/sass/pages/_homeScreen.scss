@@ -3,6 +3,7 @@
 
   @include responsive(tab_medium) {
     margin-top: 4rem;
+    max-width: 100%;
   }
 
   @include responsive(mobile) {
@@ -17,22 +18,21 @@
     flex-direction: column;
     align-items: center;
 
-    @include responsive(tab_medium) {
-      margin-top: 2rem;
+    &>a {
+      padding-bottom: 40px;
+      color: $link-color;
+      font-size: $font-size-body;
     }
-  }
-
-  &__header {
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
 
     &>h2 {
       font-size: $font-size-h2;
       padding-right: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      width: 85%;
 
       @include responsive(tab_medium) {
         font-size: $font-size-h2-mobile;
@@ -46,12 +46,9 @@
       }
     }
 
-    &>a {
-      margin-left: auto;
-      color: $link-color;
-      font-size: $font-size-body;
+    @include responsive(tab_medium) {
+      margin-top: 2rem;
     }
-
   }
 
   &__item {

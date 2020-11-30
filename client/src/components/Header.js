@@ -96,7 +96,7 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
       <Link to='/'>Home</Link>
-      <Link>Top Drinks</Link>
+      <Link>Popular Drinks</Link>
       <Link>Ingredients</Link>
       <Link>My Bar</Link>
       <Link>
@@ -171,7 +171,7 @@ const Navbar = () => (
         <Link className='hoverLinkStyle'>Home</Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>Top Drinks</Link>
+        <Link className='hoverLinkStyle'>Popular Drinks</Link>
       </li>
       <li className='containerNavbar__item'>
         <Link className='hoverLinkStyle'>Ingredients</Link>
