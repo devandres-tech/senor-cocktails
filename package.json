@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon --exec babel-node api/src/server",
-    "test:watch": "mocha --watch ./api/test --recursive",
     "start": "node api/src/server",
     "client": "npm start --prefix client",
+    "test:watch": "DEBUG=server:debug NODE_ENV=test mocha --watch ./api/test --recursive",
+    "test": "DEBUG=server:debug NODE_ENV=test mocha ./api/test --recursive",
     "dev": "DEBUG=server:debug NODE_ENV=development nodemon --exec babel-node api/src/server"
   },
   "author": "Andres Alcocer",

@@ -2,6 +2,6 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 module.exports = {
-  name: 'Development',
+  name: 'Production',
   port: Number(process.env.PORT),
 }

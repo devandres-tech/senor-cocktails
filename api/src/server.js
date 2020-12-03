@@ -1,7 +1,7 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import colors from 'colors'
 import config from 'config'
+import morgan from 'morgan'
 
 const app = express()
 
@@ -12,10 +12,10 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json())
 
-app.listen(
+export const listen = app.listen(
   config.get('port'),
   console.log(
-    `Server running in ${config.get('name')} on port ${config.get('port')}`
+    `Server running in ${config.get('name')} mode on port ${config.get('port')}`
       .yellow.bold
   )
 )
