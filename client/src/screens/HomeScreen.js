@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import HeroImage from '../images/hero-image.svg'
 import Slider from '../components/Slider'
@@ -9,12 +10,22 @@ import ingredients from '../data/ingredients'
 import AddItemIcon from '../images/add-item.svg'
 import LibraryIcon from '../images/library.svg'
 import UserIcon from '../images/user.svg'
+import { getDrinkList } from '../actions/drinkActions'
 
 const HomeScreen = () => {
   const user = { auth: true }
+  const dispatch = useDispatch()
+
+  const drinkState = useSelector((state) => state.drinkList)
+  const { loading, error, drinkList } = drinkState
+
+  useEffect(() => {
+    dispatch(getDrinkList('random'))
+  }, [dispatch, getDrinkList])
 
   return (
     <>
+      {console.log('drink list ', drinkList)}
       {user.auth ? (
         <div className='userItemsContainer container'>
           <Row>
@@ -77,7 +88,11 @@ const HomeScreen = () => {
       <Slider items={ingredients} title={'Popular Ingredients'} />
       {user.auth ? <Slider items={drinks} title={'Random Drinks'} /> : ''}
       {user.auth ? (
-        <Slider items={ingredients} title={'Random Ingredients'} />
+        <Slider
+          items={ingredients}
+          type={'random'}
+          title={'Random Ingredients'}
+        />
       ) : (
         ''
       )}

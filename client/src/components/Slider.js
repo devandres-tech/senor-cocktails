@@ -12,7 +12,7 @@ import config from '../config.json'
 
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay])
 
-const Slider = ({ items, title }) => {
+const Slider = ({ items, title, type }) => {
   const [windowDimensions] = useViewport()
 
   return (
@@ -23,7 +23,12 @@ const Slider = ({ items, title }) => {
     >
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
-        <Link className='default-linkStyle'>See All</Link>
+        <Link
+          className='default-linkStyle'
+          to={{ pathname: `/drinklist/${type}`, drinks: items, title }}
+        >
+          See All
+        </Link>
       </div>
       <Swiper
         draggable={false}

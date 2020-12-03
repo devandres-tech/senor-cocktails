@@ -1,10 +1,16 @@
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-const DrinkList = ({ title, data }) => {
+const DrinkList = ({ title, drinks }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-    </div>
+    <Row>
+      {drinks.map((drink) => (
+        <Col sm={4} md={3}>
+          <img src={drink.strDrinkThumb} alt='drink' />
+          <h1>{drink.strDrink}</h1>
+        </Col>
+      ))}
+    </Row>
   )
 }
 
