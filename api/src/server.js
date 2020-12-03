@@ -1,23 +1,23 @@
 import express from 'express'
 import dotenv from 'dotenv'
 
-import drinkRoutes from './routes/drinkRoutes.js'
+// import drinkRoutes from './routes/drinkRoutes'
 
 dotenv.config()
 
-const app = express()
+// const app = express()
 
-// HTTP request logger
+// // HTTP request logger
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
 app.use(express.json())
 
-app.use('/api/drinks', drinkRoutes)
+// app.use('/api/drinks', drinkRoutes)
 
-app.use(notFound)
-app.use(errorHandler)
+// app.use(notFound)
+// app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 
