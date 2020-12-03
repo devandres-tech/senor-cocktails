@@ -1,5 +1,5 @@
 import chai from 'chai'
-import { listen } from '../src/server'
+import { listen } from '../api/server'
 import config from 'config'
 const { expect } = chai
 

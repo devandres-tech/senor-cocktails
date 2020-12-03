@@ -4,12 +4,14 @@
   "description": "manage your favorite cocktails",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon --exec babel-node api/src/server",
-    "start": "node api/src/server",
+    "build": "babel api -d dist --source-maps",
+    "server": "nodemon --exec babel-node api/server.js",
+    "start": "node api/server.js --exec babel-node",
     "client": "npm start --prefix client",
-    "test:watch": "DEBUG=server:debug NODE_ENV=test mocha --watch ./api/test --recursive",
-    "test": "DEBUG=server:debug NODE_ENV=test mocha ./api/test --recursive",
-    "dev": "DEBUG=server:debug NODE_ENV=development nodemon --exec babel-node api/src/server"
+    "test:watch": "DEBUG=server:debug NODE_ENV=test mocha --watch ./test --recursive",
+    "test": "DEBUG=server:debug NODE_ENV=test mocha ./test --recursive",
+    "dev": "DEBUG=server:debug NODE_ENV=development nodemon --exec babel-node ./api/server.js",
+    "prod": "npm run build && NODE_ENV=production node dist/server.js"
   },
   "author": "Andres Alcocer",
   "license": "MIT",
@@ -28,6 +30,7 @@
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
