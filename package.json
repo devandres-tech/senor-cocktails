@@ -4,10 +4,11 @@
   "description": "manage your favorite cocktails",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon api/src/server",
+    "server": "nodemon --exec babel-node api/src/server",
     "test:watch": "mocha --watch ./api/test --recursive",
     "start": "node api/src/server",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "dev": "DEBUG=server:debug NODE_ENV=development nodemon --exec babel-node api/src/server"
   },
   "author": "Andres Alcocer",
   "license": "MIT",
@@ -27,9 +28,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.12.1",
     "concurrently": "^5.3.0",
+    "config": "^3.3.3",
+    "debug": "^4.3.1",
     "nodemon": "^2.0.6"
   }
 }
