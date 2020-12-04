@@ -2,18 +2,25 @@ import express from 'express'
 import colors from 'colors'
 import config from 'config'
 import morgan from 'morgan'
-const debug = require('debug')('server:debug')
+import bodyParser from 'body-parser'
 
-const app = express()
+import drinkRoutes from './routes/drinkRoutes'
+
+const debug = require('debug')('server:debug')
+const api = express()
+
+api.use(bodyParser.urlencoded({ extended: true }))
 
 // // HTTP request logger
 if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'))
+  api.use(morgan('dev'))
 }
 
-app.use(express.json())
+api.use(express.json())
 
-export const listen = app.listen(
+api.use('/api/v1/drinks', drinkRoutes)
+
+const listen = api.listen(
   config.get('port'),
   debug(
     `server is running on port ${config.get('port')} and in ${config.get(
@@ -25,3 +32,5 @@ export const listen = app.listen(
       .blue.bold
   )
 )
+
+export { api, listen }

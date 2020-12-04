@@ -1,15 +1,13 @@
-import chai from 'chai'
-import { listen } from '../api/server'
-import config from 'config'
-const { expect } = chai
+// import { expect } from 'chai'
+// import { listen } from '../api/server'
+// import config from 'config'
 
-// Test suite
-describe('Server', () => {
-  afterEach(() => {
-    listen.close()
-  })
+// describe('Server', () => {
+//   afterEach(() => {
+//     listen.close()
+//   })
 
-  it('should test the server is running in the correct port', () => {
-    expect(listen.address().port).to.equal(config.get('port'))
-  })
-})
+//   it('should test the server is running in the correct port', () => {
+//     expect(listen.address().port).to.equal(config.get('port'))
+//   })
+// })

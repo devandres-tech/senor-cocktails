@@ -1,9 +1,9 @@
-// import express from 'express'
+import express from 'express'
 
-// // import { getLatestDrinks } from '../controllers/drinkController'
+import { getDrinkList } from '../controllers/drinkController'
 
-// const router = express.Router()
+const router = express.Router()
 
-// // router.route('/:category').get(getDrinksByCategory)
+router.route('/:list').get(getDrinkList)
 
-// export default router
+export default router
