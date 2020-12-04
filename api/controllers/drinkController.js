@@ -2,10 +2,10 @@ import asyncHandler from 'express-async-handler'
 import fetch from 'node-fetch'
 
 const getDrinkList = asyncHandler(async (req, res) => {
-  const { list } = req.params
+  const { listSelection } = req.params
 
   const response = await fetch(
-    `${process.env.THE_COCKTAIL_DB_BASE_URL}/${list}.php`
+    `${process.env.THE_COCKTAIL_DB_BASE_URL}/${listSelection}.php`
   )
 
   // res.status >= 200 && res.status < 300
