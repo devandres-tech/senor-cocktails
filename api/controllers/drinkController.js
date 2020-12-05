@@ -18,11 +18,10 @@ const getDrinkById = asyncHandler(async (req, res) => {
   }
 
   const drink = data.drinks[0]
-  const ingredientArray = normalizeIngredients(drink)
   const normalizedDrink = {
     id: drink.idDrink,
     name: drink.strDrink,
-    tags: [...drink.strTags.split(',')],
+    tags: drink.strTags !== null ? [...drink.strTags.split(',')] : [],
     category: drink.strCategory,
     IBA: drink.strIBA,
     alcoholic: drink.strAlcoholic,
@@ -34,7 +33,7 @@ const getDrinkById = asyncHandler(async (req, res) => {
       FR: drink.strInstructionsFR,
     },
     image: drink.strDrinkThumb,
-    ingredients: ingredientArray,
+    ingredients: normalizeIngredients(drink),
     rating: 0,
     triedIt: false,
     createdAt: drink.dateModified,
@@ -54,8 +53,31 @@ const getDrinkList = asyncHandler(async (req, res) => {
     res.status(404).json({ error: 'Invalid request' })
   }
 
-  const data = await response.json()
-  res.status(200).json(data)
+  const { drinks } = await response.json()
+
+  const normalizedDrinkList = drinks.map((drink) => {
+    return {
+      id: drink.idDrink,
+      name: drink.strDrink,
+      tags: drink.strTags !== null ? [...drink.strTags.split(',')] : [],
+      category: drink.strCategory,
+      IBA: drink.strIBA,
+      alcoholic: drink.strAlcoholic,
+      glassType: drink.strGlass,
+      instructions: {
+        EN: drink.strInstructions,
+        DE: drink.strInstructionsDE,
+        ES: drink.strInstructionsES,
+        FR: drink.strInstructionsFR,
+      },
+      image: drink.strDrinkThumb,
+      ingredients: normalizeIngredients(drink),
+      rating: 0,
+      triedIt: false,
+      createdAt: drink.dateModified,
+    }
+  })
+  res.status(200).json(normalizedDrinkList)
 })
 
 export { getDrinkList, getDrinkById }

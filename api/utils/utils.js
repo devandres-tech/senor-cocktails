@@ -24,7 +24,7 @@ const normalizeArray = (ingArray, start, middle, outputArray) => {
 const normalizeIngredients = (drink) => {
   let normalizedIngredientsArray = []
 
-  // create an array from the drink object values
+  // create an array with all the drink object values
   let drinkArray = []
   for (const prop in drink) {
     drinkArray.push(drink[prop])
