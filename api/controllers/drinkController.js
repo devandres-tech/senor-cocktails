@@ -1,6 +1,8 @@
 import asyncHandler from 'express-async-handler'
 import fetch from 'node-fetch'
 
+import { normalizeIngredients } from '../utils/utils'
+
 const getDrinkById = asyncHandler(async (req, res) => {
   const { drinkId } = req.params
   let data
@@ -15,7 +17,30 @@ const getDrinkById = asyncHandler(async (req, res) => {
     res.status(404).json({ error: 'Drink not found' })
   }
 
-  res.status(200).json(data)
+  const drink = data.drinks[0]
+  const ingredientArray = normalizeIngredients(drink)
+  const normalizedDrink = {
+    id: drink.idDrink,
+    name: drink.strDrink,
+    tags: [...drink.strTags.split(',')],
+    category: drink.strCategory,
+    IBA: drink.strIBA,
+    alcoholic: drink.strAlcoholic,
+    glassType: drink.strGlass,
+    instructions: {
+      EN: drink.strInstructions,
+      DE: drink.strInstructionsDE,
+      ES: drink.strInstructionsES,
+      FR: drink.strInstructionsFR,
+    },
+    image: drink.strDrinkThumb,
+    ingredients: ingredientArray,
+    rating: 0,
+    triedIt: false,
+    createdAt: drink.dateModified,
+  }
+
+  res.status(200).json(normalizedDrink)
 })
 
 const getDrinkList = asyncHandler(async (req, res) => {
@@ -34,21 +59,3 @@ const getDrinkList = asyncHandler(async (req, res) => {
 })
 
 export { getDrinkList, getDrinkById }
-
-;[
-  {
-    ingredient: 'Tequila',
-    measurement: '1 1/2 oz',
-    image: 'sdfasdfasdfadsf',
-  },
-  {
-    ingredient: 'Lime',
-    measurement: '1 1/2 oz',
-    image: 'sdfasdfasdfadsf',
-  },
-  {
-    ingredient: 'Water',
-    measurement: '1 1/2 oz',
-    image: 'sdfasdfasdfadsf',
-  },
-]
