@@ -25,7 +25,7 @@ const listen = api.listen(
   debug(
     `server is running on port ${config.get('port')} and in ${config.get(
       'name'
-    )} mode`
+    )} mode`.cyan.bold
   ),
   console.log(
     `Server running in ${config.get('name')} mode on port ${config.get('port')}`
@@ -33,4 +33,5 @@ const listen = api.listen(
   )
 )
 
+// export for testing purposes
 export { api, listen }
