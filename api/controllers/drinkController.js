@@ -34,3 +34,21 @@ const getDrinkList = asyncHandler(async (req, res) => {
 })
 
 export { getDrinkList, getDrinkById }
+
+;[
+  {
+    ingredient: 'Tequila',
+    measurement: '1 1/2 oz',
+    image: 'sdfasdfasdfadsf',
+  },
+  {
+    ingredient: 'Lime',
+    measurement: '1 1/2 oz',
+    image: 'sdfasdfasdfadsf',
+  },
+  {
+    ingredient: 'Water',
+    measurement: '1 1/2 oz',
+    image: 'sdfasdfasdfadsf',
+  },
+]
