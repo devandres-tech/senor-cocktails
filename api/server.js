@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 
 import drinkRoutes from './routes/drinkRoutes'
+import ingredientRoutes from './routes/ingredientRoutes'
 
 const debug = require('debug')('server:debug')
 const api = express()
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 api.use(express.json())
 
 api.use('/api/v1/drinks', drinkRoutes)
+api.use('/api/v1/ingredients', ingredientRoutes)
 
 const listen = api.listen(
   config.get('port'),

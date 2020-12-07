@@ -55,7 +55,7 @@ describe.only('Ingredient controller', () => {
       expect(response.body.error).to.equal('Ingredients not found')
     })
 
-    it('should the most popular ingredients', async () => {
+    it('should return the most popular ingredients', async () => {
       const response = await request(api).get(
         `${process.env.BASE_API_URL}/ingredients/list/popular`
       )
