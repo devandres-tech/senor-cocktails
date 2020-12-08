@@ -45,22 +45,13 @@ describe.only('Ingredient controller', () => {
       expect(response.body).to.not.be.empty
     })
 
-    it('should return 404 for an invalid request', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/list/invalidargument`
-      )
-
-      expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Ingredients not found')
-    })
-
     it('should return the most popular ingredients', async () => {
       const response = await request(api).get(
         `${process.env.BASE_API_URL}/ingredients/list/popular`
       )
 
-      expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Ingredients not found')
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(10)
     })
 
     it('should return random ingredients', async () => {
@@ -68,8 +59,17 @@ describe.only('Ingredient controller', () => {
         `${process.env.BASE_API_URL}/ingredients/list/random`
       )
 
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(10)
+    })
+
+    it('should return 404 for an invalid request', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients/list/invalidargument`
+      )
+
       expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Ingredients not found')
+      expect(response.body.error).to.equal('Ingredient list not found')
     })
   })
 })

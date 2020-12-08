@@ -51,7 +51,13 @@ const drinkSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    ingredients: [ingredientSchema],
+    ingredients: [
+      {
+        name: {
+          type: String,
+        },
+      },
+    ],
     rating: {
       type: Number,
       required: true,
