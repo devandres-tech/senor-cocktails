@@ -2,6 +2,13 @@ import mongoose from 'mongoose'
 
 const ingredientSchema = mongoose.Schema(
   {
+    id: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,
@@ -22,10 +29,12 @@ const ingredientSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    userFavorite: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
+    userFavorite: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     timestamps: true,

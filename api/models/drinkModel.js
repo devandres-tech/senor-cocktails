@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import ingredientSchema from './IngredientModel'
 
 const drinkSchema = mongoose.Schema(
   {
@@ -12,10 +11,7 @@ const drinkSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    tags: {
-      type: String,
-      required: true,
-    },
+    tags: [String],
     category: {
       type: String,
       required: true,
@@ -56,17 +52,41 @@ const drinkSchema = mongoose.Schema(
         name: {
           type: String,
         },
+        id: {
+          type: String,
+        },
+        image: {
+          type: String,
+        },
       },
     ],
-    rating: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    triedIt: {
-      type: Boolean,
-      required: true,
-    },
+    rating: [
+      {
+        rating: {
+          type: Number,
+          required: true,
+        },
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true,
+          ref: 'User',
+        },
+      },
+    ],
+    triedIt: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      },
+    ],
+    userFavorite: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User',
+      },
+    ],
   },
   {
     timestamps: true,

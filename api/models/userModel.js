@@ -16,8 +16,6 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    favorites: [String],
-    ingredients: [String],
   },
   {
     timestamps: true,
