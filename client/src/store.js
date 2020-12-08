@@ -2,9 +2,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { drinkListReducer } from './reducers/drinkReducers'
+import { randomDrinkListReducer } from './reducers/drinkReducers'
 
-const reducer = combineReducers({ drinkList: drinkListReducer })
+const reducer = combineReducers({ randomDrinkList: randomDrinkListReducer })
 
 const initialState = {}
 

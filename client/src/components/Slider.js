@@ -23,12 +23,7 @@ const Slider = ({ items, title, type }) => {
     >
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
-        <Link
-          className='default-linkStyle'
-          to={{ pathname: `/drinklist/${type}`, drinks: items, title }}
-        >
-          See All
-        </Link>
+        <Link className='default-linkStyle'>See All</Link>
       </div>
       <Swiper
         draggable={false}
@@ -55,13 +50,8 @@ const Slider = ({ items, title, type }) => {
       >
         {items.map((item, idx) => (
           <SwiperSlide key={idx} className='sliderContainer__item'>
-            <img
-              src={item.strDrinkThumb ? item.strDrinkThumb : item.img}
-              alt='cocktail'
-            />
-            <p className='sliderContainer__itemTitle'>
-              {item.strDrink ? item.strDrink : item.strIngredient}
-            </p>
+            <img src={item.image} alt='cocktail' />
+            <p className='sliderContainer__itemTitle'>{item.name}</p>
           </SwiperSlide>
         ))}
       </Swiper>
