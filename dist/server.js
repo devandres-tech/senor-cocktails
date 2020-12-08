@@ -1,13 +1,9 @@
 "use strict";
 
-require("core-js/modules/es6.object.define-property");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.listen = exports.api = void 0;
-
-require("core-js/modules/es6.string.bold");
 
 var _express = _interopRequireDefault(require("express"));
 
@@ -23,24 +19,24 @@ var _drinkRoutes = _interopRequireDefault(require("./routes/drinkRoutes"));
 
 var _ingredientRoutes = _interopRequireDefault(require("./routes/ingredientRoutes"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var debug = require('debug')('server:debug');
 
-var api = (0, _express["default"])();
+var api = (0, _express.default)();
 exports.api = api;
-api.use(_bodyParser["default"].urlencoded({
+api.use(_bodyParser.default.urlencoded({
   extended: true
 })); // // HTTP request logger
 
 if (process.env.NODE_ENV === 'development') {
-  api.use((0, _morgan["default"])('dev'));
+  api.use((0, _morgan.default)('dev'));
 }
 
-api.use(_express["default"].json());
-api.use('/api/v1/drinks', _drinkRoutes["default"]);
-api.use('/api/v1/ingredients', _ingredientRoutes["default"]);
-var listen = api.listen(_config["default"].get('port'), debug("server is running on port ".concat(_config["default"].get('port'), " and in ").concat(_config["default"].get('name'), " mode").cyan.bold), console.log("Server running in ".concat(_config["default"].get('name'), " mode on port ").concat(_config["default"].get('port')).blue.bold)); // export for testing purposes
+api.use(_express.default.json());
+api.use('/api/v1/drinks', _drinkRoutes.default);
+api.use('/api/v1/ingredients', _ingredientRoutes.default);
+var listen = api.listen(_config.default.get('port'), debug("server is running on port ".concat(_config.default.get('port'), " and in ").concat(_config.default.get('name'), " mode").cyan.bold), console.log("Server running in ".concat(_config.default.get('name'), " mode on port ").concat(_config.default.get('port')).blue.bold)); // export for testing purposes
 
 exports.listen = listen;
 //# sourceMappingURL=server.js.map

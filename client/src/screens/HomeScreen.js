@@ -25,7 +25,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      {console.log('drink list ', drinkList)}
+      {console.log('drink list ', process.env.REACT_APP_API_URL)}
       {user.auth ? (
         <div className='userItemsContainer container'>
           <Row>
