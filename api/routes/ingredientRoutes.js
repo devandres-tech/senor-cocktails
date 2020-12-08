@@ -4,4 +4,6 @@ import { getIngredientById } from '../controllers/ingredientController'
 
 const router = express.Router()
 
-router.get('/:ingredientId').get(getIngredientById)
+router.route('/:ingredientId').get(getIngredientById)
+
+export default router

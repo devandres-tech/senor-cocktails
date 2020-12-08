@@ -23,12 +23,11 @@ describe.only('Ingredient controller', () => {
       expect(response).to.have.status(200)
       expect(response.body).to.not.be.empty
       expect(response.body.image).to.not.be.empty
-      expect(response.body.drinks).to.not.be.empty
     })
 
     it('should return 404 for an invalid request', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/1000`
+        `${process.env.BASE_API_URL}/ingredients/1111`
       )
 
       expect(response).to.have.status(404)
