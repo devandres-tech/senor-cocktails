@@ -15,7 +15,9 @@ export const getRandomDrinkList = () => async (dispatch) => {
   try {
     dispatch({ type: RANDOM_DRINK_LIST_REQUEST })
 
-    const { data } = await axios.get(`/drinks/list/randomselection`)
+    const { data } = await axios.get(
+      `http://localhost:5000/api/v1/drinks/list/randomselection`
+    )
     dispatch({ type: RANDOM_DRINK_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({

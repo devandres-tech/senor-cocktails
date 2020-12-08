@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "rm -r build && npm run build && firebase deploy"
+    "deploy": "rm -r build && npm run build:production && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

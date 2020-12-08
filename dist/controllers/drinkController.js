@@ -17,6 +17,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+// @route GET api/v1/drinks/drinkId
+// @desc get a drink by id
+// @access public
 var getDrinkById = (0, _expressAsyncHandler.default)( /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (req, res) {
     var {
@@ -60,13 +63,14 @@ var getDrinkById = (0, _expressAsyncHandler.default)( /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}());
+}()); // @route GET api/v1/drinks/list/:drinkList
+// @desc get a selection of drinks (random, latest, popular)
+// @access public and private
+
 exports.getDrinkById = getDrinkById;
 var getDrinkList = (0, _expressAsyncHandler.default)( /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator(function* (req, res) {
-    var {
-      listSelection
-    } = req.params;
+    var listSelection = req.params.listSelection.toLowerCase();
     var response = yield (0, _nodeFetch.default)("".concat(process.env.THE_COCKTAIL_DB_BASE_URL, "/").concat(listSelection, ".php"));
 
     if (!response.ok) {

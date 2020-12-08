@@ -15,6 +15,8 @@ var _morgan = _interopRequireDefault(require("morgan"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _drinkRoutes = _interopRequireDefault(require("./routes/drinkRoutes"));
 
 var _ingredientRoutes = _interopRequireDefault(require("./routes/ingredientRoutes"));
@@ -25,6 +27,7 @@ var debug = require('debug')('server:debug');
 
 var api = (0, _express.default)();
 exports.api = api;
+api.use((0, _cors.default)());
 api.use(_bodyParser.default.urlencoded({
   extended: true
 })); // // HTTP request logger

@@ -10,7 +10,11 @@ import ingredients from '../data/ingredients'
 import AddItemIcon from '../images/add-item.svg'
 import LibraryIcon from '../images/library.svg'
 import UserIcon from '../images/user.svg'
-import { getRandomDrinkList } from '../actions/drinkActions'
+import {
+  getRandomDrinkList,
+  getPopularDrinkList,
+  getLatestDrinkList,
+} from '../actions/drinkActions'
 
 const HomeScreen = () => {
   const user = { auth: true }
@@ -19,13 +23,21 @@ const HomeScreen = () => {
   const randomDrinkListState = useSelector((state) => state.randomDrinkList)
   const { loading, error, randomDrinkList } = randomDrinkListState
 
+  const latestDrinkListState = useSelector((state) => state.latestDrinkList)
+  const {
+    loading: loadingLatest,
+    error: errorLatest,
+    latestDrinkList,
+  } = latestDrinkListState
+
   useEffect(() => {
     dispatch(getRandomDrinkList())
-  }, [dispatch, getRandomDrinkList])
+    dispatch(getLatestDrinkList())
+    dispatch(getPopularDrinkList())
+  }, [dispatch, getRandomDrinkList, getLatestDrinkList, getPopularDrinkList])
 
   return (
     <>
-      {console.log('randomr', randomDrinkList)}
       {user.auth ? (
         <div className='userItemsContainer container'>
           <Row>
@@ -84,8 +96,8 @@ const HomeScreen = () => {
           </div>
         </div>
       )}
-      <Slider items={drinks} title={'Popular Drinks'} />
-      <Slider items={ingredients} title={'Popular Ingredients'} />
+      <Slider items={latestDrinkList} title={'Latest Drinks'} />
+      {/* <Slider items={ingredients} title={'Popular Ingredients'} /> */}
       {user.auth ? (
         <Slider items={randomDrinkList} title={'Random Drinks'} />
       ) : (
