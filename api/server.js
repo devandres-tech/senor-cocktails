@@ -3,12 +3,14 @@ import colors from 'colors'
 import config from 'config'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 import drinkRoutes from './routes/drinkRoutes'
 import ingredientRoutes from './routes/ingredientRoutes'
 
 const debug = require('debug')('server:debug')
 const api = express()
+api.use(cors())
 
 api.use(bodyParser.urlencoded({ extended: true }))
 

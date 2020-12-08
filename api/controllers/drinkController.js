@@ -3,6 +3,9 @@ import fetch from 'node-fetch'
 
 import { normalizeIngredients } from '../utils/utils'
 
+// @route GET api/v1/drinks/drinkId
+// @desc get a drink by id
+// @access public
 const getDrinkById = asyncHandler(async (req, res) => {
   const { drinkId } = req.params
   let data
@@ -42,8 +45,11 @@ const getDrinkById = asyncHandler(async (req, res) => {
   res.status(200).json(normalizedDrink)
 })
 
+// @route GET api/v1/drinks/list/:drinkList
+// @desc get a selection of drinks (random, latest, popular)
+// @access public and private
 const getDrinkList = asyncHandler(async (req, res) => {
-  const { listSelection } = req.params
+  const listSelection = req.params.listSelection.toLowerCase()
 
   const response = await fetch(
     `${process.env.THE_COCKTAIL_DB_BASE_URL}/${listSelection}.php`

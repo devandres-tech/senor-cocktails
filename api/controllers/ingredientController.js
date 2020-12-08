@@ -2,6 +2,9 @@ import asyncHandler from 'express-async-handler'
 import fetch from 'node-fetch'
 import { generateRandomNumbers } from '../utils/utils'
 
+// @route GET api/v1/ingredients/:ingredientId
+// @desc get an ingredient by id
+// @access public and private
 const getIngredientById = asyncHandler(async (req, res) => {
   const { ingredientId } = req.params
   let data
@@ -37,6 +40,9 @@ const getIngredientById = asyncHandler(async (req, res) => {
   })
 })
 
+// @route GET api/v1/ingredients/list/listSelection
+// @desc get a list of ingredients (popular, random, all)
+// @access public and private
 export const getIngredientList = asyncHandler(async (req, res) => {
   const listSelection = req.params.listSelection.toLowerCase()
 

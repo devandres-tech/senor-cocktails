@@ -20,7 +20,8 @@ const HomeScreen = () => {
   const { loading, error, drinkList } = drinkState
 
   useEffect(() => {
-    dispatch(getDrinkList('random'))
+    dispatch(getDrinkList('randomselection'))
+    dispatch(getDrinkList('popular'))
   }, [dispatch, getDrinkList])
 
   return (

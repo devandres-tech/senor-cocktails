@@ -1,18 +1,65 @@
 import {
-  DRINK_LIST_FAIL,
-  DRINK_LIST_REQUEST,
-  DRINK_LIST_SUCCESS,
+  LATEST_DRINK_LIST_FAIL,
+  LATEST_DRINK_LIST_REQUEST,
+  LATEST_DRINK_LIST_SUCCESS,
+  POPULAR_DRINK_LIST_FAIL,
+  POPULAR_DRINK_LIST_REQUEST,
+  POPULAR_DRINK_LIST_SUCCESS,
+  RANDOM_DRINK_LIST_FAIL,
+  RANDOM_DRINK_LIST_REQUEST,
+  RANDOM_DRINK_LIST_SUCCESS,
 } from '../constants/drinkConstants'
 
-export const drinkListReducer = (state = { drinkList: [] }, action) => {
+export const randomDrinkListReducer = (
+  state = { randomDrinkList: [] },
+  action
+) => {
   switch (action.type) {
-    case DRINK_LIST_REQUEST:
-      return { loading: true, drinkList: [] }
+    case RANDOM_DRINK_LIST_REQUEST:
+      return { loading: true, randomDrinkList: [] }
 
-    case DRINK_LIST_SUCCESS:
-      return { loading: false, drinkList: action.payload }
+    case RANDOM_DRINK_LIST_SUCCESS:
+      return { loading: false, randomDrinkList: action.payload }
 
-    case DRINK_LIST_FAIL:
+    case RANDOM_DRINK_LIST_FAIL:
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
+
+export const popularDrinkListReducer = (
+  state = { popularDrinkList: [] },
+  action
+) => {
+  switch (action.type) {
+    case POPULAR_DRINK_LIST_REQUEST:
+      return { loading: true, popularDrinkList: [] }
+
+    case POPULAR_DRINK_LIST_SUCCESS:
+      return { loading: false, popularDrinkList: action.payload }
+
+    case POPULAR_DRINK_LIST_FAIL:
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
+
+export const latestDrinkListReducer = (
+  state = { latestDrinkList: [] },
+  action
+) => {
+  switch (action.type) {
+    case LATEST_DRINK_LIST_REQUEST:
+      return { loading: true, latestDrinkList: [] }
+
+    case LATEST_DRINK_LIST_SUCCESS:
+      return { loading: false, latestDrinkList: action.payload }
+
+    case LATEST_DRINK_LIST_FAIL:
       return { loading: false, error: action.payload }
 
     default:
