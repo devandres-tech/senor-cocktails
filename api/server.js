@@ -32,7 +32,7 @@ const listen = api.listen(
     )} mode`.cyan.bold
   ),
   console.log(
-    `${config.get('port')} Server running in ${config.get(
+    `HELLO TEST ${config.get('port')} Server running in ${config.get(
       'name'
     )} mode on port ${config.get('port')}`.blue.bold
   )
