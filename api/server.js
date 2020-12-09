@@ -24,8 +24,6 @@ api.use(express.json())
 api.use('/api/v1/drinks', drinkRoutes)
 api.use('/api/v1/ingredients', ingredientRoutes)
 
-console.log('PORT---------->', config.get('port'))
-
 const listen = api.listen(
   config.get('port') || 5000,
   debug(
