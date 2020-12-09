@@ -27,7 +27,7 @@ api.use('/api/v1/ingredients', ingredientRoutes)
 console.log('PORT---------->', config.get('port'))
 
 const listen = api.listen(
-  config.get('port'),
+  config.get('port') || 5000,
   debug(
     `server is running on port ${config.get('port')} and in ${config.get(
       'name'
