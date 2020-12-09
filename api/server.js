@@ -6,6 +6,7 @@ import cors from 'cors'
 
 import drinkRoutes from './routes/drinkRoutes'
 import ingredientRoutes from './routes/ingredientRoutes'
+import config from 'config'
 
 const debug = require('debug')('server:debug')
 const api = express()
@@ -16,9 +17,6 @@ api.use(bodyParser.urlencoded({ extended: true }))
 // // HTTP request logger
 if (process.env.NODE_ENV === 'development') {
   api.use(morgan('dev'))
-}
-if (process.env.NODE_ENV !== 'production') {
-  import config from 'config'
 }
 
 api.use(express.json())
