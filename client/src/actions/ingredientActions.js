@@ -1,14 +1,14 @@
 import axios from '../axios'
-import { POPULAR_DRINK_LIST_SUCCESS } from '../constants/drinkConstants'
 import {
   POPULAR_INGREDIENT_LIST_FAIL,
   POPULAR_INGREDIENT_LIST_REQUEST,
+  POPULAR_INGREDIENT_LIST_SUCCESS,
   RANDOM_INGREDIENT_LIST_FAIL,
   RANDOM_INGREDIENT_LIST_REQUEST,
   RANDOM_INGREDIENT_LIST_SUCCESS,
 } from '../constants/ingredientActions'
 
-export const getRandomIngredients = () => async (dispatch) => {
+export const getRandomIngredientList = () => async (dispatch) => {
   try {
     dispatch({ type: RANDOM_INGREDIENT_LIST_REQUEST })
 
@@ -19,12 +19,12 @@ export const getRandomIngredients = () => async (dispatch) => {
   }
 }
 
-export const getPopularIngredient = () => async (dispatch) => {
+export const getPopularIngredientList = () => async (dispatch) => {
   try {
     dispatch({ type: POPULAR_INGREDIENT_LIST_REQUEST })
 
     const { data } = await axios.get('/ingredients/list/popular')
-    dispatch({ type: POPULAR_DRINK_LIST_SUCCESS, payload: data })
+    dispatch({ type: POPULAR_INGREDIENT_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: POPULAR_INGREDIENT_LIST_FAIL, payload: error })
   }

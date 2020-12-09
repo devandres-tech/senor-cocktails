@@ -26,7 +26,7 @@ export const randomIngredientListReducer = (
   }
 }
 
-export const popularIngredientList = (
+export const popularIngredientListReducer = (
   state = { popularIngredientList: [] },
   action
 ) => {

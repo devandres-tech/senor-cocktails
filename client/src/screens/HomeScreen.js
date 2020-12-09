@@ -15,6 +15,10 @@ import {
   getPopularDrinkList,
   getLatestDrinkList,
 } from '../actions/drinkActions'
+import {
+  getRandomIngredientList,
+  getPopularIngredientList,
+} from '../actions/ingredientActions'
 
 const HomeScreen = () => {
   const user = { auth: true }
@@ -30,11 +34,23 @@ const HomeScreen = () => {
     latestDrinkList,
   } = latestDrinkListState
 
+  const randomIngredientListState = useSelector(
+    (state) => state.randomIngredientList
+  )
+  const { randomIngredientList } = randomIngredientListState
+
+  const popularIngredientListState = useSelector(
+    (state) => state.popularIngredientList
+  )
+  const { popularIngredientList } = popularIngredientListState
+
   useEffect(() => {
     dispatch(getRandomDrinkList())
     dispatch(getLatestDrinkList())
     dispatch(getPopularDrinkList())
-  }, [dispatch, getRandomDrinkList, getLatestDrinkList, getPopularDrinkList])
+    dispatch(getRandomIngredientList())
+    dispatch(getPopularIngredientList())
+  }, [dispatch])
 
   return (
     <>
@@ -97,7 +113,7 @@ const HomeScreen = () => {
         </div>
       )}
       <Slider items={latestDrinkList} title={'Latest Drinks'} />
-      {/* <Slider items={ingredients} title={'Popular Ingredients'} /> */}
+      <Slider items={popularIngredientList} title={'Popular Ingredients'} />
       {user.auth ? (
         <Slider items={randomDrinkList} title={'Random Drinks'} />
       ) : (
@@ -105,7 +121,7 @@ const HomeScreen = () => {
       )}
       {user.auth ? (
         <Slider
-          items={ingredients}
+          items={randomIngredientList}
           type={'random'}
           title={'Random Ingredients'}
         />

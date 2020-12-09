@@ -8,10 +8,17 @@ import {
   popularDrinkListReducer,
 } from './reducers/drinkReducers'
 
+import {
+  randomIngredientListReducer,
+  popularIngredientListReducer,
+} from './reducers/ingredientReducers'
+
 const reducer = combineReducers({
   randomDrinkList: randomDrinkListReducer,
   latestDrinkList: latestDrinkListReducer,
   popularDrinkList: popularDrinkListReducer,
+  randomIngredientList: randomIngredientListReducer,
+  popularIngredientList: popularIngredientListReducer,
 })
 
 const initialState = {}
