@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'development') {
 api.use(_express.default.json());
 api.use('/api/v1/drinks', _drinkRoutes.default);
 api.use('/api/v1/ingredients', _ingredientRoutes.default);
-var listen = api.listen(_config.default.get('port'), '0.0.0.0', debug("server is running on port ".concat(_config.default.get('port'), " and in ").concat(_config.default.get('name'), " mode").cyan.bold), console.log("Server running in ".concat(_config.default.get('name'), " mode on port ").concat(_config.default.get('port')).blue.bold)); // export for testing purposes
+var listen = api.listen(_config.default.get('port'), debug("server is running on port ".concat(_config.default.get('port'), " and in ").concat(_config.default.get('name'), " mode").cyan.bold), console.log("HELLO TEST ".concat(_config.default.get('port'), " Server running in ").concat(_config.default.get('name'), " mode on port ").concat(_config.default.get('port')).blue.bold)); // export for testing purposes
 
 exports.listen = listen;
 //# sourceMappingURL=server.js.map
