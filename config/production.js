@@ -3,5 +3,5 @@ dotenv.config()
 
 module.exports = {
   name: 'Production',
-  port: process.env.PROD_PORT,
+  port: Number(process.env.PROD_PORT),
 }
