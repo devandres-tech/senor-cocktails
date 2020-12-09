@@ -1,6 +1,5 @@
 import express from 'express'
 import colors from 'colors'
-import config from 'config'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import cors from 'cors'
@@ -17,6 +16,9 @@ api.use(bodyParser.urlencoded({ extended: true }))
 // // HTTP request logger
 if (process.env.NODE_ENV === 'development') {
   api.use(morgan('dev'))
+}
+if (process.env.NODE_ENV !== 'production') {
+  import config from 'config'
 }
 
 api.use(express.json())

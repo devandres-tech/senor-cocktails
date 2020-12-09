@@ -10,7 +10,6 @@
 
 # production
 /build
-api/build
 /dist
 
 # misc
