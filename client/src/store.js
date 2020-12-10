@@ -11,6 +11,7 @@ import {
 import {
   randomIngredientListReducer,
   popularIngredientListReducer,
+  ingredientDetailsReducer,
 } from './reducers/ingredientReducers'
 
 const reducer = combineReducers({
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   popularDrinkList: popularDrinkListReducer,
   randomIngredientList: randomIngredientListReducer,
   popularIngredientList: popularIngredientListReducer,
+  ingredientDetails: ingredientDetailsReducer,
 })
 
 const initialState = {}

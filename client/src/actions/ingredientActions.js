@@ -1,5 +1,8 @@
 import axios from '../axios'
 import {
+  INGREDIENT_DETAILS_FAIL,
+  INGREDIENT_DETAILS_REQUEST,
+  INGREDIENT_DETAILS_SUCCESS,
   POPULAR_INGREDIENT_LIST_FAIL,
   POPULAR_INGREDIENT_LIST_REQUEST,
   POPULAR_INGREDIENT_LIST_SUCCESS,
@@ -27,5 +30,16 @@ export const getPopularIngredientList = () => async (dispatch) => {
     dispatch({ type: POPULAR_INGREDIENT_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: POPULAR_INGREDIENT_LIST_FAIL, payload: error })
+  }
+}
+
+export const getIngredientDetails = (ingredientId) => async (dispatch) => {
+  try {
+    dispatch({ type: INGREDIENT_DETAILS_REQUEST })
+
+    const { data } = await axios.get(`/ingredients/${ingredientId}`)
+    dispatch({ type: INGREDIENT_DETAILS_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({ type: INGREDIENT_DETAILS_FAIL, payload: error })
   }
 }
