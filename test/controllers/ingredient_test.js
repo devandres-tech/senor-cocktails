@@ -72,4 +72,22 @@ describe.only('Ingredient controller', () => {
       expect(response.body.error).to.equal('Ingredient list not found')
     })
   })
+
+  describe('Search ingredients via api/v1/ingredients/search?params', () => {
+    it('should get search ingredient by name', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients/search?name=Orange Slice`
+      )
+      expect(response).to.have.status(200)
+      expect(response.body).to.not.be.empty
+    })
+
+    it('should return 404 if ingredient is not found', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients/search?name=invalid`
+      )
+      expect(response).to.have.status(404)
+      expect(response.body.error).to.equal({ error: 'Ingredient not found' })
+    })
+  })
 })

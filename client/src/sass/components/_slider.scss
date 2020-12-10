@@ -19,6 +19,10 @@
 
 .swiper-pagination {
   bottom: 0 !important;
+
+  @include responsive(mobile) {
+    display: none;
+  }
 }
 
 .swiper-pagination-bullet {
@@ -92,10 +96,10 @@ swiper-button-disabled {
 
   &__item {
 
-    &>img {
+    &>a>img {
       cursor: pointer;
-      height: inherit;
-      width: inherit;
+      height: 100%;
+      width: 100%;
 
       @include responsive(mobile) {
         padding-left: 0;

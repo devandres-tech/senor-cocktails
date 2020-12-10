@@ -43,7 +43,7 @@ const getIngredientById = asyncHandler(async (req, res) => {
 // @route GET api/v1/ingredients/list/listSelection
 // @desc get a list of ingredients (popular, random, all)
 // @access public and private
-export const getIngredientList = asyncHandler(async (req, res) => {
+const getIngredientList = asyncHandler(async (req, res) => {
   const listSelection = req.params.listSelection.toLowerCase()
 
   const response = await fetch(
@@ -81,4 +81,8 @@ export const getIngredientList = asyncHandler(async (req, res) => {
   }
 })
 
-export { getIngredientById }
+// @route GET api/v1/ingredients/search?params
+// @desc search ingredients by name
+// @access public
+
+export { getIngredientById, getIngredientList }
