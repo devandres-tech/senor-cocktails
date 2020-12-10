@@ -2,10 +2,6 @@ import mongoose from 'mongoose'
 
 const ingredientSchema = mongoose.Schema(
   {
-    id: {
-      type: String,
-      required: true,
-    },
     image: {
       type: String,
     },

@@ -7,8 +7,13 @@ import cors from 'cors'
 import drinkRoutes from './routes/drinkRoutes'
 import ingredientRoutes from './routes/ingredientRoutes'
 import config from 'config'
+import connectDB from './db'
 
 const debug = require('debug')('server:debug')
+
+// connect to database
+connectDB()
+
 const api = express()
 api.use(cors())
 

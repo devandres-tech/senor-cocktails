@@ -7,7 +7,7 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
 import DrinkListScreen from './screens/DrinkListScreen'
-import IngredientScreen from './screens/IngredientScreen'
+import IngredientDetailsScreen from './screens/IngredientDetailsScreen'
 
 const MainRoutes = () => (
   <>
@@ -15,7 +15,10 @@ const MainRoutes = () => (
     <main>
       <Route path='/' exact component={HomeScreen} />
       <Route path='/drinklist/:drinktype' component={DrinkListScreen} />
-      <Route path='/ingredient/:ingredientId' component={IngredientScreen} />
+      <Route
+        path='/ingredient/:ingredientId'
+        component={IngredientDetailsScreen}
+      />
     </main>
     <Footer />
   </>

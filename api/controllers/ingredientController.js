@@ -1,8 +1,9 @@
 import asyncHandler from 'express-async-handler'
 import fetch from 'node-fetch'
 import { generateRandomNumbers } from '../utils/utils'
+import Ingredient from '../models/IngredientModel'
 
-// @route GET api/v1/ingredients/:ingredientId
+// @route GET api/v1/ingredients/:ingredientId?name=ingredient_name
 // @desc get an ingredient by id
 // @access public and private
 const getIngredientById = asyncHandler(async (req, res) => {
@@ -34,7 +35,7 @@ const getIngredientById = asyncHandler(async (req, res) => {
     description: ingredient.strDescription,
     type: ingredient.strType,
     alcoholic: ingredient.strAlcohol,
-    ABV: ingredient.strAVB,
+    ABV: ingredient.strABV,
     userFavorite: false,
     image,
   })
