@@ -51,7 +51,11 @@ const Slider = ({ items, title, type }) => {
         {items.map((item, idx) => (
           <SwiperSlide key={idx} className='sliderContainer__item'>
             <Link
-              to={item.id ? `/drink/${item.id}` : `/ingredient/${item.name}`}
+              to={
+                type === 'drink'
+                  ? `/drink/${item.id}`
+                  : `/ingredient/${item.id}`
+              }
             >
               <img src={item.image} alt='cocktail' />
               <p className='sliderContainer__itemTitle'>{item.name}</p>

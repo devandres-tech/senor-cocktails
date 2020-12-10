@@ -7,7 +7,7 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
 import DrinkListScreen from './screens/DrinkListScreen'
-import IngredientScreen from './screens/DrinkListScreen'
+import IngredientScreen from './screens/IngredientScreen'
 
 const MainRoutes = () => (
   <>

@@ -112,17 +112,25 @@ const HomeScreen = () => {
           </div>
         </div>
       )}
-      <Slider items={latestDrinkList} title={'Latest Drinks'} />
-      <Slider items={popularIngredientList} title={'Popular Ingredients'} />
+      <Slider items={latestDrinkList} type={'drink'} title={'Latest Drinks'} />
+      <Slider
+        items={popularIngredientList}
+        type={'ingredient'}
+        title={'Popular Ingredients'}
+      />
       {user.auth ? (
-        <Slider items={randomDrinkList} title={'Random Drinks'} />
+        <Slider
+          items={randomDrinkList}
+          type={'drink'}
+          title={'Random Drinks'}
+        />
       ) : (
         ''
       )}
       {user.auth ? (
         <Slider
           items={randomIngredientList}
-          type={'random'}
+          type={'ingredient'}
           title={'Random Ingredients'}
         />
       ) : (

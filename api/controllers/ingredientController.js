@@ -51,11 +51,13 @@ const getIngredientList = asyncHandler(async (req, res) => {
   )
   const { drinks } = await response.json()
 
-  const ingredientList = drinks.map((ingredient) => {
+  const ingredientList = drinks.map((ingredient, index) => {
+    const id = index + 1
     const image = encodeURI(
       `https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient1}.png`
     )
     return {
+      id,
       name: ingredient.strIngredient1,
       image,
     }
@@ -80,9 +82,5 @@ const getIngredientList = asyncHandler(async (req, res) => {
       return res.status(404).json({ error: 'Ingredient list not found' })
   }
 })
-
-// @route GET api/v1/ingredients/search?params
-// @desc search ingredients by name
-// @access public
 
 export { getIngredientById, getIngredientList }
