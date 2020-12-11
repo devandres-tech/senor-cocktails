@@ -6,88 +6,34 @@ chai.use(chaiHttp)
 const { expect, request } = chai
 
 describe.only('Ingredient controller', () => {
+  describe('get all ingredients vi api/v11/ingredients', () => {
+    it('should return all ingredients', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients`
+      )
+
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(484)
+    })
+  })
+
   describe('get ingredient details by id via api/v1/ingredients/:ingredientId', () => {
     it('should return 200 for a valid request', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/552`
-      )
-
-      expect(response).to.have.status(200)
-    })
-
-    it('should return additional details for a valid request', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/552`
+        `${process.env.BASE_API_URL}/ingredients/5fd2ccbe6475e3093189d0bc`
       )
 
       expect(response).to.have.status(200)
       expect(response.body).to.not.be.empty
-      expect(response.body.image).to.not.be.empty
     })
 
     it('should return 404 for an invalid request', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/1111`
+        `${process.env.BASE_API_URL}/ingredients/0000`
       )
 
       expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Ingredient not found')
-    })
-  })
-
-  describe('get ingredient list via api/v1/ingredients/list/:listSelection', () => {
-    it('should return all ingredients', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/list/all`
-      )
-
-      expect(response).to.have.status(200)
-      expect(response.body).to.not.be.empty
-    })
-
-    it('should return the most popular ingredients', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/list/popular`
-      )
-
-      expect(response).to.have.status(200)
-      expect(response.body.length).to.equal(10)
-    })
-
-    it('should return random ingredients', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/list/random`
-      )
-
-      expect(response).to.have.status(200)
-      expect(response.body.length).to.equal(10)
-    })
-
-    it('should return 404 for an invalid request', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/list/invalidargument`
-      )
-
-      expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Ingredient list not found')
-    })
-  })
-
-  describe('Search ingredients via api/v1/ingredients/search?params', () => {
-    it('should get search ingredient by name', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/search?name=Orange Slice`
-      )
-      expect(response).to.have.status(200)
-      expect(response.body).to.not.be.empty
-    })
-
-    it('should return 404 if ingredient is not found', async () => {
-      const response = await request(api).get(
-        `${process.env.BASE_API_URL}/ingredients/search?name=invalid`
-      )
-      expect(response).to.have.status(404)
-      expect(response.body.error).to.equal({ error: 'Ingredient not found' })
+      expect(response.body.Error).to.equal('Invalid object id')
     })
   })
 })
