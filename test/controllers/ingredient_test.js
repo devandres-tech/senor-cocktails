@@ -26,6 +26,24 @@ describe.only('Ingredient controller', () => {
       expect(response).to.have.status(200)
       expect(response.body.length).to.equal(10)
     })
+
+    it('should return 404 for invalid sorting value', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients?sort=invalid`
+      )
+
+      expect(response).to.have.status(404)
+      expect(response.body.Error).to.equal('Invalid sorting value')
+    })
+
+    it('should return random ingredients', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients?sort=random`
+      )
+
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(10)
+    })
   })
 
   describe('get ingredient details by id via api/v1/ingredients/:ingredientId', () => {

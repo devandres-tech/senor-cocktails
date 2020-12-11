@@ -6,8 +6,7 @@ import { generateRandomNumbers } from '../utils/utils'
 import Ingredient from '../models/IngredientModel'
 
 const getIngredients = asyncHandler(async (req, res) => {
-  const { sort } = req.query
-
+  const sort = req.query.sort
   const ingredients = await Ingredient.find({})
 
   if (!ingredients) {
@@ -16,6 +15,18 @@ const getIngredients = asyncHandler(async (req, res) => {
 
   if (sort === 'popular') {
     return res.status(200).json(ingredients.slice(0, 10))
+  }
+
+  if (sort === 'random') {
+    const randomNumbers = generateRandomNumbers(10)
+    const randomIngredients = randomNumbers.map((index) => {
+      return ingredients[index]
+    })
+    return res.status(200).json(randomIngredients)
+  }
+
+  if ((sort !== 'popular' || sort !== 'random') && sort !== undefined) {
+    return res.status(404).json({ Error: 'Invalid sorting value' })
   }
 
   res.status(200).json(ingredients)
