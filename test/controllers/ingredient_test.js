@@ -17,6 +17,17 @@ describe.only('Ingredient controller', () => {
     })
   })
 
+  describe('filter ingredients ', () => {
+    it('should return popular ingredients', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/ingredients?sort=popular`
+      )
+
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(10)
+    })
+  })
+
   describe('get ingredient details by id via api/v1/ingredients/:ingredientId', () => {
     it('should return 200 for a valid request', async () => {
       const response = await request(api).get(
