@@ -20,21 +20,20 @@ const getIngredientById = asyncHandler(async (req, res) => {
 })
 
 const getIngredients = asyncHandler(async (req, res) => {
-  const sort = req.query.sort
+  let sort
+  if (req.query.sort) {
+    sort = req.query.sort.toLocaleLowerCase()
+  }
   const ingredients = await Ingredient.find({})
-  if (!ingredients) {
+  if (!ingredients)
     return res.status(404).json({ Error: 'Ingredients not found' })
-  }
 
-  if (sort === 'popular') {
-    return res.status(200).json(ingredients.slice(0, 10))
-  }
+  if (sort === 'popular') return res.status(200).json(ingredients.slice(0, 10))
 
   if (sort === 'random') {
-    const randomNumbers = generateRandomNumbers(10)
-    const randomIngredients = randomNumbers.map((index) => {
-      return ingredients[index]
-    })
+    const randomIngredients = await Ingredient.aggregate([
+      { $sample: { size: 10 } },
+    ])
     return res.status(200).json(randomIngredients)
   }
 

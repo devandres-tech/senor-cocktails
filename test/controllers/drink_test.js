@@ -27,40 +27,49 @@ describe.only('Drink Controller', () => {
   })
 
   describe('get drink list by selection via api/v1/drinks/list/:listSelection', () => {
-    it('should return 404 for invalid request', async () => {
+    it('should return empty object when sort is not a valid argument', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/drinks/list/invalidargument`
+        `${process.env.BASE_API_URL}/drinks?sort=invalid`
       )
 
-      expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Invalid request')
+      expect(response).to.have.status(200)
+      expect(response.body).to.be.empty
     })
 
     it('should return the latest drinks', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/drinks/list/latest`
+        `${process.env.BASE_API_URL}/drinks?sort=latest`
       )
 
       expect(response).to.have.status(200)
-      expect(response.body).to.not.be.empty
+      expect(response.body.length).to.equal(10)
+    })
+
+    it('should return all drinks', async () => {
+      const response = await request(api).get(
+        `${process.env.BASE_API_URL}/drinks`
+      )
+
+      expect(response).to.have.status(200)
+      expect(response.body.length).to.equal(596)
     })
 
     it('should return random drinks', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/drinks/list/randomselection`
+        `${process.env.BASE_API_URL}/drinks?sort=random`
       )
 
       expect(response).to.have.status(200)
-      expect(response.body).to.not.be.empty
+      expect(response.body.length).to.equal(10)
     })
 
     it('should return the most popular drinks', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/drinks/list/popular`
+        `${process.env.BASE_API_URL}/drinks?sort=popular`
       )
 
       expect(response).to.have.status(200)
-      expect(response.body).to.not.be.empty
+      expect(response.body.length).to.equal(10)
     })
   })
 })

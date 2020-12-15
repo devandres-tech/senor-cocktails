@@ -1,10 +1,10 @@
 import express from 'express'
 
-import { getDrinkList, getDrinkById } from '../controllers/drinkController'
+import { getDrinks, getDrinkById } from '../controllers/drinkController'
 
 const router = express.Router()
 
+router.route('/').get(getDrinks)
 router.route('/:drinkId').get(getDrinkById)
-router.route('/list/all').get(getDrinkList)
 
 export default router

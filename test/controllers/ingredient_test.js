@@ -13,7 +13,7 @@ describe('Ingredient controller', () => {
       )
 
       expect(response).to.have.status(200)
-      expect(response.body.length).to.equal(484)
+      expect(response.body.length).to.equal(485)
     })
   })
 

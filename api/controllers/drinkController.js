@@ -23,8 +23,70 @@ const getDrinkById = asyncHandler(async (req, res) => {
 // @route GET api/v1/drinks/list/:drinkList
 // @desc get a selection of drinks (random, latest, popular)
 // @access public and private
-const getDrinkList = asyncHandler(async (req, res) => {
-  res.status(200).json(allDrinks)
+const getDrinks = asyncHandler(async (req, res) => {
+  let sort
+  if (req.query.sort) {
+    sort = req.query.sort.toLocaleLowerCase()
+  }
+  const drinks = await Drink.find({})
+
+  if (sort === 'random') {
+    const randomDrinks = await Drink.aggregate([{ $sample: { size: 10 } }])
+    return res.status(200).json(randomDrinks)
+  }
+
+  if (sort === 'popular') {
+    const popularDrinks = [
+      'Mojito',
+      'Old Fashioned',
+      'Long Island Tea',
+      'Negroni',
+      'Whiskey Sour',
+      'Dry Martini',
+      'Daiquiri',
+      'Margarita',
+      'Manhattan',
+      'Moscow Mule',
+    ]
+    const popularDrinksFound = await Promise.all(
+      popularDrinks.map(async (drink) => {
+        const drinkFound = await Drink.find({ name: drink })
+        return drinkFound[0]
+      })
+    )
+    return res.status(200).json(popularDrinksFound)
+  }
+
+  if (sort === 'latest') {
+    const latestDrinks = [
+      'Figgy Thyme',
+      'Michelada',
+      'Gin and Soda',
+      'Orange Romsemary Collins',
+      'Garibaldi Negroni',
+      'The Strange Weaver',
+      'Pure Passion',
+      'Autumn Garibaldi',
+      'Blueberry Mojito',
+      'Lazy Coconut Paloma',
+    ]
+    const latestDrinksFound = await Promise.all(
+      latestDrinks.map(async (drink) => {
+        const drinkFound = await Drink.find({ name: drink })
+        return drinkFound[0]
+      })
+    )
+    return res.status(200).json(latestDrinksFound)
+  }
+
+  if (
+    (sort !== 'popular' || sort !== 'random' || sort !== 'latest') &&
+    sort !== undefined
+  ) {
+    return res.status(200).json({})
+  }
+
+  res.status(200).json(drinks)
 })
 
-export { getDrinkList, getDrinkById }
+export { getDrinks, getDrinkById }
