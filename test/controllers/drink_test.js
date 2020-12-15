@@ -5,7 +5,7 @@ import { api } from '../../api/server'
 chai.use(chaiHttp)
 const { expect, request } = chai
 
-describe('Drink Controller', () => {
+describe.only('Drink Controller', () => {
   describe('get drink details by id via api/v1/drinks/:drinkId', () => {
     it('should return 404 if drink does exist', async () => {
       const response = await request(api).get(
@@ -13,12 +13,12 @@ describe('Drink Controller', () => {
       )
 
       expect(response).to.have.status(404)
-      expect(response.body.error).to.equal('Drink not found')
+      expect(response.body.Error).to.equal('Invalid object id')
     })
 
     it('should return 200 when drink is found', async () => {
       const response = await request(api).get(
-        `${process.env.BASE_API_URL}/drinks/11007`
+        `${process.env.BASE_API_URL}/drinks/5fd81b89fcdcc2d6da1c864f`
       )
 
       expect(response).to.have.status(200)

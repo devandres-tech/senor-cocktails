@@ -5,7 +5,7 @@ import { api } from '../../api/server'
 chai.use(chaiHttp)
 const { expect, request } = chai
 
-describe.only('Ingredient controller', () => {
+describe('Ingredient controller', () => {
   describe('get all ingredients vi api/v11/ingredients', () => {
     it('should return all ingredients', async () => {
       const response = await request(api).get(

@@ -4,7 +4,6 @@ const drinkSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: 'User',
     },
     name: {
@@ -14,11 +13,9 @@ const drinkSchema = mongoose.Schema(
     tags: [String],
     category: {
       type: String,
-      required: true,
     },
     IBA: {
       type: String,
-      required: true,
     },
     alcoholic: {
       type: String,
@@ -26,7 +23,6 @@ const drinkSchema = mongoose.Schema(
     },
     glassType: {
       type: String,
-      required: true,
     },
     instructions: {
       EN: {
@@ -45,17 +41,23 @@ const drinkSchema = mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
     },
     ingredients: [
       {
+        ingredient: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Ingredient',
+          required: true,
+        },
         name: {
           type: String,
-        },
-        id: {
-          type: String,
+          required: true,
         },
         image: {
+          type: String,
+          required: true,
+        },
+        measurement: {
           type: String,
         },
       },
@@ -64,11 +66,10 @@ const drinkSchema = mongoose.Schema(
       {
         rating: {
           type: Number,
-          required: true,
+          default: 0,
         },
         user: {
           type: mongoose.Schema.Types.ObjectId,
-          required: true,
           ref: 'User',
         },
       },
@@ -76,14 +77,12 @@ const drinkSchema = mongoose.Schema(
     triedIt: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'User',
       },
     ],
     userFavorite: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'User',
       },
     ],
