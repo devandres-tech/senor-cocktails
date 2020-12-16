@@ -21,6 +21,7 @@ const Slider = ({ items, title, type }) => {
         windowDimensions.width < config.TABLET_WIDTH ? '' : ' container'
       }`}
     >
+      {console.log('IMTES', items)}
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
         <Link className='default-linkStyle'>See All</Link>
@@ -53,8 +54,8 @@ const Slider = ({ items, title, type }) => {
             <Link
               to={
                 type === 'drink'
-                  ? `/drink/${item.id}`
-                  : `/ingredient/${item.id}`
+                  ? `/drink/${item._id}`
+                  : `/ingredient/${item._id}`
               }
             >
               <img src={item.image} alt='cocktail' />

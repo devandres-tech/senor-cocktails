@@ -15,7 +15,7 @@ export const getRandomDrinkList = () => async (dispatch) => {
   try {
     dispatch({ type: RANDOM_DRINK_LIST_REQUEST })
 
-    const { data } = await axios.get(`/drinks/list/randomselection`)
+    const { data } = await axios.get(`/drinks?sort=random`)
     dispatch({ type: RANDOM_DRINK_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -29,7 +29,7 @@ export const getPopularDrinkList = () => async (dispatch) => {
   try {
     dispatch({ type: POPULAR_DRINK_LIST_REQUEST })
 
-    const { data } = await axios.get(`/drinks/list/popular`)
+    const { data } = await axios.get(`/drinks?sort=popular`)
     dispatch({ type: POPULAR_DRINK_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -43,7 +43,7 @@ export const getLatestDrinkList = () => async (dispatch) => {
   try {
     dispatch({ type: LATEST_DRINK_LIST_REQUEST })
 
-    const { data } = await axios.get(`/drinks/list/latest`)
+    const { data } = await axios.get(`/drinks?sort=latest`)
     dispatch({ type: LATEST_DRINK_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({

@@ -62,7 +62,7 @@ const getDrinks = asyncHandler(async (req, res) => {
       'Figgy Thyme',
       'Michelada',
       'Gin and Soda',
-      'Orange Romsemary Collins',
+      'Orange Rosemary Collins',
       'Garibaldi Negroni',
       'The Strange Weaver',
       'Pure Passion',

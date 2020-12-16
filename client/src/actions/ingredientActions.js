@@ -15,7 +15,7 @@ export const getRandomIngredientList = () => async (dispatch) => {
   try {
     dispatch({ type: RANDOM_INGREDIENT_LIST_REQUEST })
 
-    const { data } = await axios.get('/ingredients/list/random')
+    const { data } = await axios.get('/ingredients?sort=random')
     dispatch({ type: RANDOM_INGREDIENT_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: RANDOM_INGREDIENT_LIST_FAIL, payload: error })
@@ -26,7 +26,7 @@ export const getPopularIngredientList = () => async (dispatch) => {
   try {
     dispatch({ type: POPULAR_INGREDIENT_LIST_REQUEST })
 
-    const { data } = await axios.get('/ingredients/list/popular')
+    const { data } = await axios.get('/ingredients?sort=popular')
     dispatch({ type: POPULAR_INGREDIENT_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: POPULAR_INGREDIENT_LIST_FAIL, payload: error })
