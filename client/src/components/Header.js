@@ -92,10 +92,12 @@ const StyledBurger = styled.button`
     }
   }
 `
-const Menu = ({ open }) => {
+const Menu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open}>
-      <Link to='/'>Home</Link>
+      <Link onClick={() => setOpen(!open)} to='/'>
+        Home
+      </Link>
       <Link>Popular Drinks</Link>
       <Link>Ingredients</Link>
       <Link>My Bar</Link>

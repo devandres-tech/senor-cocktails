@@ -1,11 +1,21 @@
 .ingredientContainer {
   padding-top: 8rem;
 
+  @include responsive(mobile) {
+    padding-top: 2rem;
+  }
+
   &__left {
     text-align: center;
+
     & > h1 {
       font-size: $font-size-h1;
       padding-bottom: 34px;
+
+      @include responsive(mobile) {
+        padding-bottom: 15px;
+        font-size: $font-size-h1-mobile;
+      }
     }
     & > img {
       width: 100%;
@@ -14,6 +24,10 @@
     & > button {
       font-size: 12px;
       letter-spacing: 0.8px;
+
+      @include responsive(mobile) {
+        width: 100%;
+      }
     }
   }
 
@@ -22,16 +36,44 @@
     font-size: 1rem;
     line-height: 1.8rem;
 
+    @include responsive(mobile) {
+      padding-top: 2rem;
+      font-size: $font-size-body;
+      line-height: 1.5rem;
+    }
+
     & > .typeContent {
       padding-bottom: 2rem;
+
+      @include responsive(mobile) {
+        padding-bottom: 1rem;
+      }
+
       & > h2 {
         font-size: $font-size-h2;
         padding-bottom: 0.5rem;
+
+        @include responsive(mobile) {
+          font-size: $font-size-h2-mobile;
+        }
+      }
+
+      & > p {
+        color: $color-green-primary;
       }
     }
+
     & > h2 {
       font-size: $font-size-h2;
       padding-bottom: 0.5rem;
+
+      @include responsive(mobile) {
+        font-size: $font-size-h2-mobile;
+      }
+    }
+    .truncateText {
+      color: $link-color;
+      cursor: pointer;
     }
   }
 }
