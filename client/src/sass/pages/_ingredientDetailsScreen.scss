@@ -1,0 +1,31 @@
+.ingredientContainer {
+  padding-top: 8rem;
+
+  &__left {
+    text-align: center;
+    & > h1 {
+      font-size: $font-size-h1;
+      padding-bottom: 34px;
+    }
+    & > img {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    padding-top: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    & > .typeContent {
+      padding-bottom: 2rem;
+      & > h2 {
+        font-size: $font-size-h2;
+        padding-bottom: 0.5rem;
+      }
+    }
+    & > h2 {
+      font-size: $font-size-h2;
+      padding-bottom: 0.5rem;
+    }
+  }
+}

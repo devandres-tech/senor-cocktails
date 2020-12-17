@@ -21,12 +21,14 @@ const Slider = ({ items, title, type }) => {
         windowDimensions.width < config.TABLET_WIDTH ? '' : ' container'
       }`}
     >
-      {console.log('IMTES', items)}
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
         <Link className='default-linkStyle'>See All</Link>
       </div>
       <Swiper
+        lazy={{
+          loadPrevNext: true,
+        }}
         draggable={false}
         speed={500}
         spaceBetween={windowDimensions.width < config.TABLET_WIDTH ? 5 : 10}

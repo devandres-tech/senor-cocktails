@@ -168,7 +168,9 @@ const Navbar = () => (
         </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>Home</Link>
+        <Link to='/' className='hoverLinkStyle'>
+          Home
+        </Link>
       </li>
       <li className='containerNavbar__item'>
         <Link className='hoverLinkStyle'>Popular Drinks</Link>
