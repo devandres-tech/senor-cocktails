@@ -5,6 +5,23 @@
     padding-top: 2rem;
   }
 
+  &__goBack {
+    padding-left: 3rem;
+    padding-top: 3rem;
+    font-size: $font-size-body;
+    color: $link-color;
+
+    @include responsive(mobile) {
+      padding-top: 1rem;
+      padding-left: 1rem;
+    }
+
+    cursor: pointer;
+    & > i {
+      padding-right: 0.5rem;
+    }
+  }
+
   &__left {
     text-align: center;
 

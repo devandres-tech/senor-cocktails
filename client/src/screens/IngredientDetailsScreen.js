@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import { getIngredientDetails } from '../actions/ingredientActions'
 
-const IngredientScreen = ({ match }) => {
+const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
   const dispatch = useDispatch()
 
@@ -25,11 +25,18 @@ const IngredientScreen = ({ match }) => {
   }
 
   return (
-    <Container className='ingredientContainer'>
-      {loading ? (
-        <h1>Loading....</h1>
-      ) : (
-        <>
+    <>
+      <div
+        onClick={() => history.goBack()}
+        className='ingredientContainer__goBack'
+      >
+        <i className='fas fa-chevron-left'></i>
+        <span>Go back</span>
+      </div>
+      <Container className='ingredientContainer'>
+        {loading ? (
+          <h1>Loading....</h1>
+        ) : (
           <Row>
             <Col md={4}>
               <div className='ingredientContainer__left'>
@@ -70,9 +77,9 @@ const IngredientScreen = ({ match }) => {
               </div>
             </Col>
           </Row>
-        </>
-      )}
-    </Container>
+        )}
+      </Container>
+    </>
   )
 }
 
