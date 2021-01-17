@@ -5,9 +5,29 @@
     padding-top: 2rem;
   }
 
+  h1 {
+    font-size: $font-size-h1;
+    padding-bottom: 34px;
+
+    @include responsive(mobile) {
+      padding-bottom: 15px;
+      font-size: $font-size-h1-mobile;
+    }
+  }
+
+  & > h2 {
+    font-size: $font-size-h2;
+    padding-bottom: 0.5rem;
+
+    @include responsive(mobile) {
+      font-size: $font-size-h2-mobile;
+    }
+  }
+
   &__goBack {
-    padding-left: 3rem;
-    padding-top: 3rem;
+    // padding-left: 3rem;
+    // padding-top: 3rem;
+    padding-bottom: 4rem;
     font-size: $font-size-body;
     color: $link-color;
 
@@ -25,15 +45,6 @@
   &__left {
     text-align: center;
 
-    & > h1 {
-      font-size: $font-size-h1;
-      padding-bottom: 34px;
-
-      @include responsive(mobile) {
-        padding-bottom: 15px;
-        font-size: $font-size-h1-mobile;
-      }
-    }
     & > img {
       width: 100%;
       padding-bottom: 20px;
@@ -66,28 +77,11 @@
         padding-bottom: 1rem;
       }
 
-      & > h2 {
-        font-size: $font-size-h2;
-        padding-bottom: 0.5rem;
-
-        @include responsive(mobile) {
-          font-size: $font-size-h2-mobile;
-        }
-      }
-
       & > p {
         color: $color-green-primary;
       }
     }
 
-    & > h2 {
-      font-size: $font-size-h2;
-      padding-bottom: 0.5rem;
-
-      @include responsive(mobile) {
-        font-size: $font-size-h2-mobile;
-      }
-    }
     .truncateText {
       color: $link-color;
       cursor: pointer;

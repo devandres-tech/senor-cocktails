@@ -26,57 +26,72 @@ const IngredientScreen = ({ match, history }) => {
 
   return (
     <>
-      <div
-        onClick={() => history.goBack()}
-        className='ingredientContainer__goBack'
-      >
-        <i className='fas fa-chevron-left'></i>
-        <span>Go back</span>
-      </div>
       <Container className='ingredientContainer'>
         {loading ? (
           <h1>Loading....</h1>
         ) : (
-          <Row>
-            <Col md={4}>
-              <div className='ingredientContainer__left'>
-                <h1>{ingredientDetails.name}</h1>
-                <img src={ingredientDetails.image} alt={'ingredient'} />
-                <button className='btn__primary'>Add to my ingredients</button>
-              </div>
-            </Col>
-            <Col md={8}>
-              <div className='ingredientContainer__right'>
-                {ingredientDetails.type && (
-                  <div className='typeContent'>
-                    <h2>Type</h2>
-                    <p>{ingredientDetails.type}</p>
-                  </div>
-                )}
-                {ingredientDetails.description && (
-                  <>
-                    <h2>Description</h2>
-                    {ingredientDetails.description.length > 1000 ? (
-                      <p>
-                        {truncateText(
-                          ingredientDetails.description,
-                          expandText
-                        )}
-                        <span
-                          className='truncateText'
-                          onClick={() => setExpandText(!expandText)}
-                        >
-                          {!expandText ? '...See more' : '  See less'}
-                        </span>
-                      </p>
-                    ) : (
-                      <p>{ingredientDetails.description}</p>
-                    )}
-                  </>
-                )}
-              </div>
-            </Col>
-          </Row>
+          <>
+            <Row>
+              <Col md={12}>
+                <div
+                  onClick={() => history.goBack()}
+                  className='ingredientContainer__goBack'
+                >
+                  <i className='fas fa-chevron-left'></i>
+                  <span>Go back</span>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
+                <div className='ingredientContainer__left'>
+                  <h1>{ingredientDetails.name}</h1>
+                  <img src={ingredientDetails.image} alt={'ingredient'} />
+                  <button className='btn__primary'>
+                    Add to my ingredients
+                  </button>
+                </div>
+              </Col>
+              <Col md={8}>
+                <div className='ingredientContainer__right'>
+                  {ingredientDetails.type && (
+                    <div className='typeContent'>
+                      <h2>Type</h2>
+                      <p>{ingredientDetails.type}</p>
+                    </div>
+                  )}
+                  {ingredientDetails.description && (
+                    <>
+                      <h2>Description</h2>
+                      {ingredientDetails.description.length > 1000 ? (
+                        <p>
+                          {truncateText(
+                            ingredientDetails.description,
+                            expandText
+                          )}
+                          <span
+                            className='truncateText'
+                            onClick={() => setExpandText(!expandText)}
+                          >
+                            {!expandText ? '...See more' : '  See less'}
+                          </span>
+                        </p>
+                      ) : (
+                        <p>{ingredientDetails.description}</p>
+                      )}
+                    </>
+                  )}
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12}>
+                <div className='ingredientContainer__drinkList'>
+                  <h2>Drinks</h2>
+                </div>
+              </Col>
+            </Row>
+          </>
         )}
       </Container>
     </>

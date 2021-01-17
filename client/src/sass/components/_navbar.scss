@@ -19,13 +19,12 @@ nav {
   &__item {
     text-transform: uppercase;
     padding-bottom: 0;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     font-size: $font-size-nav-item;
     color: $font-color;
     font-weight: 600;
-    // padding-right: 1rem;
 
-    &>a>i.fas {
+    & > a > i.fas {
       padding-right: 5px;
     }
   }
@@ -35,7 +34,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    &>li:not(:last-child) {
+    & > li:not(:last-child) {
       padding-right: 1rem;
     }
   }
@@ -45,11 +44,11 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    &>li:not(:last-child) {
+    & > li:not(:last-child) {
       padding-right: 1rem !important;
     }
 
-    &>li>a>span {
+    & > li > a > span {
       color: $color-green-primary;
     }
   }
@@ -73,13 +72,12 @@ nav {
       margin-left: auto;
       margin-right: 1rem;
 
-      div.containerNavbar__item>a>span {
+      div.containerNavbar__item > a > span {
         color: $color-green-primary;
       }
     }
   }
 }
-
 
 .hoverLinkStyle {
   @include hover-underline('slide', 'left-right');
