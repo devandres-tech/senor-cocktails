@@ -6,6 +6,7 @@ import {
   randomDrinkListReducer,
   latestDrinkListReducer,
   popularDrinkListReducer,
+  searchDrinksReducer,
 } from './reducers/drinkReducers'
 
 import {
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   randomDrinkList: randomDrinkListReducer,
   latestDrinkList: latestDrinkListReducer,
   popularDrinkList: popularDrinkListReducer,
+  searchDrinkList: searchDrinksReducer,
   randomIngredientList: randomIngredientListReducer,
   popularIngredientList: popularIngredientListReducer,
   ingredientDetails: ingredientDetailsReducer,

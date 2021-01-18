@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import { getIngredientDetails } from '../actions/ingredientActions'
+import { searchDrinks } from '../actions/drinkActions'
 
 const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
@@ -11,6 +12,13 @@ const IngredientScreen = ({ match, history }) => {
   const ingredientDetailsState = useSelector((state) => state.ingredientDetails)
   const { loading, error, ingredientDetails } = ingredientDetailsState
 
+  const searchDrinkListState = useSelector((state) => state.searchDrinkList)
+  const {
+    loading: loadingSearchDrinkList,
+    error: errorSearchDrinkList,
+    searchDrinkList,
+  } = searchDrinkListState
+
   const [expandText, setExpandText] = useState(false)
 
   useEffect(() => {
@@ -18,7 +26,10 @@ const IngredientScreen = ({ match, history }) => {
   }, [dispatch, ingredientId])
 
   useEffect(() => {
-    console.log('ingredient details', ingredientDetails)
+    if (ingredientDetails.name) {
+      // console.log('ingredient details', ingredientDetails.name)
+      dispatch(searchDrinks(ingredientDetails.name))
+    }
   }, [dispatch, ingredientDetails])
 
   const truncateText = (text, isExpanded) => {

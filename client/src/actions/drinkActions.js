@@ -9,6 +9,9 @@ import {
   RANDOM_DRINK_LIST_FAIL,
   RANDOM_DRINK_LIST_REQUEST,
   RANDOM_DRINK_LIST_SUCCESS,
+  SEARCH_DRINKS_FAIL,
+  SEARCH_DRINKS_REQUEST,
+  SEARCH_DRINKS_SUCCESS,
 } from '../constants/drinkConstants'
 
 export const getRandomDrinkList = () => async (dispatch) => {
@@ -48,6 +51,21 @@ export const getLatestDrinkList = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LATEST_DRINK_LIST_FAIL,
+      payload: error,
+    })
+  }
+}
+
+export const searchDrinks = (ingredient) => async (dispatch) => {
+  try {
+    dispatch({ type: SEARCH_DRINKS_REQUEST })
+
+    const { data } = await axios.get(`/drinks/search?ingredient=${ingredient}`)
+    console.log('dirnkActions.searchDrinks', data)
+    dispatch({ type: SEARCH_DRINKS_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: SEARCH_DRINKS_FAIL,
       payload: error,
     })
   }

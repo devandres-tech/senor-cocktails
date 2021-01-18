@@ -8,6 +8,9 @@ import {
   RANDOM_DRINK_LIST_FAIL,
   RANDOM_DRINK_LIST_REQUEST,
   RANDOM_DRINK_LIST_SUCCESS,
+  SEARCH_DRINKS_FAIL,
+  SEARCH_DRINKS_REQUEST,
+  SEARCH_DRINKS_SUCCESS,
 } from '../constants/drinkConstants'
 
 export const randomDrinkListReducer = (
@@ -60,6 +63,25 @@ export const latestDrinkListReducer = (
       return { loading: false, latestDrinkList: action.payload }
 
     case LATEST_DRINK_LIST_FAIL:
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
+
+export const searchDrinksReducer = (
+  state = { searchDrinkList: [] },
+  action
+) => {
+  switch (action.type) {
+    case SEARCH_DRINKS_REQUEST:
+      return { loading: true, searchDrinkList: [] }
+
+    case SEARCH_DRINKS_SUCCESS:
+      return { loading: false, searchDrinkList: action.payload }
+
+    case SEARCH_DRINKS_FAIL:
       return { loading: false, error: action.payload }
 
     default:
