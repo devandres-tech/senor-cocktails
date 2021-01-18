@@ -17,6 +17,10 @@ const IngredientScreen = ({ match, history }) => {
     dispatch(getIngredientDetails(ingredientId))
   }, [dispatch, ingredientId])
 
+  useEffect(() => {
+    console.log('ingredient details', ingredientDetails)
+  }, [dispatch, ingredientDetails])
+
   const truncateText = (text, isExpanded) => {
     if (text.length > 1000) {
       return !isExpanded ? text.substring(0, 900) : text

@@ -1,7 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import mongoose from 'mongoose'
 
-import { generateRandomNumbers } from '../utils/utils'
 import Ingredient from '../models/IngredientModel'
 
 const getIngredientById = asyncHandler(async (req, res) => {

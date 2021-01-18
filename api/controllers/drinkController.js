@@ -89,4 +89,17 @@ const getDrinks = asyncHandler(async (req, res) => {
   res.status(200).json(drinks)
 })
 
-export { getDrinks, getDrinkById }
+// @route GET api/v1/drinks/search
+// @desc search drinks by using query params
+// @access private
+const searchDrinks = asyncHandler(async (req, res) => {
+  const ingredient = req.query.ingredient
+  const drinks = await Drink.find({ 'ingredients.name': `${ingredient}` })
+  if (!drinks) {
+    return res.status(404).json({ Error: 'No drinks found' })
+  }
+
+  res.status(200).json(drinks)
+})
+
+export { getDrinks, getDrinkById, searchDrinks }
