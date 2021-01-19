@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import { getIngredientDetails } from '../actions/ingredientActions'
 import { searchDrinks } from '../actions/drinkActions'
+import DrinkList from '../components/DrinkList'
 
 const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
@@ -27,7 +28,6 @@ const IngredientScreen = ({ match, history }) => {
 
   useEffect(() => {
     if (ingredientDetails.name) {
-      // console.log('ingredient details', ingredientDetails.name)
       dispatch(searchDrinks(ingredientDetails.name))
     }
   }, [dispatch, ingredientDetails])
@@ -99,13 +99,8 @@ const IngredientScreen = ({ match, history }) => {
                 </div>
               </Col>
             </Row>
-            <Row>
-              <Col md={12}>
-                <div className='ingredientContainer__drinkList'>
-                  <h2>Drinks</h2>
-                </div>
-              </Col>
-            </Row>
+            {console.log('SEACH DRINK', searchDrinkList)}
+            <DrinkList title={'Drinks'} drinks={searchDrinkList} />
           </>
         )}
       </Container>
