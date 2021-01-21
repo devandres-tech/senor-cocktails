@@ -35,7 +35,7 @@ const Pagination = ({
   })
 
   return (
-    <div>
+    <div className='paginationContainer'>
       <p onClick={() => onPrevPageHandler()}>Prev</p>
       {renderPageNumbers}
       <p onClick={() => onNextPageHandler()}>Next</p>

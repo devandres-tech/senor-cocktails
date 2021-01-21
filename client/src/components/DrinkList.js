@@ -13,14 +13,21 @@ const DrinkList = ({ title, drinks }) => {
 
   return (
     <>
-      <h2>{title}</h2>
-      <Row>
-        {renderDrinks.map((drink) => (
-          <Col sm={4} md={3}>
-            <p>{drink.name}</p>
-          </Col>
-        ))}
-      </Row>
+      <div className='drinkListContainer'>
+        <h2>{title}</h2>
+        <Row>
+          {renderDrinks.map((drink) => (
+            <Col sm={4} md={3} className='drinkListContainer__wrapper'>
+              <img
+                className='drinkListContainer__image'
+                src={drink.image}
+                alt='drink'
+              />
+              <p className='drinkListContainer__name'>{drink.name}</p>
+            </Col>
+          ))}
+        </Row>
+      </div>
       <Pagination
         totalItems={drinks.length}
         itemsPerPage={itemsPerPage}

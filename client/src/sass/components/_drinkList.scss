@@ -1,0 +1,22 @@
+.drinkListContainer {
+  padding-top: 5rem;
+
+  & > h2 {
+    padding-bottom: 1rem;
+  }
+
+  &__wrapper {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__image {
+    height: 14rem;
+  }
+
+  &__name {
+    padding-bottom: 2rem;
+    padding-top: 0.5rem;
+    font-size: $font-size-body;
+  }
+}
