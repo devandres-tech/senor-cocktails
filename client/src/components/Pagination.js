@@ -17,7 +17,9 @@ const Pagination = ({
   }
 
   const onPrevPageHandler = () => {
-    if (currentPage !== pageNumbers[0]) {
+    if (currentPage !== pageNumbers()[0]) {
+      console.log('current page ', currentPage)
+      console.log('page numbs', pageNumbers()[0])
       setCurrentPage(currentPage - 1)
     }
   }
@@ -31,14 +33,25 @@ const Pagination = ({
   }
 
   const renderPageNumbers = pageNumbers().map((pageNumber) => {
-    return <li onClick={() => handlePageClick(pageNumber)}>{pageNumber}</li>
+    return (
+      <li
+        className={currentPage === pageNumber ? 'active' : ''}
+        onClick={() => handlePageClick(pageNumber)}
+      >
+        {pageNumber}
+      </li>
+    )
   })
 
   return (
     <div className='paginationContainer'>
-      <p onClick={() => onPrevPageHandler()}>Prev</p>
+      <p onClick={() => onPrevPageHandler()}>
+        <i class='fas fa-chevron-left'></i> Prev
+      </p>
       {renderPageNumbers}
-      <p onClick={() => onNextPageHandler()}>Next</p>
+      <p onClick={() => onNextPageHandler()}>
+        Next <i class='fas fa-chevron-right'></i>
+      </p>
     </div>
   )
 }

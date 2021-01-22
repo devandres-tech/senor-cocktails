@@ -1,0 +1,25 @@
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  font-size: $font-size-body;
+  padding-top: 2rem;
+
+  & > li {
+    list-style: none;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: $link-color;
+  }
+
+  & > p {
+    cursor: pointer;
+  }
+}
+
+li.active {
+  color: $color-dark-primary;
+}
