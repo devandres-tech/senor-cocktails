@@ -15,7 +15,7 @@
     }
   }
 
-  & > h2 {
+  h2 {
     font-size: $font-size-h2;
     padding-bottom: 0.5rem;
 
@@ -70,10 +70,6 @@
 
     & > .typeContent {
       padding-bottom: 2rem;
-
-      @include responsive(mobile) {
-        padding-bottom: 1rem;
-      }
 
       & > p {
         color: $color-green-primary;

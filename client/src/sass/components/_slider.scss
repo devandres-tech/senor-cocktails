@@ -1,7 +1,6 @@
 // Override Swiper styles
 .swiper-container {
   &:hover {
-
     div.swiper-button-prev,
     div.swiper-button-next {
       opacity: 1 !important;
@@ -35,7 +34,7 @@
 }
 
 div.swiper-button-prev {
-  left: -.1rem;
+  left: -0.1rem;
 }
 
 div.swiper-button-next {
@@ -70,7 +69,6 @@ swiper-button-disabled {
 
 // custom styles
 .sliderContainer {
-
   &__sliderHeader {
     margin-top: 8rem;
     display: flex;
@@ -79,13 +77,12 @@ swiper-button-disabled {
     padding-bottom: 1.8rem;
 
     @include responsive(tab_medium) {
-      margin-top: 4rem;
+      margin-top: 2rem;
       padding-bottom: 1rem;
-      padding-left: 1rem;
       padding-right: 1rem;
     }
 
-    &>h2 {
+    & > h2 {
       font-size: $font-size-h2;
 
       @include responsive(mobile) {
@@ -95,8 +92,7 @@ swiper-button-disabled {
   }
 
   &__item {
-
-    &>a>img {
+    & > a > img {
       cursor: pointer;
       height: 100%;
       width: 100%;

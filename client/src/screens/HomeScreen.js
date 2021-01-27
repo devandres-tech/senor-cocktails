@@ -111,30 +111,37 @@ const HomeScreen = () => {
           </div>
         </div>
       )}
-      <Slider items={latestDrinkList} type={'drink'} title={'Latest Drinks'} />
-      <Slider
-        items={popularIngredientList}
-        type={'ingredient'}
-        title={'Popular Ingredients'}
-      />
-      {user.auth ? (
+
+      <Container>
         <Slider
-          items={randomDrinkList}
+          items={latestDrinkList}
           type={'drink'}
-          title={'Random Drinks'}
+          title={'Latest Drinks'}
         />
-      ) : (
-        ''
-      )}
-      {user.auth ? (
         <Slider
-          items={randomIngredientList}
+          items={popularIngredientList}
           type={'ingredient'}
-          title={'Random Ingredients'}
+          title={'Popular Ingredients'}
         />
-      ) : (
-        ''
-      )}
+        {user.auth ? (
+          <Slider
+            items={randomDrinkList}
+            type={'drink'}
+            title={'Random Drinks'}
+          />
+        ) : (
+          ''
+        )}
+        {user.auth ? (
+          <Slider
+            items={randomIngredientList}
+            type={'ingredient'}
+            title={'Random Ingredients'}
+          />
+        ) : (
+          ''
+        )}
+      </Container>
       {!user.auth && (
         <div className='callToActionContainer'>
           <Container>
