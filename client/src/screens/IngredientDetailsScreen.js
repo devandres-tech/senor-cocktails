@@ -99,7 +99,6 @@ const IngredientScreen = ({ match, history }) => {
                 </div>
               </Col>
             </Row>
-            {console.log('SEACH DRINK', searchDrinkList)}
             <DrinkList title={'Drinks'} drinks={searchDrinkList} />
           </>
         )}

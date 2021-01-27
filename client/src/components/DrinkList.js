@@ -17,7 +17,13 @@ const DrinkList = ({ title, drinks }) => {
         <h2>{title}</h2>
         <Row>
           {renderDrinks.map((drink) => (
-            <Col sm={4} md={3} className='drinkListContainer__wrapper'>
+            <Col
+              xs={6}
+              sm={6}
+              md={4}
+              lg={3}
+              className='drinkListContainer__wrapper'
+            >
               <img
                 className='drinkListContainer__image'
                 src={drink.image}

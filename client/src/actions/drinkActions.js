@@ -61,7 +61,6 @@ export const searchDrinks = (ingredient) => async (dispatch) => {
     dispatch({ type: SEARCH_DRINKS_REQUEST })
 
     const { data } = await axios.get(`/drinks/search?ingredient=${ingredient}`)
-    console.log('dirnkActions.searchDrinks', data)
     dispatch({ type: SEARCH_DRINKS_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
