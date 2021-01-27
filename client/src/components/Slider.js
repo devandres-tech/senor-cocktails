@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, A11y, Autoplay } from 'swiper'
+import PropTypes from 'prop-types'
 
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
@@ -71,3 +72,9 @@ const Slider = ({ items, title, type }) => {
 }
 
 export default Slider
+
+Slider.propTypes = {
+  items: PropTypes.array,
+  title: PropTypes.string,
+  type: PropTypes.string,
+}

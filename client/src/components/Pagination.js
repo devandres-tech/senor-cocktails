@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Pagination = ({
   totalItems,
@@ -35,6 +36,7 @@ const Pagination = ({
   const renderPageNumbers = pageNumbers().map((pageNumber) => {
     return (
       <li
+        key={pageNumber}
         className={currentPage === pageNumber ? 'active' : ''}
         onClick={() => handlePageClick(pageNumber)}
       >
@@ -57,3 +59,10 @@ const Pagination = ({
 }
 
 export default Pagination
+
+Pagination.propTypes = {
+  totalItems: PropTypes.number,
+  itemsPerPage: PropTypes.number,
+  currentPage: PropTypes.number,
+  setCurrentPage: PropTypes.func,
+}

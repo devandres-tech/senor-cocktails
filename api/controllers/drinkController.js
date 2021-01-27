@@ -20,7 +20,7 @@ const getDrinkById = asyncHandler(async (req, res) => {
   res.status(200).json(drink)
 })
 
-// @route GET api/v1/drinks/list/:drinkList
+// @route GET api/v1/drinks?sort=<param>
 // @desc get a selection of drinks (random, latest, popular)
 // @access public and private
 const getDrinks = asyncHandler(async (req, res) => {

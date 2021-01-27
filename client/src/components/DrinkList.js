@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
+import PropTypes from 'prop-types'
 
 const DrinkList = ({ title, drinks }) => {
   const [itemsPerPage, setItemsPerPage] = useState(12)
@@ -18,6 +19,7 @@ const DrinkList = ({ title, drinks }) => {
         <Row>
           {renderDrinks.map((drink) => (
             <Col
+              key={drink._id}
               xs={6}
               sm={6}
               md={4}
@@ -45,3 +47,8 @@ const DrinkList = ({ title, drinks }) => {
 }
 
 export default DrinkList
+
+DrinkList.propTypes = {
+  title: PropTypes.string,
+  drinks: PropTypes.array,
+}

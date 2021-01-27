@@ -5,9 +5,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { getIngredientDetails } from '../actions/ingredientActions'
 import { searchDrinks } from '../actions/drinkActions'
 import DrinkList from '../components/DrinkList'
+import { useViewport } from '../hooks/useViewport'
+import config from '../config.json'
+import Slider from '../components/Slider'
 
 const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
+  const [windowDimensions] = useViewport()
   const dispatch = useDispatch()
 
   const ingredientDetailsState = useSelector((state) => state.ingredientDetails)
@@ -99,7 +103,15 @@ const IngredientScreen = ({ match, history }) => {
                 </div>
               </Col>
             </Row>
-            <DrinkList title={'Drinks'} drinks={searchDrinkList} />
+            {windowDimensions.width < config.TABLET_WIDTH ? (
+              <Slider
+                items={searchDrinkList.slice(0, 10)}
+                type={'drink'}
+                title={'Drinks'}
+              />
+            ) : (
+              <DrinkList title={'Drinks'} drinks={searchDrinkList} />
+            )}
           </>
         )}
       </Container>
