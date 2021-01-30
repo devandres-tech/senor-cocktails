@@ -6,19 +6,19 @@ import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
-import DrinkListScreen from './screens/DrinkListScreen'
 import IngredientDetailsScreen from './screens/IngredientDetailsScreen'
+import DrinkDetailsScreen from './screens/DrinkDetailsScreen'
 
 const MainRoutes = () => (
   <>
     <Header />
     <main>
       <Route path='/' exact component={HomeScreen} />
-      <Route path='/drinklist/:drinktype' component={DrinkListScreen} />
       <Route
         path='/ingredient/:ingredientId'
         component={IngredientDetailsScreen}
       />
+      <Route path='/drink/:drinkId' component={DrinkDetailsScreen} />
     </main>
     <Footer />
   </>

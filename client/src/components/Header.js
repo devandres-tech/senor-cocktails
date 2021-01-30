@@ -129,7 +129,7 @@ const MobileNavbar = ({ node, setOpen, open }) => (
       <Burger open={open} setOpen={setOpen} />
       <Menu open={open} setOpen={setOpen} />
     </div>
-    <Link>
+    <Link to='/'>
       <img
         alt='logo'
         id='logo'
