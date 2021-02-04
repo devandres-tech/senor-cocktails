@@ -44,13 +44,17 @@ const DrinkDetailsScreen = ({ match, history }) => {
           </Col>
           <Col md={6}>
             <div className='drinkContainer__rightContent'>
-              <h1>ingredients</h1>
+              <h2>Ingredients</h2>
               {drinkDetails.ingredients &&
                 drinkDetails.ingredients.map((ingredient) => (
-                  <div>
-                    <img src={ingredient.image} alt='ingredient' />
-                    <p>{ingredient.name}</p>
-                    <p>{ingredient.measurement}</p>
+                  <div className='drinkContent__rightContent ingredient'>
+                    <div className='ingredientImage'>
+                      <img src={ingredient.image} alt='ingredient' />
+                      <span>{ingredient.name}</span>
+                    </div>
+                    <p className='ingredientMeasurement'>
+                      {ingredient.measurement}
+                    </p>
                   </div>
                 ))}
             </div>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Pagination from '../components/Pagination'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
+import Pagination from '../components/Pagination'
 
 const DrinkList = ({ title, drinks }) => {
   const [itemsPerPage, setItemsPerPage] = useState(12)
@@ -18,21 +20,23 @@ const DrinkList = ({ title, drinks }) => {
         <h2>{title}</h2>
         <Row>
           {renderDrinks.map((drink) => (
-            <Col
-              key={drink._id}
-              xs={6}
-              sm={6}
-              md={4}
-              lg={3}
-              className='drinkListContainer__wrapper'
-            >
-              <img
-                className='drinkListContainer__image'
-                src={drink.image}
-                alt='drink'
-              />
-              <p className='drinkListContainer__name'>{drink.name}</p>
-            </Col>
+            <Link to={`/drink/${drink._id}`}>
+              <Col
+                key={drink._id}
+                xs={6}
+                sm={6}
+                md={4}
+                lg={3}
+                className='drinkListContainer__wrapper'
+              >
+                <img
+                  className='drinkListContainer__image'
+                  src={drink.image}
+                  alt='drink'
+                />
+                <p className='drinkListContainer__name'>{drink.name}</p>
+              </Col>
+            </Link>
           ))}
         </Row>
       </div>
