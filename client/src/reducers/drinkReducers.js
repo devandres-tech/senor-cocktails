@@ -1,4 +1,7 @@
 import {
+  DRINK_DETAILS_FAIL,
+  DRINK_DETAILS_REQUEST,
+  DRINK_DETAILS_SUCCESS,
   LATEST_DRINK_LIST_FAIL,
   LATEST_DRINK_LIST_REQUEST,
   LATEST_DRINK_LIST_SUCCESS,
@@ -12,6 +15,22 @@ import {
   SEARCH_DRINKS_REQUEST,
   SEARCH_DRINKS_SUCCESS,
 } from '../constants/drinkConstants'
+
+export const drinkDetailsReducer = (state = { drinkDetails: [] }, action) => {
+  switch (action.type) {
+    case DRINK_DETAILS_REQUEST:
+      return { loading: true, drinkDetails: [] }
+
+    case DRINK_DETAILS_SUCCESS:
+      return { loading: false, drinkDetails: action.payload }
+
+    case DRINK_DETAILS_FAIL:
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
 
 export const randomDrinkListReducer = (
   state = { randomDrinkList: [] },

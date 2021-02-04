@@ -2,13 +2,15 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'react-bootstrap'
 
-const drinkDetailsScreen = ({ match, history }) => {
+import { getDrinkDetails } from '../actions/drinkActions'
+
+const DrinkDetailsScreen = ({ match, history }) => {
   const { drinkId } = match.params
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getDrink)
-  }, [input])
+    dispatch(getDrinkDetails(drinkId))
+  }, [dispatch, drinkId])
 
   return (
     <Container className='drinkContainer'>
@@ -24,4 +26,4 @@ const drinkDetailsScreen = ({ match, history }) => {
   )
 }
 
-export default drinkDetailsScreen
+export default DrinkDetailsScreen

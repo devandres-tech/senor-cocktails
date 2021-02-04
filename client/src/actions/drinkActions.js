@@ -1,5 +1,8 @@
 import axios from '../axios'
 import {
+  DRINK_DETAILS_REQUEST,
+  DRINK_DETAILS_SUCCESS,
+  DRINK_DETAILS_FAIL,
   LATEST_DRINK_LIST_FAIL,
   LATEST_DRINK_LIST_REQUEST,
   LATEST_DRINK_LIST_SUCCESS,
@@ -65,6 +68,20 @@ export const searchDrinks = (ingredient) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: SEARCH_DRINKS_FAIL,
+      payload: error,
+    })
+  }
+}
+
+export const getDrinkDetails = (drinkId) => async (dispatch) => {
+  try {
+    dispatch({ type: DRINK_DETAILS_REQUEST })
+
+    const { data } = await axios.get(`/drinks/${drinkId}`)
+    dispatch({ type: DRINK_DETAILS_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: DRINK_DETAILS_FAIL,
       payload: error,
     })
   }
