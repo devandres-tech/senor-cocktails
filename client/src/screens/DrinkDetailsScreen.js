@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { getDrinkDetails } from '../actions/drinkActions'
 
@@ -49,8 +50,10 @@ const DrinkDetailsScreen = ({ match, history }) => {
                 drinkDetails.ingredients.map((ingredient) => (
                   <div className='drinkContent__rightContent ingredient'>
                     <div className='ingredientImage'>
-                      <img src={ingredient.image} alt='ingredient' />
-                      <span>{ingredient.name}</span>
+                      <Link to={`/ingredient/${ingredient.ingredient}`}>
+                        <img src={ingredient.image} alt='ingredient' />
+                        <span>{ingredient.name}</span>
+                      </Link>
                     </div>
                     <p className='ingredientMeasurement'>
                       {ingredient.measurement}
