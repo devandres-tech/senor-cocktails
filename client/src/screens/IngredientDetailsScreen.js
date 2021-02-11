@@ -66,7 +66,7 @@ const IngredientScreen = ({ match, history }) => {
                 <div className='ingredientContainer__left'>
                   <h1>{ingredientDetails.name}</h1>
                   <img src={ingredientDetails.image} alt={'ingredient'} />
-                  <button className='btn__primary'>
+                  <button className='button btn__primary'>
                     Add to my ingredients
                   </button>
                 </div>

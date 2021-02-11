@@ -37,7 +37,9 @@ const DrinkDetailsScreen = ({ match, history }) => {
                 <div className='drinkContainer__leftContent image'>
                   <img src={drinkDetails.image} alt='drink' />
                 </div>
-                <button className='btn__primary'>Add to favorites</button>
+                <button className='button btn__primary'>
+                  Add to favorites
+                </button>
                 <label>
                   Tried it:
                   <input type='checkbox' name='triedIt' />
@@ -85,9 +87,37 @@ const DrinkDetailsScreen = ({ match, history }) => {
                     name='addComment'
                   />
                   <div className='addComment__actions'>
-                    <button className='btn__secondary'>Cancel</button>
-                    <button className='btn__primary'>Comment</button>
+                    <button className='button btn__secondary'>Cancel</button>
+                    <button className='button btn__primary'>Comment</button>
                   </div>
+                </div>
+                <div className='commentContainer'>
+                  <p className='commentContainer__title'>
+                    <span>Jake</span>11/04/2021
+                  </p>
+                  <p className='commentContainer__content'>
+                    One of my favorite drinks to try on a Saturday night after a
+                    long day from work!
+                  </p>
+                </div>
+                <div className='commentContainer'>
+                  <p className='commentContainer__title'>
+                    <span>Jake</span>11/04/2021
+                  </p>
+                  <p className='commentContainer__content'>
+                    One of my favorite drinks to try on a Saturday night after a
+                    long day from work! drinkContainer__commentContainer
+                  </p>
+                </div>
+                <div className='commentContainer'>
+                  <p className='commentContainer__title'>
+                    <span>Jake</span>11/04/2021
+                  </p>
+                  <p className='commentContainer__content'>
+                    One of my favorite drinks to try on a Saturday night after a
+                    long day from work! One of my favorite drinks to try on a
+                    Saturday night after a long day from work!
+                  </p>
                 </div>
               </div>
             </Col>

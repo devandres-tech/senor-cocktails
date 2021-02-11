@@ -40,6 +40,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       & > input {
         margin-left: 5px;
       }
@@ -108,6 +109,19 @@
 
         & > button:first-child {
           margin-right: 1rem;
+        }
+      }
+    }
+
+    .commentContainer {
+      padding-bottom: 28px;
+
+      &__title {
+        color: $color-green-primary;
+        padding-bottom: 0.5rem;
+        & > span {
+          font-weight: 600;
+          padding-right: 1rem;
         }
       }
     }
