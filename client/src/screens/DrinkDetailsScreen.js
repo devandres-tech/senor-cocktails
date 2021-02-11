@@ -66,12 +66,28 @@ const DrinkDetailsScreen = ({ match, history }) => {
           </Row>
           <Row>
             <Col md={12}>
+              <div className='drinkContainer__instructions'>
+                <h2>Instructions</h2>
+                {drinkDetails.instructions && (
+                  <p>{drinkDetails.instructions.EN}</p>
+                )}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
               <div className='drinkContainer__comments'>
-                <h2>Directions</h2>
-                <div className='instructions'>
-                  {drinkDetails.instructions && (
-                    <p>{drinkDetails.instructions.EN}</p>
-                  )}
+                <h2>Comments</h2>
+                <div className='addComment'>
+                  <input
+                    type='text'
+                    placeholder='Add comment...'
+                    name='addComment'
+                  />
+                  <div className='addComment__actions'>
+                    <button className='btn__secondary'>Cancel</button>
+                    <button className='btn__primary'>Comment</button>
+                  </div>
                 </div>
               </div>
             </Col>

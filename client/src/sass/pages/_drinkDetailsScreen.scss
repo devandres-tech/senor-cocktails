@@ -78,12 +78,38 @@
     }
   }
 
-  &__comments {
+  &__instructions {
     padding-top: 40px;
 
-    .instructions {
+    & > p {
       padding-top: 12px;
       line-height: 1.6;
+    }
+  }
+
+  &__comments {
+    padding-top: 100px;
+
+    .addComment {
+      padding-top: 1.5rem;
+
+      & > input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 1px solid rgb(184, 182, 182);
+      }
+
+      &__actions {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+
+        & > button:first-child {
+          margin-right: 1rem;
+        }
+      }
     }
   }
 }
