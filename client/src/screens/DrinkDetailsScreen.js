@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import { getDrinkDetails } from '../actions/drinkActions'
+import { searchDrinks } from '../actions/drinkActions'
 
 const DrinkDetailsScreen = ({ match, history }) => {
   const { drinkId } = match.params
@@ -15,6 +16,12 @@ const DrinkDetailsScreen = ({ match, history }) => {
   useEffect(() => {
     dispatch(getDrinkDetails(drinkId))
   }, [dispatch, drinkId])
+
+  useEffect(() => {
+    if (drinkDetails.ingredients) {
+      console.log('INGERS ', drinkDetails.ingredients)
+    }
+  }, [drinkDetails])
 
   return (
     <Container className='drinkContainer'>
@@ -63,6 +70,14 @@ const DrinkDetailsScreen = ({ match, history }) => {
                       </div>
                     </Link>
                   ))}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <div className='drinkContainer__glassType'>
+                <h2>Glass Type</h2>
+                <p>{drinkDetails.glassType}</p>
               </div>
             </Col>
           </Row>

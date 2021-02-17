@@ -59,11 +59,13 @@ export const getLatestDrinkList = () => async (dispatch) => {
   }
 }
 
-export const searchDrinks = (ingredient) => async (dispatch) => {
+export const searchDrinks = (ingredients) => async (dispatch) => {
   try {
     dispatch({ type: SEARCH_DRINKS_REQUEST })
 
-    const { data } = await axios.get(`/drinks/search?ingredient=${ingredient}`)
+    const { data } = await axios.get(
+      `/drinks/search?ingredients=${ingredients}`
+    )
     dispatch({ type: SEARCH_DRINKS_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -74,6 +76,20 @@ export const searchDrinks = (ingredient) => async (dispatch) => {
 }
 
 export const getDrinkDetails = (drinkId) => async (dispatch) => {
+  try {
+    dispatch({ type: DRINK_DETAILS_REQUEST })
+
+    const { data } = await axios.get(`/drinks/${drinkId}`)
+    dispatch({ type: DRINK_DETAILS_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: DRINK_DETAILS_FAIL,
+      payload: error,
+    })
+  }
+}
+
+export const getDrinksByIngredients = (drinkId) => async (dispatch) => {
   try {
     dispatch({ type: DRINK_DETAILS_REQUEST })
 
