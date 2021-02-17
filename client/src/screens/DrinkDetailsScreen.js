@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { getDrinkDetails } from '../actions/drinkActions'
-import { searchDrinks } from '../actions/drinkActions'
+import { getDrinkDetails, searchDrinks } from '../actions/drinkActions'
 
 const DrinkDetailsScreen = ({ match, history }) => {
   const { drinkId } = match.params
@@ -19,9 +18,13 @@ const DrinkDetailsScreen = ({ match, history }) => {
 
   useEffect(() => {
     if (drinkDetails.ingredients) {
-      console.log('INGERS ', drinkDetails.ingredients)
+      const ingredientsArray = drinkDetails.ingredients.map(
+        (ingredient) => ingredient.name
+      )
+      dispatch(searchDrinks(ingredientsArray))
+      console.log('drinks....')
     }
-  }, [drinkDetails])
+  }, [dispatch, drinkDetails])
 
   return (
     <Container className='drinkContainer'>
