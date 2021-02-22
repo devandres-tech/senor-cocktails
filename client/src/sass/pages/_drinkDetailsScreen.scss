@@ -84,8 +84,17 @@
     }
   }
 
-  &__glassType {
+  &__drinkDetails {
     padding-top: 60px;
+
+    & > p {
+      // font-weight: 600;
+      padding-top: 12px;
+      & > span {
+        font-weight: 600;
+        color: $color-green-primary;
+      }
+    }
   }
 
   &__instructions {

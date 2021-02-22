@@ -87,9 +87,23 @@ const DrinkDetailsScreen = ({ match, history }) => {
           </Row>
           <Row>
             <Col md={12}>
-              <div className='drinkContainer__glassType'>
-                <h2>Glass Type</h2>
-                <p>{drinkDetails.glassType}</p>
+              <div className='drinkContainer__drinkDetails'>
+                <h2>Drink Details</h2>
+                {drinkDetails.glassType && (
+                  <p>
+                    Glass Type: <span>{drinkDetails.glassType}</span>
+                  </p>
+                )}
+                {drinkDetails.alcoholic && (
+                  <p>
+                    Alcoholic: <span>{drinkDetails.alcoholic}</span>
+                  </p>
+                )}
+                {drinkDetails.IBA && (
+                  <p>
+                    IBA: <span>{drinkDetails.IBA}</span>
+                  </p>
+                )}
               </div>
             </Col>
           </Row>
