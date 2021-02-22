@@ -1,6 +1,10 @@
 .drinkContainer {
   padding-top: 6rem;
 
+  @include responsive(mobile) {
+    padding-top: 3rem;
+  }
+
   p,
   label {
     font-size: $font-size-body;
@@ -8,6 +12,10 @@
 
   h2 {
     font-size: $font-size-h2;
+
+    @include responsive(mobile) {
+      font-size: $font-size-h2-mobile;
+    }
   }
 
   &__leftContent {
@@ -17,8 +25,21 @@
       align-items: center;
       padding-bottom: 30px;
 
+      @include responsive(mobile) {
+        padding-bottom: 15px;
+      }
+
       & > h1 {
-        max-width: 60%;
+        max-width: 55%;
+        font-size: $font-size-h1;
+
+        @include responsive(tab_medium) {
+          font-size: $font-size-h1-mobile;
+        }
+
+        @include responsive(mobile) {
+          font-size: $font-size-h1-mobile;
+        }
       }
 
       & > .rating {
@@ -60,6 +81,10 @@
       text-align: center;
       padding-top: 78px;
       padding-bottom: 15px;
+
+      @include responsive(mobile) {
+        padding-top: 40px;
+      }
     }
 
     & > a > .ingredient {
@@ -68,11 +93,19 @@
       align-items: center;
       padding-bottom: 15px;
 
+      @include responsive(mobile) {
+        padding-bottom: 10px;
+      }
+
       img {
         height: 75px;
         border-radius: 50%;
         background-color: #f5f5dc;
         margin-right: 20px;
+
+        @include responsive(mobile) {
+          height: 65px;
+        }
       }
 
       .ingredientMeasurement {
@@ -87,8 +120,11 @@
   &__drinkDetails {
     padding-top: 60px;
 
+    @include responsive(mobile) {
+      padding-top: 40px;
+    }
+
     & > p {
-      // font-weight: 600;
       padding-top: 12px;
       & > span {
         font-weight: 600;
@@ -100,6 +136,10 @@
   &__instructions {
     padding-top: 60px;
 
+    @include responsive(mobile) {
+      padding-top: 40px;
+    }
+
     & > p {
       padding-top: 12px;
       line-height: 1.6;
@@ -108,6 +148,10 @@
 
   &__comments {
     padding-top: 60px;
+
+    @include responsive(mobile) {
+      padding-top: 40px;
+    }
 
     .addComment {
       padding-top: 1.5rem;
@@ -142,12 +186,20 @@
           padding-right: 1rem;
         }
       }
+
+      &__content {
+        line-height: 1.2;
+      }
     }
   }
 
   .sliderContainer {
     &__sliderHeader {
       margin-top: 60px;
+
+      @include responsive(mobile) {
+        margin-top: 40px;
+      }
     }
   }
 }

@@ -8,6 +8,7 @@ import DrinkList from '../components/DrinkList'
 import { useViewport } from '../hooks/useViewport'
 import config from '../config.json'
 import Slider from '../components/Slider'
+import { search } from 'core-js/fn/symbol'
 
 const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
@@ -103,15 +104,16 @@ const IngredientScreen = ({ match, history }) => {
                 </div>
               </Col>
             </Row>
-            {windowDimensions.width < config.TABLET_WIDTH ? (
-              <Slider
-                items={searchDrinkList.slice(0, 10)}
-                type={'drink'}
-                title={'Drinks'}
-              />
-            ) : (
-              <DrinkList title={'Drinks'} drinks={searchDrinkList} />
-            )}
+            {searchDrinkList.length > 1 &&
+              (windowDimensions.width < config.TABLET_WIDTH ? (
+                <Slider
+                  items={searchDrinkList.slice(0, 10)}
+                  type={'drink'}
+                  title={'Drinks'}
+                />
+              ) : (
+                <DrinkList title={'Drinks'} drinks={searchDrinkList} />
+              ))}
           </>
         )}
       </Container>
