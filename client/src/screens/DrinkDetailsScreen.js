@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import { getDrinkDetails, searchDrinks } from '../actions/drinkActions'
+import Slider from '../components/Slider'
 
 const DrinkDetailsScreen = ({ match, history }) => {
   const { drinkId } = match.params
@@ -11,6 +12,13 @@ const DrinkDetailsScreen = ({ match, history }) => {
 
   const drinkDetailsState = useSelector((state) => state.drinkDetails)
   const { loading, error, drinkDetails } = drinkDetailsState
+
+  const searchDrinkListState = useSelector((state) => state.searchDrinkList)
+  const {
+    loading: loadingSearchDrinkList,
+    error: errorSearchDrinkList,
+    searchDrinkList,
+  } = searchDrinkListState
 
   useEffect(() => {
     dispatch(getDrinkDetails(drinkId))
@@ -21,8 +29,9 @@ const DrinkDetailsScreen = ({ match, history }) => {
       const ingredientsArray = drinkDetails.ingredients.map(
         (ingredient) => ingredient.name
       )
-      dispatch(searchDrinks(ingredientsArray))
-      console.log('drinks....')
+      const { category } = drinkDetails
+      console.log('category ', category)
+      dispatch(searchDrinks(ingredientsArray, category))
     }
   }, [dispatch, drinkDetails])
 
@@ -140,6 +149,11 @@ const DrinkDetailsScreen = ({ match, history }) => {
               </div>
             </Col>
           </Row>
+          <Slider
+            items={searchDrinkList}
+            type={'drink'}
+            title={'Similar Drinks'}
+          />
         </>
       )}
     </Container>

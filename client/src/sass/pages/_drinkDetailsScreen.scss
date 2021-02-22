@@ -6,6 +6,10 @@
     font-size: $font-size-body;
   }
 
+  h2 {
+    font-size: $font-size-h2;
+  }
+
   &__leftContent {
     .header {
       display: flex;
@@ -129,6 +133,12 @@
           padding-right: 1rem;
         }
       }
+    }
+  }
+
+  .sliderContainer {
+    &__sliderHeader {
+      margin-top: 60px;
     }
   }
 }

@@ -19,7 +19,7 @@ const Slider = ({ items, title, type }) => {
   return (
     <div
       className={`sliderContainer ${
-        windowDimensions.width < config.TABLET_WIDTH ? '' : ' container'
+        windowDimensions.width < config.TABLET_WIDTH ? '' : ''
       }`}
     >
       <div className='sliderContainer__sliderHeader'>
