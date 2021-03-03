@@ -95,10 +95,19 @@ const getDrinks = asyncHandler(async (req, res) => {
 const searchDrinks = asyncHandler(async (req, res) => {
   const { ingredients, category } = req.query
   const ingredientsArray = [...ingredients.split(',')]
-  const drinks = await Drink.find({
+  let drinks
+  if (category.length > 0) {
+    drinks = await Drink.find({
+      'ingredients.name': { $in: ingredientsArray },
+      category: category,
+    })
+    return res.status(200).json(drinks)
+  }
+
+  drinks = await Drink.find({
     'ingredients.name': { $in: ingredientsArray },
-    category: category,
   })
+
   if (!drinks) {
     return res.status(404).json({ Error: 'No drinks found' })
   }
