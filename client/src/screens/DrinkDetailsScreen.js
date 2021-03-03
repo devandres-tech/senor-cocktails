@@ -30,7 +30,6 @@ const DrinkDetailsScreen = ({ match, history }) => {
         (ingredient) => ingredient.name
       )
       const { category } = drinkDetails
-      console.log('category ', category)
       dispatch(searchDrinks(ingredientsArray, category))
     }
   }, [dispatch, drinkDetails])
