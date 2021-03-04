@@ -96,7 +96,7 @@ const searchDrinks = asyncHandler(async (req, res) => {
   const { ingredients, category } = req.query
   const ingredientsArray = [...ingredients.split(',')]
   let drinks
-  if (category.length > 0) {
+  if (category) {
     drinks = await Drink.find({
       'ingredients.name': { $in: ingredientsArray },
       category: category,

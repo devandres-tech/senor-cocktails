@@ -24,7 +24,9 @@ const Slider = ({ items, title, type }) => {
     >
       <div className='sliderContainer__sliderHeader'>
         <h2>{title}</h2>
-        <Link className='default-linkStyle'>See All</Link>
+        <Link className='default-linkStyle' to={`/list`}>
+          See All
+        </Link>
       </div>
       <Swiper
         lazy={{

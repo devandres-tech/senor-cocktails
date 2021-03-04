@@ -8,12 +8,14 @@ import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
 import IngredientDetailsScreen from './screens/IngredientDetailsScreen'
 import DrinkDetailsScreen from './screens/DrinkDetailsScreen'
+import ListScreen from './screens/ListScreen'
 
 const MainRoutes = () => (
   <>
     <Header />
     <main>
       <Route path='/' exact component={HomeScreen} />
+      <Route path='/list' exact component={ListScreen} />
       <Route
         path='/ingredient/:ingredientId'
         component={IngredientDetailsScreen}
