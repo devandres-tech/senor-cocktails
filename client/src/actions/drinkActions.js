@@ -3,6 +3,9 @@ import {
   DRINK_DETAILS_REQUEST,
   DRINK_DETAILS_SUCCESS,
   DRINK_DETAILS_FAIL,
+  DRINK_LIST_REQUEST,
+  DRINK_LIST_SUCCESS,
+  DRINK_LIST_FAIL,
   LATEST_DRINK_LIST_FAIL,
   LATEST_DRINK_LIST_REQUEST,
   LATEST_DRINK_LIST_SUCCESS,
@@ -19,6 +22,20 @@ import {
   SEARCH_DRINKS_FAIL,
   SEARCH_DRINKS_REQUEST,
 } from '../constants/drinkConstants'
+
+export const getDrinkList = (listType) => async (dispatch) => {
+  try {
+    dispatch({ type: DRINK_LIST_REQUEST })
+
+    const { data } = await axios.get(`/drinks?sort=${listType}`)
+    dispatch({ type: DRINK_LIST_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: DRINK_LIST_FAIL,
+      payload: error,
+    })
+  }
+}
 
 export const getRandomDrinkList = () => async (dispatch) => {
   try {
@@ -80,22 +97,6 @@ export const searchDrinks = (ingredients = '', category = '') => async (
   }
 }
 
-// export const getDrinksByCategory = (ingredients = '', category = '') => async (
-//   dispatch
-// ) => {
-//   try {
-//     dispatch({ type: CATEGORY_DRINK_REQUEST })
-
-//     const { data } = await axios.get(`/drinks/category/${category}`)
-//     dispatch({ type: CATEGORY_DRINK_SUCCESS, payload: data })
-//   } catch (error) {
-//     dispatch({
-//       type: CATEGORY_DRINK_FAIL,
-//       payload: error,
-//     })
-//   }
-// }
-
 export const getDrinkDetails = (drinkId) => async (dispatch) => {
   try {
     dispatch({ type: DRINK_DETAILS_REQUEST })
@@ -109,17 +110,3 @@ export const getDrinkDetails = (drinkId) => async (dispatch) => {
     })
   }
 }
-
-// export const getDrinksByIngredients = (drinkId) => async (dispatch) => {
-//   try {
-//     dispatch({ type: DRINK_DETAILS_REQUEST })
-
-//     const { data } = await axios.get(`/drinks/${drinkId}`)
-//     dispatch({ type: DRINK_DETAILS_SUCCESS, payload: data })
-//   } catch (error) {
-//     dispatch({
-//       type: DRINK_DETAILS_FAIL,
-//       payload: error,
-//     })
-//   }
-// }

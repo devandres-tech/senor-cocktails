@@ -15,7 +15,7 @@ const MainRoutes = () => (
     <Header />
     <main>
       <Route path='/' exact component={HomeScreen} />
-      <Route path='/list' exact component={ListScreen} />
+      <Route path='/drinklist/:categoryList' component={ListScreen} />
       <Route
         path='/ingredient/:ingredientId'
         component={IngredientDetailsScreen}

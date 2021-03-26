@@ -14,6 +14,9 @@ import {
   SEARCH_DRINKS_FAIL,
   SEARCH_DRINKS_REQUEST,
   SEARCH_DRINKS_SUCCESS,
+  DRINK_LIST_REQUEST,
+  DRINK_LIST_SUCCESS,
+  DRINK_LIST_FAIL,
 } from '../constants/drinkConstants'
 
 export const drinkDetailsReducer = (state = { drinkDetails: [] }, action) => {
@@ -25,6 +28,22 @@ export const drinkDetailsReducer = (state = { drinkDetails: [] }, action) => {
       return { loading: false, drinkDetails: action.payload }
 
     case DRINK_DETAILS_FAIL:
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
+
+export const drinkListReducer = (state = { drinkList: [] }, action) => {
+  switch (action.type) {
+    case DRINK_LIST_REQUEST:
+      return { loading: true, drinkList: [] }
+
+    case DRINK_LIST_SUCCESS:
+      return { loading: false, drinkList: action.payload }
+
+    case DRINK_LIST_FAIL:
       return { loading: false, error: action.payload }
 
     default:

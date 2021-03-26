@@ -52,10 +52,7 @@ const IngredientScreen = ({ match, history }) => {
           <>
             <Row>
               <Col md={12}>
-                <div
-                  onClick={() => history.goBack()}
-                  className='ingredientContainer__goBack'
-                >
+                <div onClick={() => history.goBack()} className='btn__goBack'>
                   <i className='fas fa-chevron-left'></i>
                   <span>Go back</span>
                 </div>

@@ -26,3 +26,19 @@
   color: $link-color;
   background-color: transparent;
 }
+
+.btn__goBack {
+  padding-bottom: 4rem;
+  font-size: $font-size-body;
+  color: $link-color;
+
+  @include responsive(mobile) {
+    padding-top: 1rem;
+    padding-left: 1rem;
+  }
+
+  cursor: pointer;
+  & > i {
+    padding-right: 0.5rem;
+  }
+}

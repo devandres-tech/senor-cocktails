@@ -114,17 +114,20 @@ const HomeScreen = () => {
 
       <Container>
         <Slider
+          categoryList={'latest'}
           items={latestDrinkList}
           type={'drink'}
           title={'Latest Drinks'}
         />
         <Slider
+          categoryList={'popular'}
           items={popularIngredientList}
           type={'ingredient'}
           title={'Popular Ingredients'}
         />
         {user.auth ? (
           <Slider
+            categoryList={'random'}
             items={randomDrinkList}
             type={'drink'}
             title={'Random Drinks'}
@@ -135,6 +138,7 @@ const HomeScreen = () => {
         {user.auth ? (
           <Slider
             items={randomIngredientList}
+            categoryList={'random'}
             type={'ingredient'}
             title={'Random Ingredients'}
           />

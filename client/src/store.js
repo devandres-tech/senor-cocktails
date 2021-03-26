@@ -8,6 +8,7 @@ import {
   popularDrinkListReducer,
   searchDrinksReducer,
   drinkDetailsReducer,
+  drinkListReducer,
 } from './reducers/drinkReducers'
 
 import {
@@ -22,6 +23,7 @@ const reducer = combineReducers({
   popularDrinkList: popularDrinkListReducer,
   searchDrinkList: searchDrinksReducer,
   drinkDetails: drinkDetailsReducer,
+  drinkList: drinkListReducer,
   randomIngredientList: randomIngredientListReducer,
   popularIngredientList: popularIngredientListReducer,
   ingredientDetails: ingredientDetailsReducer,

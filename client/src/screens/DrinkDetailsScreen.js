@@ -40,6 +40,10 @@ const DrinkDetailsScreen = ({ match, history }) => {
         <h1>Loading...</h1>
       ) : (
         <>
+          <div onClick={() => history.goBack()} className='btn__goBack'>
+            <i className='fas fa-chevron-left'></i>
+            <span>Go back</span>
+          </div>
           <Row>
             <Col md={6}>
               <div className='drinkContainer__leftContent'>

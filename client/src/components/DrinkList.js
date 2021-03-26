@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import Pagination from '../components/Pagination'
 
-const DrinkList = ({ title, drinks }) => {
+const DrinkList = ({ title, drinks, type }) => {
   const [itemsPerPage, setItemsPerPage] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -20,7 +20,13 @@ const DrinkList = ({ title, drinks }) => {
         <h2>{title}</h2>
         <Row>
           {renderDrinks.map((drink) => (
-            <Link to={`/drink/${drink._id}`}>
+            <Link
+              to={
+                type === 'drink'
+                  ? `/drink/${drink._id}`
+                  : `/ingredient/${drink._id}`
+              }
+            >
               <Col
                 key={drink._id}
                 xs={6}
@@ -55,4 +61,5 @@ export default DrinkList
 DrinkList.propTypes = {
   title: PropTypes.string,
   drinks: PropTypes.array,
+  type: PropTypes.string,
 }
