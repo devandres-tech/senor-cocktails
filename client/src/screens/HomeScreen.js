@@ -36,6 +36,7 @@ const HomeScreen = () => {
   const randomIngredientListState = useSelector(
     (state) => state.randomIngredientList
   )
+  console.log('random list', loading)
   const { randomIngredientList } = randomIngredientListState
 
   const popularIngredientListState = useSelector(
@@ -125,12 +126,12 @@ const HomeScreen = () => {
           type={'ingredient'}
           title={'Popular Ingredients'}
         />
-        {user.auth ? (
+        {user.auth && loading === false ? (
           <Slider
             categoryList={'random'}
-            items={randomDrinkList}
+            items={randomDrinkList.list}
             type={'drink'}
-            title={'Random Drinks'}
+            title={randomDrinkList.listTitle}
           />
         ) : (
           ''

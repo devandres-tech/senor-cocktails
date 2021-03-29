@@ -167,6 +167,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
             </Col>
           </Row>
           <Slider
+            categoryList={'similarlist'}
             items={searchDrinkList}
             type={'drink'}
             title={'Similar Drinks'}

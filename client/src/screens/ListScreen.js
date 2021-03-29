@@ -15,17 +15,21 @@ const DrinkListScreen = ({
   const dispatch = useDispatch()
 
   const drinkListState = useSelector((state) => state.drinkList)
-  const { drinkList } = drinkListState
+  const { drinkList, loading } = drinkListState
+
+  const searchDrinkListState = useSelector((state) => state.searchDrinkList)
+  const {
+    loading: loadingSearchDrinkList,
+    error: errorSearchDrinkList,
+    searchDrinkList,
+  } = searchDrinkListState
 
   useEffect(() => {
-    if (categoryList === 'similarlist') {
-      // dispatch search action
-      // ingredients array, category string
-    }
     dispatch(getDrinkList(categoryList))
   }, [dispatch, categoryList])
 
   useScrollToTop()
+  console.log('ListScreen.js', drinkList)
 
   return (
     <Container className='listScreenContainer'>
@@ -33,7 +37,17 @@ const DrinkListScreen = ({
         <i className='fas fa-chevron-left'></i>
         <span>Go back</span>
       </div>
-      <DrinkList type='drink' title={title} drinks={drinkList} />
+      {loading === false ? (
+        <DrinkList
+          type='drink'
+          title={drinkList.listTitle}
+          drinks={
+            categoryList === 'similarlist' ? searchDrinkList : drinkList.list
+          }
+        />
+      ) : (
+        ''
+      )}
     </Container>
   )
 }

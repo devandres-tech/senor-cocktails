@@ -108,7 +108,11 @@ const IngredientScreen = ({ match, history }) => {
                 title={'Drinks'}
               />
             ) : (
-              <DrinkList title={'Drinks'} drinks={searchDrinkList} />
+              <DrinkList
+                title={'Drinks'}
+                type={'drink'}
+                drinks={searchDrinkList}
+              />
             )}
           </>
         )}

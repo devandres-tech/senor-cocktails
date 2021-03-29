@@ -32,7 +32,9 @@ const getDrinks = asyncHandler(async (req, res) => {
 
   if (sort === 'random') {
     const randomDrinks = await Drink.aggregate([{ $sample: { size: 10 } }])
-    return res.status(200).json(randomDrinks)
+    return res
+      .status(200)
+      .json({ list: randomDrinks, listTitle: 'Random Drinks' })
   }
 
   if (sort === 'popular') {
