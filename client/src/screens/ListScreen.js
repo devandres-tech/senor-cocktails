@@ -29,7 +29,6 @@ const DrinkListScreen = ({
   }, [dispatch, categoryList])
 
   useScrollToTop()
-  console.log('ListScreen.js', drinkList)
 
   return (
     <Container className='listScreenContainer'>

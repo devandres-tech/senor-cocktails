@@ -56,7 +56,9 @@ const getDrinks = asyncHandler(async (req, res) => {
         return drinkFound[0]
       })
     )
-    return res.status(200).json(popularDrinksFound)
+    return res
+      .status(200)
+      .json({ list: popularDrinksFound, listTitle: 'Popular Drinks' })
   }
 
   if (sort === 'latest') {
@@ -78,7 +80,9 @@ const getDrinks = asyncHandler(async (req, res) => {
         return drinkFound[0]
       })
     )
-    return res.status(200).json(latestDrinksFound)
+    return res
+      .status(200)
+      .json({ list: latestDrinksFound, listTitle: 'Latest Drinks' })
   }
 
   if (

@@ -36,7 +36,6 @@ const HomeScreen = () => {
   const randomIngredientListState = useSelector(
     (state) => state.randomIngredientList
   )
-  console.log('random list', loading)
   const { randomIngredientList } = randomIngredientListState
 
   const popularIngredientListState = useSelector(

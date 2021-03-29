@@ -13,6 +13,7 @@ const DrinkList = ({ title, drinks, type }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   let renderDrinks = []
   if (drinks) {
+    console.log('drinks', drinks)
     renderDrinks = drinks.slice(indexOfFirstItem, indexOfLastItem)
   }
 
