@@ -98,10 +98,10 @@ const Menu = ({ open, setOpen }) => {
       <Link onClick={() => setOpen(!open)} to='/'>
         Home
       </Link>
-      <Link>Popular Drinks</Link>
-      <Link>Ingredients</Link>
-      <Link>My Bar</Link>
-      <Link>
+      <Link to='/'>Popular Drinks</Link>
+      <Link to='/'>Ingredients</Link>
+      <Link to='/'>My Bar</Link>
+      <Link to='/'>
         {' '}
         <i className='fas fa-search'></i>Search
       </Link>
@@ -138,7 +138,7 @@ const MobileNavbar = ({ node, setOpen, open }) => (
     </Link>
     <div className='containerNavbar__mobile--right'>
       <div className='containerNavbar__item'>
-        <Link>
+        <Link to='#'>
           <i class='fas fa-user'></i>
           <span>{'Andres'}</span>
         </Link>
@@ -175,24 +175,30 @@ const Navbar = () => (
         </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>Popular Drinks</Link>
+        <Link to='#' className='hoverLinkStyle'>
+          Popular Drinks
+        </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>Ingredients</Link>
+        <Link to='#' className='hoverLinkStyle'>
+          Ingredients
+        </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>My Bar</Link>
+        <Link to='#' className='hoverLinkStyle'>
+          My Bar
+        </Link>
       </li>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>
+        <Link to='#' className='hoverLinkStyle'>
           <i className='fas fa-search'></i>Search
         </Link>
       </li>
     </div>
     <div className='containerNavbar__right'>
       <li className='containerNavbar__item'>
-        <Link className='hoverLinkStyle'>
-          <i class='fas fa-user'></i>
+        <Link to='#' className='hoverLinkStyle'>
+          <i className='fas fa-user'></i>
           <span>{'Andres'}</span>
         </Link>
       </li>

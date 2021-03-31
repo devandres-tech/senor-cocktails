@@ -69,7 +69,7 @@ const HomeScreen = () => {
                     <span>Delete</span>
                   </div>
                 ))}
-                <Link>See All</Link>
+                <Link to='/'>See All</Link>
               </div>
             </Col>
             <Col md={6}>
@@ -85,7 +85,7 @@ const HomeScreen = () => {
                     <span>Delete</span>
                   </div>
                 ))}
-                <Link>See All</Link>
+                <Link to='/'>See All</Link>
               </div>
             </Col>
           </Row>

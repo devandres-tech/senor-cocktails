@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import Pagination from '../components/Pagination'
 
 const DrinkList = ({ title, drinks, type }) => {
-  const [itemsPerPage, setItemsPerPage] = useState(12)
+  const [itemsPerPage] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
 
   const indexOfLastItem = currentPage * itemsPerPage
@@ -17,7 +17,7 @@ const DrinkList = ({ title, drinks, type }) => {
   }
 
   const getTotalDrinksAmount = (drinks) => {
-    if (drinks.length !== undefined) {
+    if (drinks) {
       return drinks.length
     }
   }
@@ -29,6 +29,7 @@ const DrinkList = ({ title, drinks, type }) => {
         <Row>
           {renderDrinks.map((drink) => (
             <Link
+              key={drink._id}
               to={
                 type === 'drink'
                   ? `/drink/${drink._id}`

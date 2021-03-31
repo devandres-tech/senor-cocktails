@@ -15,9 +15,15 @@ const Footer = () => {
         <Row>
           <Col md='6'>
             <div className='footerContainer__links--left'>
-              <Link className='default-linkStyle'>About</Link>
-              <Link className='default-linkStyle'>Contact</Link>
-              <Link className='default-linkStyle'>Terms</Link>
+              <Link to='#' className='default-linkStyle'>
+                About
+              </Link>
+              <Link to='#' className='default-linkStyle'>
+                Contact
+              </Link>
+              <Link to='#' className='default-linkStyle'>
+                Terms
+              </Link>
             </div>
           </Col>
           <Col md='6'>

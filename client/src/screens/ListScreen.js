@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
 import DrinkList from '../components/DrinkList'
@@ -32,13 +32,11 @@ const DrinkListScreen = ({
     if (categoryList === 'similarlist') {
       dispatch(searchDrinks(ingredients, category))
     } else {
-      console.log('ListScreen')
       dispatch(getDrinkList(categoryList))
     }
   }, [dispatch, categoryList, category, ingredients])
 
   useScrollToTop()
-  console.log('ListScrenn.js', drinkList)
 
   return (
     <Container className='listScreenContainer'>
@@ -46,7 +44,9 @@ const DrinkListScreen = ({
         <i className='fas fa-chevron-left'></i>
         <span>Go back</span>
       </div>
-      {loading === false || loadingSearchDrinkList === false ? (
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
         <DrinkList
           type='drink'
           title={drinkList.listTitle}
@@ -54,8 +54,6 @@ const DrinkListScreen = ({
             categoryList === 'similarlist' ? searchDrinkList : drinkList.list
           }
         />
-      ) : (
-        ''
       )}
     </Container>
   )

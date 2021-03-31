@@ -48,11 +48,11 @@ const Pagination = ({
   return (
     <div className='paginationContainer'>
       <p onClick={() => onPrevPageHandler()}>
-        <i class='fas fa-chevron-left'></i> Prev
+        <i className='fas fa-chevron-left'></i> Prev
       </p>
       {renderPageNumbers}
       <p onClick={() => onNextPageHandler()}>
-        Next <i class='fas fa-chevron-right'></i>
+        Next <i className='fas fa-chevron-right'></i>
       </p>
     </div>
   )
