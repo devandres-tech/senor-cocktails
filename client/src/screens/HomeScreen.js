@@ -113,12 +113,16 @@ const HomeScreen = () => {
       )}
 
       <Container>
-        <Slider
-          categoryList={'latest'}
-          items={latestDrinkList}
-          type={'drink'}
-          title={'Latest Drinks'}
-        />
+        {loadingLatest === false ? (
+          <Slider
+            categoryList={'latest'}
+            items={latestDrinkList.list}
+            type={'drink'}
+            title={latestDrinkList.listTitle}
+          />
+        ) : (
+          ''
+        )}
         <Slider
           categoryList={'popular'}
           items={popularIngredientList}

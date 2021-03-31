@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -20,17 +20,27 @@ const DrinkDetailsScreen = ({ match, history }) => {
     searchDrinkList,
   } = searchDrinkListState
 
+  const getIngredientsArray = (drinkDetails) => {
+    if (drinkDetails.ingredients) {
+      return drinkDetails.ingredients.map((ingredient) => ingredient.name)
+    }
+  }
+
+  const getDrinkCategory = (drinkDetails) => {
+    if (drinkDetails.category) {
+      return drinkDetails.category
+    }
+  }
+
   useEffect(() => {
     dispatch(getDrinkDetails(drinkId))
   }, [dispatch, drinkId])
 
   useEffect(() => {
     if (drinkDetails.ingredients) {
-      const ingredientsArray = drinkDetails.ingredients.map(
-        (ingredient) => ingredient.name
-      )
-      const { category } = drinkDetails
-      dispatch(searchDrinks(ingredientsArray, category))
+      const ingredients = getIngredientsArray(drinkDetails.ingredients)
+      const category = getDrinkCategory(drinkDetails)
+      dispatch(searchDrinks(ingredients, category))
     }
   }, [dispatch, drinkDetails])
 
@@ -171,6 +181,8 @@ const DrinkDetailsScreen = ({ match, history }) => {
             items={searchDrinkList}
             type={'drink'}
             title={'Similar Drinks'}
+            ingredients={getIngredientsArray(drinkDetails)}
+            category={getDrinkCategory(drinkDetails)}
           />
         </>
       )}

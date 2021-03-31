@@ -8,7 +8,7 @@ import { getDrinkList, searchDrinks } from '../actions/drinkActions'
 
 const DrinkListScreen = ({
   history,
-  location: { title },
+  location: { search },
   match: { params },
 }) => {
   const { categoryList } = params
@@ -24,11 +24,21 @@ const DrinkListScreen = ({
     searchDrinkList,
   } = searchDrinkListState
 
+  let queryParams = new URLSearchParams(search)
+  const ingredients = queryParams.get('ingredients')
+  const category = queryParams.get('category')
+
   useEffect(() => {
-    dispatch(getDrinkList(categoryList))
-  }, [dispatch, categoryList])
+    if (categoryList === 'similarlist') {
+      dispatch(searchDrinks(ingredients, category))
+    } else {
+      console.log('ListScreen')
+      dispatch(getDrinkList(categoryList))
+    }
+  }, [dispatch, categoryList, category, ingredients])
 
   useScrollToTop()
+  console.log('ListScrenn.js', drinkList)
 
   return (
     <Container className='listScreenContainer'>
@@ -36,7 +46,7 @@ const DrinkListScreen = ({
         <i className='fas fa-chevron-left'></i>
         <span>Go back</span>
       </div>
-      {loading === false ? (
+      {loading === false || loadingSearchDrinkList === false ? (
         <DrinkList
           type='drink'
           title={drinkList.listTitle}

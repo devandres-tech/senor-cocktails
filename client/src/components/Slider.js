@@ -13,7 +13,14 @@ import config from '../config.json'
 
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay])
 
-const Slider = ({ items, title, type, categoryList }) => {
+const Slider = ({
+  items,
+  title,
+  type,
+  categoryList,
+  ingredients,
+  category,
+}) => {
   const [windowDimensions] = useViewport()
 
   return (
@@ -26,10 +33,11 @@ const Slider = ({ items, title, type, categoryList }) => {
         <h2>{title}</h2>
         <Link
           className='default-linkStyle'
-          to={{
-            pathname: `/drinklist/${categoryList}`,
-            title,
-          }}
+          to={
+            categoryList === 'similarlist'
+              ? `/drinklist/${categoryList}?ingredients=${ingredients}&category=${category}`
+              : `/drinklist/${categoryList}`
+          }
         >
           See All
         </Link>

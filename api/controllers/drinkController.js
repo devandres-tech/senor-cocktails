@@ -24,6 +24,7 @@ const getDrinkById = asyncHandler(async (req, res) => {
 // @desc get a selection of drinks (random, latest, popular)
 // @access public and private
 const getDrinks = asyncHandler(async (req, res) => {
+  const { ingredients, category } = req.query
   let sort
   if (req.query.sort) {
     sort = req.query.sort.toLocaleLowerCase()

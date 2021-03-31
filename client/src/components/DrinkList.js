@@ -13,8 +13,13 @@ const DrinkList = ({ title, drinks, type }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   let renderDrinks = []
   if (drinks) {
-    console.log('drinks', drinks)
     renderDrinks = drinks.slice(indexOfFirstItem, indexOfLastItem)
+  }
+
+  const getTotalDrinksAmount = (drinks) => {
+    if (drinks.length !== undefined) {
+      return drinks.length
+    }
   }
 
   return (
@@ -50,7 +55,7 @@ const DrinkList = ({ title, drinks, type }) => {
         </Row>
       </div>
       <Pagination
-        totalItems={drinks.length}
+        totalItems={getTotalDrinksAmount(drinks)}
         itemsPerPage={itemsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
