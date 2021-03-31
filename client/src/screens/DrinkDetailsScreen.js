@@ -38,7 +38,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
 
   useEffect(() => {
     if (drinkDetails.ingredients) {
-      const ingredients = getIngredientsArray(drinkDetails.ingredients)
+      const ingredients = getIngredientsArray(drinkDetails)
       const category = getDrinkCategory(drinkDetails)
       dispatch(searchDrinks(ingredients, category))
     }

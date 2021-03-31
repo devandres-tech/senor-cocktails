@@ -44,12 +44,16 @@ const DrinkListScreen = ({
         <i className='fas fa-chevron-left'></i>
         <span>Go back</span>
       </div>
-      {loading ? (
+      {loading || loadingSearchDrinkList ? (
         <h1>Loading...</h1>
       ) : (
         <DrinkList
           type='drink'
-          title={drinkList.listTitle}
+          title={
+            categoryList === 'similarlist'
+              ? 'Similar Drinks'
+              : drinkList.listTitle
+          }
           drinks={
             categoryList === 'similarlist' ? searchDrinkList : drinkList.list
           }

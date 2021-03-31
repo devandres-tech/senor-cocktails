@@ -24,11 +24,15 @@ const HomeScreen = () => {
   const dispatch = useDispatch()
 
   const randomDrinkListState = useSelector((state) => state.randomDrinkList)
-  const { loading, error, randomDrinkList } = randomDrinkListState
+  const {
+    loading: loadingRandomDrinks,
+    error,
+    randomDrinkList,
+  } = randomDrinkListState
 
   const latestDrinkListState = useSelector((state) => state.latestDrinkList)
   const {
-    loading: loadingLatest,
+    loading: loadingLatestDrinks,
     error: errorLatest,
     latestDrinkList,
   } = latestDrinkListState
@@ -36,20 +40,28 @@ const HomeScreen = () => {
   const randomIngredientListState = useSelector(
     (state) => state.randomIngredientList
   )
-  const { randomIngredientList } = randomIngredientListState
+  const {
+    randomIngredientList,
+    loading: loadingRandomIngredients,
+  } = randomIngredientListState
 
   const popularIngredientListState = useSelector(
     (state) => state.popularIngredientList
   )
-  const { popularIngredientList } = popularIngredientListState
+  const {
+    popularIngredientList,
+    loading: loadingIngredients,
+  } = popularIngredientListState
 
   useEffect(() => {
-    dispatch(getRandomDrinkList())
     dispatch(getLatestDrinkList())
-    dispatch(getPopularDrinkList())
-    dispatch(getRandomIngredientList())
     dispatch(getPopularIngredientList())
+    dispatch(getRandomDrinkList())
+    dispatch(getRandomIngredientList())
+    // dispatch(getPopularDrinkList())
   }, [dispatch])
+
+  console.log('loading random ', loadingRandomDrinks)
 
   return (
     <>
@@ -113,23 +125,29 @@ const HomeScreen = () => {
       )}
 
       <Container>
-        {loadingLatest === false ? (
+        {loadingLatestDrinks ? (
+          <h1>Loading...</h1>
+        ) : (
           <Slider
             categoryList={'latest'}
             items={latestDrinkList.list}
             type={'drink'}
             title={latestDrinkList.listTitle}
           />
-        ) : (
-          ''
         )}
-        <Slider
-          categoryList={'popular'}
-          items={popularIngredientList}
-          type={'ingredient'}
-          title={'Popular Ingredients'}
-        />
-        {user.auth && loading === false ? (
+
+        {loadingIngredients ? (
+          <h1>Loading...</h1>
+        ) : (
+          <Slider
+            categoryList={'popular'}
+            items={popularIngredientList}
+            type={'ingredient'}
+            title={'Popular Ingredients'}
+          />
+        )}
+
+        {user.auth && !loadingRandomDrinks ? (
           <Slider
             categoryList={'random'}
             items={randomDrinkList.list}
@@ -137,9 +155,10 @@ const HomeScreen = () => {
             title={randomDrinkList.listTitle}
           />
         ) : (
-          ''
+          <h1>Loading</h1>
         )}
-        {user.auth ? (
+
+        {user.auth && !loadingRandomIngredients ? (
           <Slider
             items={randomIngredientList}
             categoryList={'random'}
@@ -147,7 +166,7 @@ const HomeScreen = () => {
             title={'Random Ingredients'}
           />
         ) : (
-          ''
+          <h1>Loading..</h1>
         )}
       </Container>
       {!user.auth && (

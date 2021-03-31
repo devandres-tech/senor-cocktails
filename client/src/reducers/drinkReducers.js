@@ -52,7 +52,7 @@ export const drinkListReducer = (state = { drinkList: [] }, action) => {
 }
 
 export const randomDrinkListReducer = (
-  state = { randomDrinkList: [] },
+  state = { randomDrinkList: [], loading: true },
   action
 ) => {
   switch (action.type) {
@@ -90,7 +90,7 @@ export const popularDrinkListReducer = (
 }
 
 export const latestDrinkListReducer = (
-  state = { latestDrinkList: [] },
+  state = { latestDrinkList: [], loading: true },
   action
 ) => {
   switch (action.type) {
