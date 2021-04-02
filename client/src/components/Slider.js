@@ -16,7 +16,7 @@ SwiperCore.use([Navigation, Pagination, A11y, Autoplay])
 const Slider = ({
   items,
   title,
-  type,
+  itemType,
   categoryList,
   ingredients,
   category,
@@ -35,8 +35,10 @@ const Slider = ({
           className='default-linkStyle'
           to={
             categoryList === 'similarlist'
-              ? `/drinklist/${categoryList}?ingredients=${ingredients}&category=${category}`
-              : `/drinklist/${categoryList}`
+              ? `/drink-list/${categoryList}?ingredients=${ingredients}&category=${category}`
+              : itemType === 'drink'
+              ? `/drink-list/${categoryList}`
+              : `/ingredient-list`
           }
         >
           See All
@@ -72,7 +74,7 @@ const Slider = ({
           <SwiperSlide key={idx} className='sliderContainer__item'>
             <Link
               to={
-                type === 'drink'
+                itemType === 'drink'
                   ? `/drink/${item._id}`
                   : `/ingredient/${item._id}`
               }
@@ -92,5 +94,5 @@ export default Slider
 Slider.propTypes = {
   items: PropTypes.array,
   title: PropTypes.string,
-  type: PropTypes.string,
+  itemType: PropTypes.string,
 }

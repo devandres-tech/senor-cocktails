@@ -8,14 +8,14 @@ import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
 import IngredientDetailsScreen from './screens/IngredientDetailsScreen'
 import DrinkDetailsScreen from './screens/DrinkDetailsScreen'
-import ListScreen from './screens/ListScreen'
+import DrinkListScreen from './screens/DrinkListScreen'
 
 const MainRoutes = () => (
   <>
     <Header />
     <main>
       <Route path='/' exact component={HomeScreen} />
-      <Route path='/drinklist/:categoryList' component={ListScreen} />
+      <Route path='/drink-list/:categoryList' component={DrinkListScreen} />
       <Route
         path='/ingredient/:ingredientId'
         component={IngredientDetailsScreen}

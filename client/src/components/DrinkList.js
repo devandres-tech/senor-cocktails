@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import Pagination from '../components/Pagination'
+import { useScrollToTop } from '../hooks/useScrollToTop'
 
 const DrinkList = ({ title, drinks, type }) => {
   const [itemsPerPage] = useState(12)
@@ -22,20 +23,15 @@ const DrinkList = ({ title, drinks, type }) => {
     }
   }
 
+  useScrollToTop()
+
   return (
     <>
       <div className='drinkListContainer'>
         <h2>{title}</h2>
         <Row>
           {renderDrinks.map((drink) => (
-            <Link
-              key={drink._id}
-              to={
-                type === 'drink'
-                  ? `/drink/${drink._id}`
-                  : `/ingredient/${drink._id}`
-              }
-            >
+            <Link key={drink._id} to={`/drink/${drink._id}`}>
               <Col
                 key={drink._id}
                 xs={6}
@@ -47,7 +43,7 @@ const DrinkList = ({ title, drinks, type }) => {
                 <img
                   className='drinkListContainer__image'
                   src={drink.image}
-                  alt='drink'
+                  alt='dr'
                 />
                 <p className='drinkListContainer__name'>{drink.name}</p>
               </Col>

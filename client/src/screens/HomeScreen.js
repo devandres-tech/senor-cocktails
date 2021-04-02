@@ -9,11 +9,7 @@ import drinks from '../data/drinks'
 import AddItemIcon from '../images/add-item.svg'
 import LibraryIcon from '../images/library.svg'
 import UserIcon from '../images/user.svg'
-import {
-  getRandomDrinkList,
-  getPopularDrinkList,
-  getLatestDrinkList,
-} from '../actions/drinkActions'
+import { getRandomDrinkList, getLatestDrinkList } from '../actions/drinkActions'
 import {
   getRandomIngredientList,
   getPopularIngredientList,
@@ -58,10 +54,7 @@ const HomeScreen = () => {
     dispatch(getPopularIngredientList())
     dispatch(getRandomDrinkList())
     dispatch(getRandomIngredientList())
-    // dispatch(getPopularDrinkList())
   }, [dispatch])
-
-  console.log('loading random ', loadingRandomDrinks)
 
   return (
     <>
@@ -131,7 +124,7 @@ const HomeScreen = () => {
           <Slider
             categoryList={'latest'}
             items={latestDrinkList.list}
-            type={'drink'}
+            itemType={'drink'}
             title={latestDrinkList.listTitle}
           />
         )}
@@ -142,7 +135,7 @@ const HomeScreen = () => {
           <Slider
             categoryList={'popular'}
             items={popularIngredientList}
-            type={'ingredient'}
+            itemType={'ingredient'}
             title={'Popular Ingredients'}
           />
         )}
@@ -151,7 +144,7 @@ const HomeScreen = () => {
           <Slider
             categoryList={'random'}
             items={randomDrinkList.list}
-            type={'drink'}
+            itemType={'drink'}
             title={randomDrinkList.listTitle}
           />
         ) : (
@@ -162,7 +155,7 @@ const HomeScreen = () => {
           <Slider
             items={randomIngredientList}
             categoryList={'random'}
-            type={'ingredient'}
+            itemType={'ingredient'}
             title={'Random Ingredients'}
           />
         ) : (

@@ -83,7 +83,10 @@ const DrinkDetailsScreen = ({ match, history }) => {
                 <h2>Ingredients</h2>
                 {drinkDetails.ingredients &&
                   drinkDetails.ingredients.map((ingredient) => (
-                    <Link to={`/ingredient/${ingredient.ingredient}`}>
+                    <Link
+                      key={ingredient.name}
+                      to={`/ingredient/${ingredient.ingredient}`}
+                    >
                       <div className='drinkContent__rightContent ingredient'>
                         <div className='ingredientImage'>
                           <img src={ingredient.image} alt='ingredient' />
@@ -179,7 +182,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
           <Slider
             categoryList={'similarlist'}
             items={searchDrinkList}
-            type={'drink'}
+            itemType={'drink'}
             title={'Similar Drinks'}
             ingredients={getIngredientsArray(drinkDetails)}
             category={getDrinkCategory(drinkDetails)}
