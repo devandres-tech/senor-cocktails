@@ -11,7 +11,8 @@
     "test:watch": "DEBUG=server:debug NODE_ENV=test mocha --watch ./test --recursive",
     "test": "DEBUG=server:debug NODE_ENV=test mocha ./test --recursive",
     "dev": "DEBUG=server:debug NODE_ENV=development nodemon --exec babel-node ./api/server.js",
-    "prod": "npm run build && NODE_ENV=production node dist/server.js"
+    "prod": "npm run build && NODE_ENV=production node dist/server.js",
+    "deploy": "npm run build && git push heroku main"
   },
   "author": "Andres Alcocer",
   "license": "MIT",
