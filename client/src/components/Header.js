@@ -92,37 +92,6 @@ const StyledBurger = styled.button`
     }
   }
 `
-const Menu = ({ open, setOpen }) => {
-  return (
-    <StyledMenu open={open}>
-      <Link onClick={() => setOpen(!open)} to='/'>
-        Home
-      </Link>
-      <Link to='/'>Popular Drinks</Link>
-      <Link to='/'>Ingredients</Link>
-      <Link to='/'>My Bar</Link>
-      <Link to='/'>
-        {' '}
-        <i className='fas fa-search'></i>Search
-      </Link>
-      {/* <Link to='signup'>Sign up</Link>
-      <Link to='/login'>
-        <button className='btn__primary'>Login</button>
-      </Link> */}
-    </StyledMenu>
-  )
-}
-
-const Burger = ({ open, setOpen }) => {
-  return (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
-    </StyledBurger>
-  )
-}
-
 const MobileNavbar = ({ node, setOpen, open }) => (
   <div className='containerNavbar__mobile'>
     <div ref={node}>
@@ -144,18 +113,49 @@ const MobileNavbar = ({ node, setOpen, open }) => (
         </Link>
       </div>
       {/* <li className='containerNavbar__item'>
-        <Link to='/signup' className='hoverLinkStyle'>
-          Sign up
-        </Link>
-      </li>
-      <li className='containerNavbar__item'>
-        <Link to='/login'>
-          <button className='btn__primary'>Login</button>
-        </Link>
-      </li> */}
+          <Link to='/signup' className='hoverLinkStyle'>
+            Sign up
+          </Link>
+        </li>
+        <li className='containerNavbar__item'>
+          <Link to='/login'>
+            <button className='btn__primary'>Login</button>
+          </Link>
+        </li> */}
     </div>
   </div>
 )
+
+const Burger = ({ open, setOpen }) => {
+  return (
+    <StyledBurger open={open} onClick={() => setOpen(!open)}>
+      <div />
+      <div />
+      <div />
+    </StyledBurger>
+  )
+}
+
+const Menu = ({ open, setOpen }) => {
+  return (
+    <StyledMenu open={open}>
+      <Link onClick={() => setOpen(!open)} to='/'>
+        Home
+      </Link>
+      <Link to='/'>Popular Drinks</Link>
+      <Link to='/'>Ingredients</Link>
+      <Link to='/'>My Bar</Link>
+      <Link to='/'>
+        {' '}
+        <i className='fas fa-search'></i>Search
+      </Link>
+      {/* <Link to='signup'>Sign up</Link>
+      <Link to='/login'>
+        <button className='btn__primary'>Login</button>
+      </Link> */}
+    </StyledMenu>
+  )
+}
 
 const Navbar = () => (
   <ul className='containerNavbar'>

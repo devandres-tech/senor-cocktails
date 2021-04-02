@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import { getIngredientDetails } from '../actions/ingredientActions'
 import { searchDrinks } from '../actions/drinkActions'
-import DrinkList from '../components/DrinkList'
+import ItemList from '../components/ItemList'
 import { useViewport } from '../hooks/useViewport'
 import config from '../config.json'
 import Slider from '../components/Slider'
@@ -26,10 +26,12 @@ const IngredientScreen = ({ match, history }) => {
 
   const [expandText, setExpandText] = useState(false)
 
+  // fetch ingredients details
   useEffect(() => {
     dispatch(getIngredientDetails(ingredientId))
   }, [dispatch, ingredientId])
 
+  // fetch drinks via ingredient name
   useEffect(() => {
     if (ingredientDetails.name) {
       dispatch(searchDrinks(ingredientDetails.name))
@@ -102,13 +104,19 @@ const IngredientScreen = ({ match, history }) => {
             </Row>
 
             {windowDimensions.width < config.TABLET_WIDTH ? (
-              <Slider
-                items={searchDrinkList.slice(0, 10)}
-                type={'drink'}
-                title={'Drinks'}
-              />
+              loadingSearchDrinkList ? (
+                <h1>Loading</h1>
+              ) : (
+                <Slider
+                  items={searchDrinkList.slice(0, 10)}
+                  type={'drink'}
+                  title={'Drinks'}
+                />
+              )
+            ) : loadingSearchDrinkList ? (
+              <h1>Loading...</h1>
             ) : (
-              <DrinkList
+              <ItemList
                 title={'Drinks'}
                 type={'drink'}
                 drinks={searchDrinkList}

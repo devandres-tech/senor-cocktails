@@ -3,10 +3,10 @@ import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import Pagination from '../components/Pagination'
+import Pagination from './Pagination'
 import { useScrollToTop } from '../hooks/useScrollToTop'
 
-const DrinkList = ({ title, drinks, type }) => {
+const ItemList = ({ title, drinks }) => {
   const [itemsPerPage] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -61,9 +61,9 @@ const DrinkList = ({ title, drinks, type }) => {
   )
 }
 
-export default DrinkList
+export default ItemList
 
-DrinkList.propTypes = {
+ItemList.propTypes = {
   title: PropTypes.string,
   drinks: PropTypes.array,
   type: PropTypes.string,

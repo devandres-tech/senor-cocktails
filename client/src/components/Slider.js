@@ -70,8 +70,8 @@ const Slider = ({
           },
         }}
       >
-        {items.map((item, idx) => (
-          <SwiperSlide key={idx} className='sliderContainer__item'>
+        {items.map((item) => (
+          <SwiperSlide key={item._id} className='sliderContainer__item'>
             <Link
               to={
                 itemType === 'drink'

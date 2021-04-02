@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import DrinkList from '../components/DrinkList'
+import ItemList from '../components/ItemList'
 import { useScrollToTop } from '../hooks/useScrollToTop'
 import { getDrinkList, searchDrinks } from '../actions/drinkActions'
 
@@ -47,8 +47,7 @@ const DrinkListScreen = ({
       {loading || loadingSearchDrinkList ? (
         <h1>Loading...</h1>
       ) : (
-        <DrinkList
-          type='drink'
+        <ItemList
           title={
             categoryList === 'similarlist'
               ? 'Similar Drinks'
