@@ -6,20 +6,20 @@ import PropTypes from 'prop-types'
 import Pagination from './Pagination'
 import { useScrollToTop } from '../hooks/useScrollToTop'
 
-const ItemList = ({ title, drinks }) => {
+const ItemList = ({ title, items, itemType }) => {
   const [itemsPerPage] = useState(12)
   const [currentPage, setCurrentPage] = useState(1)
 
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  let renderDrinks = []
-  if (drinks) {
-    renderDrinks = drinks.slice(indexOfFirstItem, indexOfLastItem)
+  let renderItems = []
+  if (items) {
+    renderItems = items.slice(indexOfFirstItem, indexOfLastItem)
   }
 
-  const getTotalDrinksAmount = (drinks) => {
-    if (drinks) {
-      return drinks.length
+  const getItemsTotal = (items) => {
+    if (items) {
+      return items.length
     }
   }
 
@@ -27,32 +27,32 @@ const ItemList = ({ title, drinks }) => {
 
   return (
     <>
-      <div className='drinkListContainer'>
+      <div className='itemListContainer'>
         <h2>{title}</h2>
         <Row>
-          {renderDrinks.map((drink) => (
-            <Link key={drink._id} to={`/drink/${drink._id}`}>
+          {renderItems.map((item) => (
+            <Link key={item._id} to={`/drink/${item._id}`}>
               <Col
-                key={drink._id}
+                key={item._id}
                 xs={6}
                 sm={6}
                 md={4}
                 lg={3}
-                className='drinkListContainer__wrapper'
+                className='itemListContainer__wrapper'
               >
                 <img
-                  className='drinkListContainer__image'
-                  src={drink.image}
+                  className='itemListContainer__image'
+                  src={item.image}
                   alt='dr'
                 />
-                <p className='drinkListContainer__name'>{drink.name}</p>
+                <p className='itemListContainer__name'>{item.name}</p>
               </Col>
             </Link>
           ))}
         </Row>
       </div>
       <Pagination
-        totalItems={getTotalDrinksAmount(drinks)}
+        totalItems={getItemsTotal(items)}
         itemsPerPage={itemsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
@@ -65,6 +65,6 @@ export default ItemList
 
 ItemList.propTypes = {
   title: PropTypes.string,
-  drinks: PropTypes.array,
-  type: PropTypes.string,
+  items: PropTypes.array,
+  itemType: PropTypes.string,
 }
