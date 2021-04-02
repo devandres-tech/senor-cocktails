@@ -33,12 +33,11 @@ const ItemList = ({ title, items, itemType }) => {
           {renderItems.map((item) => (
             <Link key={item._id} to={`/drink/${item._id}`}>
               <Col
-                key={item._id}
-                xs={6}
-                sm={6}
-                md={4}
-                lg={3}
+                // lg={2}
+                // md={2}
+                // xs={2}
                 className='itemListContainer__wrapper'
+                key={item._id}
               >
                 <img
                   className='itemListContainer__image'

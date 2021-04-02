@@ -61,7 +61,7 @@ const IngredientScreen = ({ match, history }) => {
               </Col>
             </Row>
             <Row>
-              <Col md={4}>
+              <Col md={ingredientDetails.description ? 4 : 12}>
                 <div className='ingredientContainer__left'>
                   <h1>{ingredientDetails.name}</h1>
                   <img src={ingredientDetails.image} alt={'ingredient'} />

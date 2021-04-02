@@ -39,7 +39,7 @@ const DrinkListScreen = ({
   useScrollToTop()
 
   return (
-    <Container className='listScreenContainer'>
+    <Container className='drinkListScreenContainer'>
       <div onClick={() => history.goBack()} className='btn__goBack'>
         <i className='fas fa-chevron-left'></i>
         <span>Go back</span>
@@ -53,7 +53,8 @@ const DrinkListScreen = ({
               ? 'Similar Drinks'
               : drinkList.listTitle
           }
-          drinks={
+          itemType='drink'
+          items={
             categoryList === 'similarlist' ? searchDrinkList : drinkList.list
           }
         />

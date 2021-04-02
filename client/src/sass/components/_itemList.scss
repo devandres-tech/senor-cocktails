@@ -1,15 +1,19 @@
 .itemListContainer {
   & > h2 {
-    padding-bottom: 1rem;
-  }
+    font-size: $font-size-h2;
+    padding-bottom: 15px;
 
+    @include responsive(mobile) {
+      font-size: $font-size-h2-mobile;
+    }
+  }
   &__wrapper {
     text-align: center;
     cursor: pointer;
   }
 
   &__image {
-    height: 14rem;
+    height: 12rem;
   }
 
   &__name {
