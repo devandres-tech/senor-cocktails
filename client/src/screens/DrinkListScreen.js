@@ -56,7 +56,7 @@ const DrinkListScreen = ({
           itemType='drink'
           items={
             categoryList === 'similarlist'
-              ? searchDrinkList.data
+              ? searchDrinkList.drinks
               : drinkList.list
           }
         />

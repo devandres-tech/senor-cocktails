@@ -108,7 +108,7 @@ const searchDrinks = asyncHandler(async (req, res) => {
       'ingredients.name': { $in: ingredientsArray },
       category: category,
     })
-    return res.status(200).json(drinks)
+    return res.status(200).json({ drinks, listTitle: '' })
   }
 
   drinks = await Drink.find({
@@ -118,7 +118,6 @@ const searchDrinks = asyncHandler(async (req, res) => {
   if (!drinks) {
     return res.status(404).json({ Error: 'No drinks found' })
   }
-  console.log('SeearchDRINKS()', ingredients)
   res
     .status(200)
     .json({ drinks, listTitle: `Drinks that include ${ingredients}` })

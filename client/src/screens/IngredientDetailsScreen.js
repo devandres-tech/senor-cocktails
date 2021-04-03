@@ -37,8 +37,8 @@ const IngredientScreen = ({ match, history }) => {
       dispatch(
         searchDrinks(
           ingredientDetails.name,
-          '',
-          `Drinks that include ${ingredientDetails.name}`
+          ''
+          // `Drinks that include ${ingredientDetails.name}`
         )
       )
     }
@@ -50,6 +50,8 @@ const IngredientScreen = ({ match, history }) => {
     }
     return text
   }
+
+  console.log('search drink list', searchDrinkList)
 
   return (
     <>
@@ -116,7 +118,7 @@ const IngredientScreen = ({ match, history }) => {
                 categoryList={'similarlist'}
                 category={''}
                 ingredients={ingredientDetails.name}
-                items={searchDrinkList.data.slice(0, 10)}
+                items={searchDrinkList.drinks.slice(0, 10)}
                 itemType={'drink'}
                 title={searchDrinkList.listTitle}
               />
