@@ -23,7 +23,7 @@ const ItemList = ({ title, items, itemType }) => {
     }
   }
 
-  useScrollToTop()
+  useScrollToTop(currentPage)
 
   return (
     <>
@@ -32,13 +32,7 @@ const ItemList = ({ title, items, itemType }) => {
         <Row>
           {renderItems.map((item) => (
             <Link key={item._id} to={`/drink/${item._id}`}>
-              <Col
-                // lg={2}
-                // md={2}
-                // xs={2}
-                className='itemListContainer__wrapper'
-                key={item._id}
-              >
+              <Col className='itemListContainer__wrapper' key={item._id}>
                 <img
                   className='itemListContainer__image'
                   src={item.image}

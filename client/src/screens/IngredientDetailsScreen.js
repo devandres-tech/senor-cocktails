@@ -108,7 +108,7 @@ const IngredientScreen = ({ match, history }) => {
             ) : (
               <Slider
                 categoryList={'similarlist'}
-                category={''}
+                drinkCategory={''}
                 ingredients={ingredientDetails.name}
                 items={searchDrinkList.drinks.slice(0, 10)}
                 itemType={'drink'}

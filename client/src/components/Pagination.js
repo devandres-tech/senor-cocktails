@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useScrollToTop } from '../hooks/useScrollToTop'
+
 const Pagination = ({
   totalItems,
   itemsPerPage,
@@ -42,6 +44,8 @@ const Pagination = ({
       </li>
     )
   })
+
+  useScrollToTop()
 
   return (
     <div className='paginationContainer'>

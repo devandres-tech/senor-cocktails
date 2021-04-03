@@ -19,7 +19,7 @@ const Slider = ({
   itemType,
   categoryList,
   ingredients,
-  category,
+  drinkCategory,
 }) => {
   const [windowDimensions] = useViewport()
 
@@ -35,7 +35,7 @@ const Slider = ({
           className='default-linkStyle'
           to={
             categoryList === 'similarlist'
-              ? `/drink-list/${categoryList}?ingredients=${ingredients}&category=${category}`
+              ? `/drink-list/${categoryList}?ingredients=${ingredients}&category=${drinkCategory}`
               : itemType === 'drink'
               ? `/drink-list/${categoryList}`
               : `/ingredient-list`

@@ -185,7 +185,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
             itemType={'drink'}
             title={searchDrinkList.listTitle}
             ingredients={getIngredientsArray(drinkDetails)}
-            category={getDrinkCategory(drinkDetails)}
+            drinkCategory={getDrinkCategory(drinkDetails)}
           />
         </>
       )}
