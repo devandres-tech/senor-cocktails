@@ -119,7 +119,7 @@ export const searchDrinksReducer = (
     case SEARCH_DRINKS_SUCCESS:
       return {
         loading: false,
-        searchDrinkList: action.payload.data,
+        searchDrinkList: action.payload,
       }
 
     case SEARCH_DRINKS_FAIL:

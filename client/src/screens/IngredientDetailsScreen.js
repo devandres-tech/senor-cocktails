@@ -34,13 +34,7 @@ const IngredientScreen = ({ match, history }) => {
   // fetch drinks via ingredient name
   useEffect(() => {
     if (ingredientDetails.name) {
-      dispatch(
-        searchDrinks(
-          ingredientDetails.name,
-          ''
-          // `Drinks that include ${ingredientDetails.name}`
-        )
-      )
+      dispatch(searchDrinks(ingredientDetails.name))
     }
   }, [dispatch, ingredientDetails])
 
@@ -50,8 +44,6 @@ const IngredientScreen = ({ match, history }) => {
     }
     return text
   }
-
-  console.log('search drink list', searchDrinkList)
 
   return (
     <>

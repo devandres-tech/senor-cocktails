@@ -19,8 +19,6 @@ const Pagination = ({
 
   const onPrevPageHandler = () => {
     if (currentPage !== pageNumbers()[0]) {
-      console.log('current page ', currentPage)
-      console.log('page numbs', pageNumbers()[0])
       setCurrentPage(currentPage - 1)
     }
   }

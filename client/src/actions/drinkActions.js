@@ -76,18 +76,17 @@ export const getLatestDrinkList = () => async (dispatch) => {
   }
 }
 
-export const searchDrinks = (
-  ingredients = '',
-  category = '',
-  listTitle = ''
-) => async (dispatch) => {
+export const searchDrinks = (ingredients = '', category = '') => async (
+  dispatch
+) => {
   try {
     dispatch({ type: SEARCH_DRINKS_REQUEST })
 
     const { data } = await axios.get(
       `/drinks/search?ingredients=${ingredients}&category=${category}`
     )
-    dispatch({ type: SEARCH_DRINKS_SUCCESS, payload: { data, listTitle } })
+
+    dispatch({ type: SEARCH_DRINKS_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
       type: SEARCH_DRINKS_FAIL,

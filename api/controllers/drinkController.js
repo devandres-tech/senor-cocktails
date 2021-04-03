@@ -108,7 +108,7 @@ const searchDrinks = asyncHandler(async (req, res) => {
       'ingredients.name': { $in: ingredientsArray },
       category: category,
     })
-    return res.status(200).json({ drinks, listTitle: '' })
+    return res.status(200).json({ drinks, listTitle: 'Similar Drinks' })
   }
 
   drinks = await Drink.find({

@@ -40,11 +40,9 @@ const DrinkDetailsScreen = ({ match, history }) => {
     if (drinkDetails.ingredients) {
       const ingredients = getIngredientsArray(drinkDetails)
       const category = getDrinkCategory(drinkDetails)
-      dispatch(searchDrinks(ingredients, category, 'Similar Drinks'))
+      dispatch(searchDrinks(ingredients, category))
     }
   }, [dispatch, drinkDetails])
-
-  console.log('DrinkDetiailsScreen()', searchDrinkList)
 
   return (
     <Container className='drinkContainer'>
@@ -183,7 +181,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
           </Row>
           <Slider
             categoryList={'similarlist'}
-            items={searchDrinkList.data}
+            items={searchDrinkList.drinks}
             itemType={'drink'}
             title={searchDrinkList.listTitle}
             ingredients={getIngredientsArray(drinkDetails)}
