@@ -50,12 +50,14 @@ const DrinkListScreen = ({
         <ItemList
           title={
             categoryList === 'similarlist'
-              ? 'Similar Drinks'
+              ? searchDrinkList.listTitle
               : drinkList.listTitle
           }
           itemType='drink'
           items={
-            categoryList === 'similarlist' ? searchDrinkList : drinkList.list
+            categoryList === 'similarlist'
+              ? searchDrinkList.data
+              : drinkList.list
           }
         />
       )}

@@ -109,15 +109,18 @@ export const latestDrinkListReducer = (
 }
 
 export const searchDrinksReducer = (
-  state = { searchDrinkList: [] },
+  state = { searchDrinkList: { data: [], listTitle: '' } },
   action
 ) => {
   switch (action.type) {
     case SEARCH_DRINKS_REQUEST:
-      return { loading: true, searchDrinkList: [] }
+      return { loading: true, searchDrinkList: { data: [], listTitle: '' } }
 
     case SEARCH_DRINKS_SUCCESS:
-      return { loading: false, searchDrinkList: action.payload }
+      return {
+        loading: false,
+        searchDrinkList: action.payload,
+      }
 
     case SEARCH_DRINKS_FAIL:
       return { loading: false, error: action.payload }

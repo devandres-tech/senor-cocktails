@@ -34,7 +34,13 @@ const IngredientScreen = ({ match, history }) => {
   // fetch drinks via ingredient name
   useEffect(() => {
     if (ingredientDetails.name) {
-      dispatch(searchDrinks(ingredientDetails.name))
+      dispatch(
+        searchDrinks(
+          ingredientDetails.name,
+          '',
+          `Drinks that include ${ingredientDetails.name}`
+        )
+      )
     }
   }, [dispatch, ingredientDetails])
 
@@ -103,23 +109,16 @@ const IngredientScreen = ({ match, history }) => {
               </Col>
             </Row>
 
-            {windowDimensions.width < config.TABLET_WIDTH ? (
-              loadingSearchDrinkList ? (
-                <h1>Loading</h1>
-              ) : (
-                <Slider
-                  items={searchDrinkList.slice(0, 10)}
-                  type={'drink'}
-                  title={'Drinks'}
-                />
-              )
-            ) : loadingSearchDrinkList ? (
-              <h1>Loading...</h1>
+            {loadingSearchDrinkList ? (
+              <h1>Loading</h1>
             ) : (
-              <ItemList
-                title={'Drinks'}
-                type={'drink'}
-                items={searchDrinkList}
+              <Slider
+                categoryList={'similarlist'}
+                category={''}
+                ingredients={ingredientDetails.name}
+                items={searchDrinkList.data.slice(0, 10)}
+                itemType={'drink'}
+                title={searchDrinkList.listTitle}
               />
             )}
           </>

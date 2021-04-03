@@ -118,8 +118,10 @@ const searchDrinks = asyncHandler(async (req, res) => {
   if (!drinks) {
     return res.status(404).json({ Error: 'No drinks found' })
   }
-
-  res.status(200).json(drinks)
+  console.log('SeearchDRINKS()', ingredients)
+  res
+    .status(200)
+    .json({ drinks, listTitle: `Drinks that include ${ingredients}` })
 })
 
 export { getDrinks, getDrinkById, searchDrinks }
