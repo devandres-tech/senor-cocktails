@@ -149,7 +149,7 @@ const HomeScreen = () => {
             title={randomDrinkList.listTitle}
           />
         ) : (
-          <h1>Loading</h1>
+          <LoadingSpinner />
         )}
 
         {user.auth && !loadingRandomIngredients ? (

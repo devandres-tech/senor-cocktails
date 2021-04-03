@@ -15,6 +15,14 @@
     }
   }
 
+  h2 {
+    font-size: $font-size-h2;
+
+    @include responsive(mobile) {
+      font-size: $font-size-h2-mobile;
+    }
+  }
+
   &__left {
     text-align: center;
     display: flex;
@@ -24,7 +32,6 @@
     flex-direction: column;
 
     & > img {
-      // width: 100%;
       height: 20rem;
       padding-bottom: 20px;
     }

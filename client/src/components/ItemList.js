@@ -29,7 +29,7 @@ const ItemList = ({ title, items, itemType }) => {
     <>
       <div className='itemListContainer'>
         <h2>{title}</h2>
-        <Row className='itemListContainer'>
+        <Row className='itemListContainer__list'>
           {renderItems.map((item) => (
             <Link key={item._id} to={`/drink/${item._id}`}>
               <Col className='itemListContainer__wrapper' key={item._id}>

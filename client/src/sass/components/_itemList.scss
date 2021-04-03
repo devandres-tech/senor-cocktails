@@ -9,20 +9,30 @@
     }
   }
 
+  &__list {
+    @include responsive(tab_medium) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
   &__wrapper {
-    text-align: center;
+    text-align: left;
     cursor: pointer;
 
     @include responsive(tab_medium) {
-      padding-right: 1px;
+      padding-left: 2px;
+      padding-right: 2px;
     }
   }
 
   &__image {
     height: 12rem;
-    text-align: center;
 
     @include responsive(tab_medium) {
+      height: 8rem;
+    }
+    @include responsive(mobile) {
       height: 5rem;
     }
   }
@@ -31,9 +41,12 @@
     padding-bottom: 2rem;
     padding-top: 0.5rem;
     font-size: $font-size-body;
+    max-width: 3.2rem;
+    width: 3.2rem;
+    word-break: keep-all;
 
-    @include responsive(tab_medium) {
-      max-width: fit-content;
+    @include responsive(mobile) {
+      font-size: $font-size-body-mobile;
     }
   }
 }
