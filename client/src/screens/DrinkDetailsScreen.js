@@ -47,9 +47,9 @@ const DrinkDetailsScreen = ({ match, history }) => {
   return (
     <Container className='drinkContainer'>
       {loading ? (
-        <h1>Loading...</h1>
+        <LoadingSpinner />
       ) : (
-        <>
+        <L>
           <div onClick={() => history.goBack()} className='btn__goBack'>
             <i className='fas fa-chevron-left'></i>
             <span>Go back</span>
@@ -187,7 +187,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
             ingredients={getIngredientsArray(drinkDetails)}
             drinkCategory={getDrinkCategory(drinkDetails)}
           />
-        </>
+        </LoadingSpinner>
       )}
     </Container>
   )

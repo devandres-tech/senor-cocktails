@@ -14,6 +14,7 @@ import {
   getRandomIngredientList,
   getPopularIngredientList,
 } from '../actions/ingredientActions'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const HomeScreen = () => {
   const user = { auth: true }
@@ -119,7 +120,7 @@ const HomeScreen = () => {
 
       <Container>
         {loadingLatestDrinks ? (
-          <h1>Loading...</h1>
+          <LoadingSpinner />
         ) : (
           <Slider
             categoryList={'latest'}
@@ -130,7 +131,7 @@ const HomeScreen = () => {
         )}
 
         {loadingIngredients ? (
-          <h1>Loading...</h1>
+          <LoadingSpinner />
         ) : (
           <Slider
             categoryList={'popular'}
@@ -159,7 +160,7 @@ const HomeScreen = () => {
             title={'Random Ingredients'}
           />
         ) : (
-          <h1>Loading..</h1>
+          <LoadingSpinner />
         )}
       </Container>
       {!user.auth && (
