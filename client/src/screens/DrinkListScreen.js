@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ItemList from '../components/ItemList'
 import { useScrollToTop } from '../hooks/useScrollToTop'
 import { getDrinkList, searchDrinks } from '../actions/drinkActions'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const DrinkListScreen = ({
   history,
@@ -45,7 +46,7 @@ const DrinkListScreen = ({
         <span>Go back</span>
       </div>
       {loading || loadingSearchDrinkList ? (
-        <h1>Loading...</h1>
+        <LoadingSpinner />
       ) : (
         <ItemList
           title={

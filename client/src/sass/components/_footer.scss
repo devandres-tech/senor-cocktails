@@ -2,6 +2,10 @@
   padding-bottom: 2rem;
 
   &__mainContent {
+    @include responsive(mobile) {
+      padding-top: 5rem;
+    }
+
     padding-top: 10rem;
     text-align: center;
     font-size: $font-size-body;

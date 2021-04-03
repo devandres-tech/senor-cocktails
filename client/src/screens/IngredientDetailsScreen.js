@@ -4,10 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import { getIngredientDetails } from '../actions/ingredientActions'
 import { searchDrinks } from '../actions/drinkActions'
-import ItemList from '../components/ItemList'
 import { useViewport } from '../hooks/useViewport'
-import config from '../config.json'
 import Slider from '../components/Slider'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const IngredientScreen = ({ match, history }) => {
   const { ingredientId } = match.params
@@ -31,7 +30,7 @@ const IngredientScreen = ({ match, history }) => {
     dispatch(getIngredientDetails(ingredientId))
   }, [dispatch, ingredientId])
 
-  // fetch drinks via ingredient name
+  // fetch drinks that include fetched ingredient
   useEffect(() => {
     if (ingredientDetails.name) {
       dispatch(searchDrinks(ingredientDetails.name))
@@ -49,7 +48,7 @@ const IngredientScreen = ({ match, history }) => {
     <>
       <Container className='ingredientContainer'>
         {loading ? (
-          <h1>Loading....</h1>
+          <LoadingSpinner />
         ) : (
           <>
             <Row>
@@ -104,7 +103,7 @@ const IngredientScreen = ({ match, history }) => {
             </Row>
 
             {loadingSearchDrinkList ? (
-              <h1>Loading</h1>
+              <LoadingSpinner />
             ) : (
               <Slider
                 categoryList={'similarlist'}

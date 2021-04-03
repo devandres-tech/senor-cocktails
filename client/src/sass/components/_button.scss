@@ -34,7 +34,8 @@
 
   @include responsive(mobile) {
     padding-top: 1rem;
-    padding-left: 1rem;
+    // padding-left: 1rem;
+    padding-bottom: 2.5rem;
   }
 
   cursor: pointer;

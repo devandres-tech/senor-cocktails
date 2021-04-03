@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { getDrinkDetails, searchDrinks } from '../actions/drinkActions'
 import Slider from '../components/Slider'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const DrinkDetailsScreen = ({ match, history }) => {
   const { drinkId } = match.params
@@ -49,7 +50,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <L>
+        <>
           <div onClick={() => history.goBack()} className='btn__goBack'>
             <i className='fas fa-chevron-left'></i>
             <span>Go back</span>
@@ -187,7 +188,7 @@ const DrinkDetailsScreen = ({ match, history }) => {
             ingredients={getIngredientsArray(drinkDetails)}
             drinkCategory={getDrinkCategory(drinkDetails)}
           />
-        </LoadingSpinner>
+        </>
       )}
     </Container>
   )
