@@ -103,7 +103,6 @@ swiper-button-disabled {
       }
 
       @include responsive(tab_medium) {
-        border-radius: 10px;
         padding-left: 0;
         padding-right: 0;
       }
@@ -114,5 +113,9 @@ swiper-button-disabled {
     font-size: $font-size-body;
     padding-top: 0.5rem;
     text-align: center;
+
+    @include responsive(mobile) {
+      font-size: $font-size-body-mobile;
+    }
   }
 }

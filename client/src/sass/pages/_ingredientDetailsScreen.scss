@@ -1,6 +1,14 @@
 .ingredientContainer {
   padding-top: 6rem;
 
+  p {
+    font-size: $font-size-body;
+
+    @include responsive(mobile) {
+      font-size: $font-size-body-mobile;
+    }
+  }
+
   @include responsive(mobile) {
     padding-top: 2rem;
   }

@@ -17,23 +17,24 @@
   }
 
   &__wrapper {
-    text-align: left;
+    text-align: center;
     cursor: pointer;
 
     @include responsive(tab_medium) {
+      text-align: left;
       padding-left: 2px;
-      padding-right: 2px;
+      padding-right: 6px;
     }
   }
 
   &__image {
-    height: 12rem;
+    height: 14rem;
 
     @include responsive(tab_medium) {
       height: 8rem;
     }
     @include responsive(mobile) {
-      height: 5rem;
+      height: 6rem;
     }
   }
 
@@ -41,12 +42,15 @@
     padding-bottom: 2rem;
     padding-top: 0.5rem;
     font-size: $font-size-body;
-    max-width: 3.2rem;
-    width: 3.2rem;
-    word-break: keep-all;
 
-    @include responsive(mobile) {
+    @include responsive(tab_medium) {
+      width: 3.2rem;
+      max-width: 3.2rem;
+      word-break: keep-all;
       font-size: $font-size-body-mobile;
+      padding-top: 0.2rem;
+      padding-bottom: 1rem;
+      line-height: 1.2;
     }
   }
 }

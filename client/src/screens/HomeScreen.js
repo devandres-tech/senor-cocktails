@@ -61,7 +61,7 @@ const HomeScreen = () => {
     <>
       {user.auth ? (
         <div className='userItemsContainer container'>
-          <Row>
+          {/* <Row>
             <Col md={6}>
               <div className='userItemsContainer__bg'>
                 <h2>
@@ -94,7 +94,7 @@ const HomeScreen = () => {
                 <Link to='/'>See All</Link>
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       ) : (
         <div className='heroContainer container'>
